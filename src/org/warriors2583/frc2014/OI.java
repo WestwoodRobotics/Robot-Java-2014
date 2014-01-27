@@ -1,6 +1,7 @@
 package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.frc2014.lib.SS_Dashboard;
@@ -12,6 +13,7 @@ import org.warriors2583.frc2014.pneumatics.SS_Compressor;
 public class OI {
 	
 	public static final Joystick joy_drive, joy_shoot;
+	public static final NetworkTable rasPiTable, compTable;
 	
 	static{
 		SmartDashboard.putData(RMap.DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -20,6 +22,8 @@ public class OI {
 		
 		joy_drive = new Joystick(RMap.JOY_DRIVE);
 		joy_shoot = new Joystick(RMap.JOY_SHOOT);
+		rasPiTable = NetworkTable.getTable(RMap.NETTABLE_RASPI);
+		compTable = NetworkTable.getTable(RMap.NETTABLE_COMPUTER);
 		
 	}
 

@@ -68,6 +68,17 @@ public class RMap {
 			DASH_COMPRESSOR_RUNNING = "CompressorState",
 
 			NETTABLE_DEFAULT_TABLE = "NetworkTables",
-			NETTABLE_DASH_LOG = "DashboardLod";
+			NETTABLE_DASH_LOG = "DashboardLog",
+			
+			NETTABLE_RASPI = "RasPi",
+			NETTABLE_RASPI_COMP = "Compass",
+			NETTABLE_RASPI_COMP_X_RAW = "x_raw", NETTABLE_RASPI_COMP_Y_RAW = "y_raw",
+			NETTABLE_RASPI_COMP_Z_RAW = "z_raw", NETTABLE_RASPI_COMP_HEADING_RAW = "head_raw",
+			NETTABLE_RASPI_COMP_X_SCALED = "x_scale", NETTABLE_RASPI_COMP_Y_SCALED = "y_scale",
+			NETTABLE_RASPI_COMP_Z_SCALED = "z_scale", NETTABLE_RASPI_COMP_HEADING_SCALED = "head_scale",
+			NETTABLE_RASPI_ACCEL = "Accel",
+			NETTABLE_RASPI_STATUS = "Status",
+			NETTABLE_RASPI_STATUS_ENABLED = "enabled",
+			NETTABLE_COMPUTER = "Base";
 	
 }

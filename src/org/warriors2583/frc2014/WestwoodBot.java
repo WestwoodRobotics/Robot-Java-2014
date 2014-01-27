@@ -26,6 +26,7 @@ import org.warriors2583.frc2014.pneumatics.SS_Compressor;
 public class WestwoodBot extends IterativeRobot {
 
     OI oi = new OI();
+	RasPi raspi = new RasPi();
 	Command compressor = new C_CompressorStart();
 
     /**
