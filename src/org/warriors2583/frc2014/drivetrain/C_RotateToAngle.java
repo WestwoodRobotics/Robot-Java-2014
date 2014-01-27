@@ -16,7 +16,7 @@ public class C_RotateToAngle extends Command {
     public C_RotateToAngle(double angleToGoTo) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_DTRotateToAngle");
+		super("C_RotateToAngle");
 		requires(SS_Drivetrain.getInstance());
 		angle = angleToGoTo;
     }

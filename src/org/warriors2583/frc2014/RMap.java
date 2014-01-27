@@ -14,28 +14,23 @@ public class RMap {
 			
 			MODULE_DRIVE = 1,
 			
-			DRIVE_LEFT = 1,
-			DRIVE_RIGHT = 2,
+			DRIVE_FRONT_LEFT = 1,
+			
+			DRIVE_BACK_LEFT = 2,
+			DRIVE_FRONT_RIGHT = 3,
+			DRIVE_BACK_RIGHT = 4,
 			
 			MODULE_MOTOR = 1,
+			
+			MOTOR_CATCHER = 5,
 
-			MOTOR_SHOOTER = 3,
-			MOTOR_LEADSCREW = 4,
-			MOTOR_LIFT1 = 5,
-			MOTOR_LIFT2 = 6,
-			MOTOR_LIFT3 = 7,
-		
 			POT_1 = 2,
 			POT_1_AVGBITS = 5,
 			POT_1_OVRBITS = 6,
 			
 			MODULE_SOLENOID_MAIN = 1,
-
-			SOLENOID_SUCTION_VALVE = 1,	
-			SOLENOID_SUCTION_ARM = 2,
-			SOLENOID_SUCTION_ROTATE = 3,
-			SOLENOID_FEEDER = 4,
-			SOLENOID_LIFT_VALVE = 5,
+			
+			SOLENOID_CATCHER = 1,
 			
 			MODULE_RELAY = 1,
 		
@@ -44,27 +39,18 @@ public class RMap {
 
 			MODULE_DIO = 1,
 		 
-			DIO_COMPRESSOR = 1,
-			DIO_FRISBEECATCH = 5,
-			DIO_LEADSCREWEND = 7,
-			DIO_SHOOTERREADY = 8;
+			DIO_COMPRESSOR = 1;
 	
 	public static final String
+			/**
+			 * The Drivetrain Dashboard Name
+			 */
 			DASH_INSTANCE_DRIVETRAIN = "Subsystem-Drivetrain",
-			DASH_INSTANCE_SHOOTER = "Subsystem-Shooter",
-			DASH_INSTANCE_SHOOTER_TRAY = "Subsystem-ShooterTray",
 			DASH_INSTANCE_COMPRESSOR = "Subsystem-Compressor",
-			DASH_INSTANCE_LIFT_HOOKS = "Subsystem-LiftHooks",
-			DASH_INSTANCE_VISION_LIGHT = "Subsystem-VisionLight",
 			DASH_INSTANCE_DASHBOARD = "Subsystem-Dashboard",
 			
 			DASH_MEMORY_STATUS = "System-Memory",
-			
-			DASH_SHOOTER_ANGLE = "ShooterAngle",
-			DASH_SHOOTER_SCALE = "ShooterScale",
-			DASH_SHOOTER_LIMIT = "ShooterLimit",
-			DASH_SHOOTER_SPEED = "ShooterSpeed",
-			DASH_SHOOTER_AUTO_ANGLE = "ShooterAutoAngle",
+
 			DASH_COMPRESSOR_RUNNING = "CompressorState",
 
 			NETTABLE_DEFAULT_TABLE = "NetworkTables",
@@ -77,8 +63,9 @@ public class RMap {
 			NETTABLE_RASPI_COMP_X_SCALED = "x_scale", NETTABLE_RASPI_COMP_Y_SCALED = "y_scale",
 			NETTABLE_RASPI_COMP_Z_SCALED = "z_scale", NETTABLE_RASPI_COMP_HEADING_SCALED = "head_scale",
 			NETTABLE_RASPI_ACCEL = "Accel",
+			NETTABLE_RASPI_GYRO = "Gyro",
 			NETTABLE_RASPI_STATUS = "Status",
-			NETTABLE_RASPI_STATUS_ENABLED = "enabled",
+			NETTABLE_RASPI_STATUS_ENABLED = "enabled", NETTABLE_RASPI_STATUS_READY = "pi_ready",
 			NETTABLE_COMPUTER = "Base";
 	
 }

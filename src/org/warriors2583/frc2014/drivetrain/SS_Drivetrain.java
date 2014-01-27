@@ -12,9 +12,25 @@ import org.warriors2583.frc2014.teleop.C_TeleopDrive;
  */
 public class SS_Drivetrain extends Subsystem {
 	
+	/**
+	 * DriveMode Class
+	 * Used to determine the type of driving we are doing
+	 */
+	public static class DriveMode{
+		private final int mode;
+		private DriveMode(int mode){this.mode = mode;}
+		public int getMode(){return mode;}
+		
+		public static final DriveMode ARCADE = new DriveMode(1);
+		public static final DriveMode TANK = new DriveMode(2);
+		public static final DriveMode MECANUM = new DriveMode(3);
+	}
+	
 	private static boolean externalLock;
 	
-	private static final Talon motor_left, motor_right;
+	private static DriveMode driveMode = DriveMode.ARCADE;
+		
+	private static final Talon motor_front_left, motor_back_left, motor_front_right, motor_back_right;
 	
 	private static final RobotDrive driveMain;
 	
@@ -27,10 +43,13 @@ public class SS_Drivetrain extends Subsystem {
 	static {
 		externalLock = false;
 		
-		motor_left = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_LEFT);
-		motor_right = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_RIGHT);
+		motor_front_left = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_FRONT_LEFT);
+		motor_back_left = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_BACK_LEFT);
+		motor_front_right = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_FRONT_RIGHT);
+		motor_back_right = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_BACK_RIGHT);
+		
 	
-		driveMain = new RobotDrive(motor_left, motor_right);
+		driveMain = new RobotDrive(motor_front_left, motor_back_left, motor_front_right, motor_back_right);
 	}
 	
 	
@@ -47,6 +66,10 @@ public class SS_Drivetrain extends Subsystem {
 		driveMain.arcadeDrive(throt, rot);
 	}
 	
+	public static void mecanum(double x, double y, double rot, double gyro) {
+		driveMain.mecanumDrive_Cartesian(x, y, rot, gyro);
+	}
+	
 	public static void drive(double mag, double curve) {
 		driveMain.drive(mag, curve);
 	}
@@ -56,7 +79,33 @@ public class SS_Drivetrain extends Subsystem {
 	}
 	
 	public static void teleDrive(double leftX, double leftY, double rightX, double rightY){
+		if(externalLock){
+			return;
+		}
+		switch(driveMode.getMode()){
+			case 1: 
+				arcade(leftY, rightX);
+				break;
+				
+			case 2:
+				tank(leftY, rightY);
+				break;
+				
+			case 3:
+				mecanum(leftX, leftY, rightX, 0.0);
+				break;
+		}
 		
+		
+		
+	}
+	
+	public static void setDriveMode(DriveMode mode){
+		driveMode = mode;
+	}
+	
+	public static DriveMode getDriveMode(){
+		return driveMode;
 	}
 	
 	public static void setExternalLock(boolean value) {
