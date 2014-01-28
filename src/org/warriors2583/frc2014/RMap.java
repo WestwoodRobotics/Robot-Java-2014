@@ -10,64 +10,213 @@ package org.warriors2583.frc2014;
  */
 public class RMap {
 	
-	public static final int
-			JOY_DRIVE = 1,
-			JOY_SHOOT = 2,
-			
-			MODULE_DRIVE = 1,
-			
-			DRIVE_FRONT_LEFT = 1,
-			
-			DRIVE_BACK_LEFT = 2,
-			DRIVE_FRONT_RIGHT = 3,
-			DRIVE_BACK_RIGHT = 4,
-			
-			MODULE_MOTOR = 1,
-			
-			MOTOR_CATCHER = 5,
-
-			POT_1 = 2,
-			POT_1_AVGBITS = 5,
-			POT_1_OVRBITS = 6,
-			
-			MODULE_SOLENOID_MAIN = 1,
-			
-			SOLENOID_CATCHER = 1,
-			
-			MODULE_RELAY = 1,
-		
-			RELAY_COMPRESSOR = 1,
-			RELAY_LED = 3,
-
-			MODULE_DIO = 1,
-		 
-			DIO_COMPRESSOR = 1;
+	/**
+	 * Driver Joystick ID Number
+	 */
+	public static final int JOY_DRIVE = 1;
 	
-	public static final String
-			/**
-			 * The Drivetrain Dashboard Name
-			 */
-			DASH_INSTANCE_DRIVETRAIN = "Subsystem-Drivetrain",
-			DASH_INSTANCE_COMPRESSOR = "Subsystem-Compressor",
-			DASH_INSTANCE_DASHBOARD = "Subsystem-Dashboard",
-			
-			DASH_MEMORY_STATUS = "System-Memory",
+	/**
+	 * Shooter Joystick ID Number
+	 */
+	public static final int JOY_SHOOT = 2;
+	
+	/**
+	 * Drive Motor Module Number
+	 */
+	public static final int MODULE_DRIVE = 1;
+	
+	/**
+	 * Front Left Drive Motor PWM Number
+	 */
+	public static final int DRIVE_FRONT_LEFT = 1;
+	
+	/**
+	 * Back Left Drive Motor PWM Number
+	 */
+	public static final int DRIVE_BACK_LEFT = 2;
+	
+	/**
+	 * Front Right Drive Motor PWM Number
+	 */
+	public static final int DRIVE_FRONT_RIGHT = 3;
+	
+	/**
+	 * Back Right Drive Motor PWM Number
+	 */
+	public static final int DRIVE_BACK_RIGHT = 4;
+	
+	/**
+	 * Motor Module Number
+	 */
+	public static final int MODULE_MOTOR = 1;
+	
+	/**
+	 * Ball Catcher Motor PWM Number
+	 */
+	public static final int MOTOR_CATCHER = 5;
+	
+	/**
+	 * Main Solenoid Module Number
+	 */
+	public static final int MODULE_SOLENOID_MAIN = 1;
+	
+	/**
+	 * Ball Catcher Solenoid Number
+	 */
+	public static final int SOLENOID_CATCHER = 1;
+	
+	/**
+	 * Relay Module Number
+	 */
+	public static final int MODULE_RELAY = 1;
+	
+	/**
+	 * Compressor Relay Number
+	 */
+	public static final int RELAY_COMPRESSOR = 1;
+	
+	/**
+	 * LED Relay Number
+	 */
+	public static final int RELAY_LED = 3;
+	
+	/**
+	 * Digital I/O Module Number
+	 */
+	public static final int MODULE_DIO = 1;
+	
+	/**
+	 * Compressor Safety Switch DIO Number
+	 */
+	public static final int DIO_COMPRESSOR = 1;
+	
+	
+	/* Dashboard and NetworkTable Values */
+	/* --------------------------------- */
+	
+	/**
+	 * Drivetrain Dashboard label
+	 */
+	public static final String DASH_INSTANCE_DRIVETRAIN = "Subsystem-Drivetrain";
+	
+	/**
+	 * Ball Catcher Dashboard label
+	 */
+	public static final String DASH_INSTANCE_BALLCATCHER = "Subsystem-BallCatcher";
+	
+	/**
+	 * Compressor Dashboard label
+	 */
+	public static final String DASH_INSTANCE_COMPRESSOR = "Subsystem-Compressor";
+	
+	/**
+	 * System Stats Dashboard label
+	 */
+	public static final String DASH_INSTANCE_DASHBOARD = "Subsystem-Dashboard";
 
-			DASH_COMPRESSOR_RUNNING = "CompressorState",
+	/**
+	 * System Memory Dashboard label
+	 */
+	public static final String DASH_MEMORY_STATUS = "System-Memory";
+	
+	/**
+	 * Compressor Status Dashboard label
+	 */
+	public static final String DASH_COMPRESSOR_RUNNING = "CompressorState";
 
-			NETTABLE_DEFAULT_TABLE = "NetworkTables",
-			NETTABLE_DASH_LOG = "DashboardLog",
-			
-			NETTABLE_RASPI = "RasPi",
-			NETTABLE_RASPI_COMP = "Compass",
-			NETTABLE_RASPI_COMP_X_RAW = "x_raw", NETTABLE_RASPI_COMP_Y_RAW = "y_raw",
-			NETTABLE_RASPI_COMP_Z_RAW = "z_raw", NETTABLE_RASPI_COMP_HEADING_RAW = "head_raw",
-			NETTABLE_RASPI_COMP_X_SCALED = "x_scale", NETTABLE_RASPI_COMP_Y_SCALED = "y_scale",
-			NETTABLE_RASPI_COMP_Z_SCALED = "z_scale", NETTABLE_RASPI_COMP_HEADING_SCALED = "head_scale",
-			NETTABLE_RASPI_ACCEL = "Accel",
-			NETTABLE_RASPI_GYRO = "Gyro",
-			NETTABLE_RASPI_STATUS = "Status",
-			NETTABLE_RASPI_STATUS_ENABLED = "enabled", NETTABLE_RASPI_STATUS_READY = "pi_ready",
-			NETTABLE_COMPUTER = "Base";
+	/**
+	 * Default NetworkTables Table
+	 */
+	public static final String NETTABLE_DEFAULT_TABLE = "NetworkTables";
+	
+	/**
+	 * Dashboard Logging Table
+	 */
+	public static final String NETTABLE_DASH_LOG = "DashboardLog";
+	
+	/**
+	 * Raspberry Pi Subtable name
+	 */
+	public static final String NETTABLE_RASPI = "RasPi";
+	
+	/**
+	 * Raspberry Pi Compass Subtable name
+	 */
+	public static final String NETTABLE_RASPI_COMP = "Compass";
+	
+	/**
+	 * Raspberry Pi Compass Raw X value key
+	 */
+	public static final String NETTABLE_RASPI_COMP_X_RAW = "x_raw";
+	
+	/**
+	 * Raspberry Pi Compass Raw Y value key
+	 */
+	public static final String NETTABLE_RASPI_COMP_Y_RAW = "y_raw";
+	
+	/**
+	 * Raspberry Pi Compass Raw Z value key
+	 */
+	public static final String NETTABLE_RASPI_COMP_Z_RAW = "z_raw";
+	
+	/**
+	 * Raspberry Pi Compass Raw Heading value key
+	 */
+	public static final String NETTABLE_RASPI_COMP_HEADING_RAW = "head_raw";
+	
+	/**
+	 * Raspberry Pi Compass Scaled X value key
+	 */
+	public static final String NETTABLE_RASPI_COMP_X_SCALED = "x_scale";
+	
+	/**
+	 * Raspberry Pi Compass Scaled Y value key 
+	 */
+	public static final String NETTABLE_RASPI_COMP_Y_SCALED = "y_scale";
+	
+	/**
+	 * Raspberry Pi Compass Scaled Z value key
+	 */
+	public static final String NETTABLE_RASPI_COMP_Z_SCALED = "z_scale";
+	
+	/**
+	 * Raspberry Pi Compass Scaled Heading value key
+	 */
+	public static final String NETTABLE_RASPI_COMP_HEADING_SCALED = "head_scale";
+	
+	/**
+	 * Raspberry Pi Accelerometer Subtable name
+	 */
+	public static final String NETTABLE_RASPI_ACCEL = "Accel";
+	
+	/**
+	 * Raspberry Pi Gyro Subtable name
+	 */
+	public static final String NETTABLE_RASPI_GYRO = "Gyro";
+	
+	/**
+	 * Raspberry Pi Status Subtable name
+	 */
+	public static final String NETTABLE_RASPI_STATUS = "Status";
+	
+	/**
+	 * Raspberry Pi Status Enabled value key
+	 */
+	public static final String NETTABLE_RASPI_STATUS_ENABLED = "enabled";
+	
+	/**
+	 * Raspberry Pi Status Ready value key
+	 */
+	public static final String NETTABLE_RASPI_STATUS_READY = "pi_ready";
+	
+	/**
+	 * Raspberry Pi Status Error Number value key
+	 */
+	public static final String NETTABLE_RASPI_STATUS_ERRORNO = "errorno";
+	
+	/**
+	 * Computer Subtable name
+	 */
+	public static final String NETTABLE_COMPUTER = "Base";
 	
 }

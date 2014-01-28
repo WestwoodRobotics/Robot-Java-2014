@@ -53,6 +53,12 @@ public class SS_Compressor extends Subsystem {
 	}
 	
 	
+	public static void makeSafe(){
+		compressor.stop();
+		compressor.free();
+	}
+	
+	
 	protected void initDefaultCommand() {
 		setDefaultCommand(new C_CompressorStart());
 	}

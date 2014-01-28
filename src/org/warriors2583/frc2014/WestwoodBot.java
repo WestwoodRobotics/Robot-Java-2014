@@ -15,10 +15,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.warriors2583.frc2014.pneumatics.C_CompressorStart;
 import org.warriors2583.frc2014.pneumatics.SS_Compressor;
+import org.warriors2583.frc2014.teleop.CG_TeleopMain;
 
 /**
  * The main class for the robot.
- * 
+ * It does the Top level stuff
  * @author Austin Reuland
  */
 public class WestwoodBot extends IterativeRobot {
@@ -69,44 +70,46 @@ public class WestwoodBot extends IterativeRobot {
      */
 
     public void disabledPeriodic() {
-        // feed the user watchdog at every period when in autonomous
-        Watchdog.getInstance().feed();
-        Scheduler.getInstance().run();
-    }
+		// feed the user watchdog at every period when in autonomous
+		Watchdog.getInstance().feed();
+		Scheduler.getInstance().run();
+	}
 
-    /**
-     * Called continuously while the robot is disabled. Each 
-     * time the program returns from this function, it is 
-     * immediately called again provided that the state 
-     * hasn’t changed. 
-     */
-    public void disabledContinuous(){
-        
-    }
+	/**
+	 * Called continuously while the robot is disabled. Each 
+	 * time the program returns from this function, it is 
+	 * immediately called again provided that the state 
+	 * hasn’t changed. 
+	 */
+	public void disabledContinuous(){
+		
+	}
 
-    public void teleopInit(){
-        // This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        //autonomousCommand.cancel();
-        if(!SS_Compressor.isOn()) compressor.start();
-        System.gc();
-    }
+	public void teleopInit(){
+		// This makes sure that the autonomous stops running when
+		// teleop starts running. If you want the autonomous to 
+		// continue until interrupted by another command, remove
+		// this line or comment it out.
+		//autonomousCommand.cancel();
+		if(!SS_Compressor.isOn()) compressor.start();
+		//(new C_LiftHooksUp()).start();
+		(new CG_TeleopMain()).start();
+		System.gc();
+	}
 
-    /**
-     * This function is called periodically during operator control
-     */
-    public void teleopPeriodic(){
-        // feed the user watchdog at every period when in autonomous
-        Watchdog.getInstance().feed();
-        
-        Scheduler.getInstance().run();
-    }
-    
-    public void testPeriodic(){
-        Watchdog.getInstance().feed();
-        LiveWindow.run();
-        Scheduler.getInstance().run();
-    }
+	/**
+	 * This function is called periodically during operator control
+	 */
+	public void teleopPeriodic(){
+		// feed the user watchdog at every period when in autonomous
+		Watchdog.getInstance().feed();
+		
+		Scheduler.getInstance().run();
+	}
+	
+	public void testPeriodic(){
+		Watchdog.getInstance().feed();
+		LiveWindow.run();
+		Scheduler.getInstance().run();
+	}
 }

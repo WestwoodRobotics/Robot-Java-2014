@@ -115,6 +115,23 @@ public class SS_Drivetrain extends Subsystem {
 	public static boolean getExternLock() {
 		return externalLock;
 	}
+	
+	public static void makeSafe(){
+		externalLock = true;
+		driveMain.stopMotor();
+		motor_front_left.disable();
+		motor_front_left.free();
+		
+		motor_back_left.disable();
+		motor_back_left.free();
+		
+		motor_front_right.disable();
+		motor_front_right.free();
+		
+		motor_back_right.disable();
+		motor_back_right.free();		
+		
+	}
 
 
 	protected void initDefaultCommand() {
