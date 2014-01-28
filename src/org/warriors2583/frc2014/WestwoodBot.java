@@ -17,11 +17,9 @@ import org.warriors2583.frc2014.pneumatics.C_CompressorStart;
 import org.warriors2583.frc2014.pneumatics.SS_Compressor;
 
 /**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
+ * The main class for the robot.
+ * 
+ * @author Austin Reuland
  */
 public class WestwoodBot extends IterativeRobot {
 
@@ -36,8 +34,10 @@ public class WestwoodBot extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         Watchdog.getInstance().setEnabled(true);
-        System.out.println("Robot Initiated");
+        
         // Initialize all subsystems
+		
+		System.out.println("Robot Initiated");
     }
 
     public void autonomousInit(){

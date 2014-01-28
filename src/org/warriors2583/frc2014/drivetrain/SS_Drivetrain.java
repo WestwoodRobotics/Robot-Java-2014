@@ -7,7 +7,7 @@ import org.warriors2583.frc2014.RMap;
 import org.warriors2583.frc2014.teleop.C_TeleopDrive;
 
 /**
- *
+ * Drivetrain Class. Controls the Drivetrain Sub-System
  * @author Austin Reuland
  */
 public class SS_Drivetrain extends Subsystem {

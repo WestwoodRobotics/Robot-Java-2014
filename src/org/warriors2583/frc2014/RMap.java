@@ -5,6 +5,8 @@ package org.warriors2583.frc2014;
  * to a variable name. This provides flexibility changing wiring, makes checking
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
+ * 
+ * @author Austin Reuland
  */
 public class RMap {
 	
