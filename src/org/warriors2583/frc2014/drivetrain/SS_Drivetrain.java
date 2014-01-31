@@ -105,18 +105,13 @@ public class SS_Drivetrain extends Subsystem {
 			case 1: 
 				arcade(leftY, rot);
 				break;
-				
 			case 2:
 				tank(leftY, rightY);
 				break;
-				
 			case 3:
 				mecanum(leftX, leftY, rot, rightY);
 				break;
-		}
-		
-		
-		
+		}		
 	}
 	
 	public static void setDriveMode(DriveMode mode){

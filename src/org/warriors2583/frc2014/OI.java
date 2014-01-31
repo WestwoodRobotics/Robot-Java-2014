@@ -1,11 +1,13 @@
 package org.warriors2583.frc2014;
 
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2014.ballcatcher.*;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.frc2014.lib.SS_Dashboard;
 import org.warriors2583.frc2014.lib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
+import org.warriors2583.frc2014.launcher.CG_FireBall;
 /**
  *
  * @author Austin Reuland
@@ -17,6 +19,7 @@ public class OI {
 	
 	//Button Controls
 	//private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
+	private static final JoystickButton fireBall;
 	
 	static{
 		SmartDashboard.putData(RMap.DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -26,6 +29,9 @@ public class OI {
 		
 		joy_drive = new XBoxController(RMap.JOY_DRIVE);
 		joy_shoot = new XBoxController(RMap.JOY_SHOOT);
+		
+		fireBall = new JoystickButton(OI.joy_drive, XBoxController.BTN_B_ID);
+		fireBall.whenPressed(new CG_FireBall());
 				
 //		catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
 //		catchUp.whenPressed(new C_CatcherUp());

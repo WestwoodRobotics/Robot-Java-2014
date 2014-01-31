@@ -115,6 +115,16 @@ public class RMap {
 	 */
 	public static final int DIO_LAUNCHER_BALL = 3;
 	
+	/**
+	 * Launcher Ram Back Position Sensor DIO Number
+	 */
+	public static final int DIO_LAUNCHER_RAM_A = 4;
+	
+	/**
+	 * Launcher Ram Forward Position Sensor DIO Number
+	 */
+	public static final int DIO_LAUNCHER_RAM_B = 5;
+	
 	/* Dashboard and NetworkTable Values */
 	/* --------------------------------- */
 	
