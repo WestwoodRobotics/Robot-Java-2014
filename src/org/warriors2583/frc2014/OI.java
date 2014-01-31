@@ -1,12 +1,11 @@
 package org.warriors2583.frc2014;
 
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2014.ballcatcher.*;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.frc2014.lib.SS_Dashboard;
 import org.warriors2583.frc2014.lib.XBoxController;
-import org.warriors2583.frc2014.pneumatics.SS_Compressor;
+import org.warriors2583.frc2014.common.SS_Compressor;
 /**
  *
  * @author Austin Reuland
@@ -17,7 +16,7 @@ public class OI {
 	public static final XBoxController joy_drive, joy_shoot;
 	
 	//Button Controls
-	private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
+	//private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
 	
 	static{
 		SmartDashboard.putData(RMap.DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -28,17 +27,17 @@ public class OI {
 		joy_drive = new XBoxController(RMap.JOY_DRIVE);
 		joy_shoot = new XBoxController(RMap.JOY_SHOOT);
 				
-		catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
-		catchUp.whenPressed(new C_CatcherUp());
-		
-		catchDown = new JoystickButton(OI.joy_drive, XBoxController.BTN_Y_ID);
-		catchDown.whenPressed(new C_CatcherDown());
-		
-		spindleForward = new JoystickButton(OI.joy_drive, XBoxController.BTN_RIGHT_SHOULDER_ID);
-		spindleForward.whileHeld(new C_SpindleForward());
-		
-		spindleBackward = new JoystickButton(OI.joy_drive, XBoxController.BTN_LEFT_SHOULDER_ID);
-		spindleBackward.whileHeld(new C_SpindleBackward());
+//		catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
+//		catchUp.whenPressed(new C_CatcherUp());
+//		
+//		catchDown = new JoystickButton(OI.joy_drive, XBoxController.BTN_Y_ID);
+//		catchDown.whenPressed(new C_CatcherDown());
+//		
+//		spindleForward = new JoystickButton(OI.joy_drive, XBoxController.BTN_RIGHT_SHOULDER_ID);
+//		spindleForward.whileHeld(new C_SpindleForward());
+//		
+//		spindleBackward = new JoystickButton(OI.joy_drive, XBoxController.BTN_LEFT_SHOULDER_ID);
+//		spindleBackward.whileHeld(new C_SpindleBackward());
 		
 	}
 

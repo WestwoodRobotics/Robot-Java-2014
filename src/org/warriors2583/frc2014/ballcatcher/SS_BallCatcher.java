@@ -2,10 +2,9 @@ package org.warriors2583.frc2014.ballcatcher;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.warriors2583.frc2014.OI;
 import org.warriors2583.frc2014.RMap;
+import org.warriors2583.frc2014.teleop.C_TeleopCatcher;
 
 /**
  *
@@ -37,45 +36,61 @@ public class SS_BallCatcher extends Subsystem {
 	/**
 	 * Set the Ball Catcher Frame Down
 	 */
-	public static void catcherUp(){solenoid_frame.set(false);}
+	public static void catcherUp(){
+		solenoid_frame.set(false);
+	}
 	
 	/**
 	 * Set the Ball Catcher Frame Down
 	 */
-	public static void catcherDown(){solenoid_frame.set(true);}
+	public static void catcherDown(){
+		solenoid_frame.set(true);
+	}
 	
 	/**
 	 * Find if the Ball Catcher frame is Down
 	 * @return state of Ball Catcher frame
 	 */
-	public static boolean isDown(){return solenoid_frame.get();}
+	public static boolean isDown(){
+		return solenoid_frame.get();
+	}
 	
 	/**
 	 * Run the Ball Catcher Spindle Forward
 	 */
-	public static void spindleForward(){motor_spindle.set(0.75);}
+	public static void spindleForward(){
+		motor_spindle.set(0.75);
+	}
 	
 	/**
 	 * Run the Ball Catcher Spindle Backward
 	 */
-	public static void spindleBackward(){motor_spindle.set(-0.75);}
+	public static void spindleBackward(){
+		motor_spindle.set(-0.75);
+	}
 	
 	/**
 	 * Stop the Ball Catcher Spindle
 	 */
-	public static void spindleStop(){motor_spindle.set(0);}
+	public static void spindleStop(){
+		motor_spindle.set(0);
+	}
 	
 	/**
 	 * Set the Ball Catcher Spindle to a Custom Speed
 	 * @param speed Spindle Speed
 	 */
-	public static void spindleSet(double speed){motor_spindle.set(speed);}
+	public static void spindleSet(double speed){
+		motor_spindle.set(speed);
+	}
 	
 	/**
 	 * Get the state of the Ball Catcher Frame
 	 * @return ball catcher frame state (up/down)
 	 */
-	public static boolean getCatcherState(){return solenoid_frame.get();}
+	public static boolean getCatcherState(){
+		return solenoid_frame.get();
+	}
 	
 	
 	public static void makeSafe(){
@@ -90,5 +105,6 @@ public class SS_BallCatcher extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new C_TeleopCatcher());
     }
 }

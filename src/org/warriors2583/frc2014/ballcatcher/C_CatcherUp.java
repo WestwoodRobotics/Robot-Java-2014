@@ -13,7 +13,6 @@ public class C_CatcherUp extends Command {
         // eg. requires(chassis);
 		super("C_CatcherUp");
 		setInterruptible(false);
-		setRunWhenDisabled(false);
 		requires(SS_BallCatcher.getInstance());
     }
 

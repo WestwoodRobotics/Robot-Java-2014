@@ -61,9 +61,24 @@ public class RMap {
 	public static final int MODULE_SOLENOID_MAIN = 1;
 	
 	/**
+	 * Drivetrain Wheel Swtiching Solenoid
+	 */
+	public static final int SOLENOID_DRIVESWITCH = 1;
+	
+	/**
 	 * Ball Catcher Solenoid Number
 	 */
-	public static final int SOLENOID_CATCHER = 1;
+	public static final int SOLENOID_CATCHER = 2;
+	
+	/**
+	 * Launcher Loading Solenoid Number
+	 */
+	public static final int SOLENOID_LAUNCHER_LOAD = 3;
+	
+	/**
+	 * Launcher Release Solenoid Number
+	 */
+	public static final int SOLENOID_LAUNCHER_RELEASE = 4;
 	
 	/**
 	 * Relay Module Number
@@ -74,7 +89,7 @@ public class RMap {
 	 * Compressor Relay Number
 	 */
 	public static final int RELAY_COMPRESSOR = 1;
-	
+
 	/**
 	 * LED Relay Number
 	 */
@@ -90,6 +105,15 @@ public class RMap {
 	 */
 	public static final int DIO_COMPRESSOR = 1;
 	
+	/**
+	 * Launcher Locked Status Switch DIO Number
+	 */
+	public static final int DIO_LAUNCHER_LOCKED = 2;
+	
+	/**
+	 * Launcher Ball Loaded Status Switch DIO Number
+	 */
+	public static final int DIO_LAUNCHER_BALL = 3;
 	
 	/* Dashboard and NetworkTable Values */
 	/* --------------------------------- */
@@ -103,6 +127,11 @@ public class RMap {
 	 * Ball Catcher Dashboard label
 	 */
 	public static final String DASH_INSTANCE_BALLCATCHER = "Subsystem-BallCatcher";
+	
+	/**
+	 * Launcher Dashboard Label
+	 */
+	public static final String DASH_INSTANCE_LAUNCHER = "Subsystem-Launcher";
 	
 	/**
 	 * Compressor Dashboard label

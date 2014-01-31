@@ -24,7 +24,7 @@ public class C_TeleopDrive extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		boolean scale = OI.getJDriveButton(5);
-		SS_Drivetrain.teleDrive(OI.getJDriveLeftX() * (scale ? 0.7 : 1),
+		SS_Drivetrain.modeDrive(OI.getJDriveLeftX() * (scale ? 0.7 : 1),
 				OI.getJDriveLeftY() * (scale ? 0.7 : 1),
 				OI.getJDriveRightX() * (scale ? 0.75 : 1),
 				OI.getJDriveRightY()  * (scale ? 0.7 : 1));

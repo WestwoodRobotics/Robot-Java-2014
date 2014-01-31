@@ -13,8 +13,8 @@ import edu.wpi.first.wpilibj.Watchdog;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.warriors2583.frc2014.pneumatics.C_CompressorStart;
-import org.warriors2583.frc2014.pneumatics.SS_Compressor;
+import org.warriors2583.frc2014.common.C_CompressorStart;
+import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.teleop.CG_TeleopMain;
 
 /**
@@ -26,6 +26,7 @@ public class WestwoodBot extends IterativeRobot {
 
     OI oi = new OI();
 	RasPi raspi = new RasPi();
+	Computer comp = new Computer();
 	Command compressor = new C_CompressorStart();
 
     /**
@@ -92,7 +93,6 @@ public class WestwoodBot extends IterativeRobot {
 		// this line or comment it out.
 		//autonomousCommand.cancel();
 		if(!SS_Compressor.isOn()) compressor.start();
-		//(new C_LiftHooksUp()).start();
 		(new CG_TeleopMain()).start();
 		System.gc();
 	}

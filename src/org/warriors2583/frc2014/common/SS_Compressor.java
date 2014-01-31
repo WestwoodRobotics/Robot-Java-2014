@@ -1,4 +1,4 @@
-package org.warriors2583.frc2014.pneumatics;
+package org.warriors2583.frc2014.common;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.command.Subsystem;

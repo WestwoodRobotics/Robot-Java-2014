@@ -27,5 +27,6 @@ public class CG_TeleopMain extends CommandGroup {
         // arm.
 		
 		addParallel(new C_TeleopDrive());
+		addParallel(new C_TeleopCatcher());
     }
 }

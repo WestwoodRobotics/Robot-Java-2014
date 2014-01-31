@@ -4,7 +4,7 @@ import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2014.RMap;
-import org.warriors2583.frc2014.pneumatics.SS_Compressor;
+import org.warriors2583.frc2014.common.SS_Compressor;
 
 /**
  *

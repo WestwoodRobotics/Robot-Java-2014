@@ -4,7 +4,7 @@ import com.sun.squawk.VM;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import org.warriors2583.frc2014.RMap;
 import org.warriors2583.frc2014.teleop.C_TeleopDrive;
 
@@ -12,7 +12,7 @@ import org.warriors2583.frc2014.teleop.C_TeleopDrive;
  * Drivetrain Class. Controls the Drivetrain Sub-System
  * @author Austin Reuland
  */
-public class SS_Drivetrain extends Subsystem {
+public class SS_PIDDrivetrain extends PIDSubsystem {
 	
 	/**
 	 * DriveMode Class
@@ -53,9 +53,9 @@ public class SS_Drivetrain extends Subsystem {
 	
 	private static final RobotDrive driveMain;
 	
-	private static final SS_Drivetrain instance = new SS_Drivetrain();
+	private static final SS_PIDDrivetrain instance = new SS_PIDDrivetrain();
 
-	public static SS_Drivetrain getInstance() {
+	public static SS_PIDDrivetrain getInstance() {
 		return instance;
 	}
 
@@ -72,8 +72,10 @@ public class SS_Drivetrain extends Subsystem {
 	}
 	
 	
-	private SS_Drivetrain(){
-		super("SS_Drivetrain");
+	private SS_PIDDrivetrain(){
+		super("SS_Drivetrain", 1.0, 0.0, 0.0);
+		setAbsoluteTolerance(0.2);
+		
 	}
 	
 	
@@ -117,6 +119,14 @@ public class SS_Drivetrain extends Subsystem {
 		
 		
 		
+	}
+	
+	protected double returnPIDInput() {
+		return 0.0;
+	}
+
+	protected void usePIDOutput(double output) {
+		modeDrive(0.0, 0.0, output, 0.0);
 	}
 	
 	public static void setDriveMode(DriveMode mode){

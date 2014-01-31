@@ -22,6 +22,7 @@ public class C_SpindleBackward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+		SS_BallCatcher.spindleBackward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
