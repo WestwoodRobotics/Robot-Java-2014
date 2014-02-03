@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.frc2014.ballcatcher.*;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
-import org.warriors2583.frc2014.lib.SS_Dashboard;
-import org.warriors2583.frc2014.lib.XBoxController;
+import org.warriors2583.lib.SS_Dashboard;
+import org.warriors2583.lib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.launcher.CG_FireBall;
 /**

@@ -1,4 +1,4 @@
-package org.warriors2583.frc2014.lib;
+package org.warriors2583.lib;
 
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.PIDSource;

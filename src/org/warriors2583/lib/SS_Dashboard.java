@@ -1,4 +1,4 @@
-package org.warriors2583.frc2014.lib;
+package org.warriors2583.lib;
 
 import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.command.Subsystem;

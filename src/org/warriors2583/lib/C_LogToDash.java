@@ -1,4 +1,4 @@
-package org.warriors2583.frc2014.lib;
+package org.warriors2583.lib;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -6,14 +6,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Austin Reuland
  */
-public class C_UpdateDashboard extends Command {
+public class C_LogToDash extends Command {
 
-    public C_UpdateDashboard() {
+    public C_LogToDash() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_UpdateDashboard");
-		requires(SS_Dashboard.getInstance());
-		setRunWhenDisabled(true);
+		super("C_LogToDash");
     }
 
     // Called just before this Command runs the first time
@@ -22,12 +20,11 @@ public class C_UpdateDashboard extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		SS_Dashboard.update();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

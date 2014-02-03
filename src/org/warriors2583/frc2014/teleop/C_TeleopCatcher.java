@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.teleop;
 import edu.wpi.first.wpilibj.command.Command;
 import org.warriors2583.frc2014.OI;
 import org.warriors2583.frc2014.ballcatcher.SS_BallCatcher;
-import org.warriors2583.frc2014.lib.CommonFunctions.*;
+import org.warriors2583.lib.CommonFunctions.*;
 
 /**
  *

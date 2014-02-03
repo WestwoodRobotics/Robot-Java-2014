@@ -1,4 +1,4 @@
-package org.warriors2583.frc2014.lib;
+package org.warriors2583.lib;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
@@ -13,6 +13,8 @@ public class SS_DashLogger extends Subsystem {
     // here. Call these from Commands.
 	
 	private static final NetworkTable logTable;
+	
+	private static final String tableName;
 
 	private static final SS_DashLogger instance = new SS_DashLogger();
 
@@ -21,7 +23,8 @@ public class SS_DashLogger extends Subsystem {
 	}
 
 	static{
-		logTable = NetworkTable.getTable(RMap.NETTABLE_DEFAULT_TABLE);
+		tableName = "DashLogger";
+		logTable = NetworkTable.getTable("Logger");
 		
 	}
 
@@ -30,23 +33,23 @@ public class SS_DashLogger extends Subsystem {
 	}
 	
 	public static void logDebug(String str){ 
-		logTable.putString(RMap.NETTABLE_DASH_LOG, "[D]" + str);
+		logTable.putString(tableName, "[D]" + str);
 	}
 	
 	public static void logInfo(String str){
-		logTable.putString(RMap.NETTABLE_DASH_LOG, "[I]" + str);
+		logTable.putString(tableName, "[I]" + str);
 	}
 	
 	public static void logWarn(String str){
-		logTable.putString(RMap.NETTABLE_DASH_LOG, "[W]" + str);
+		logTable.putString(tableName, "[W]" + str);
 	}
 	
 	public static void logErr(String str){
-		logTable.putString(RMap.NETTABLE_DASH_LOG, "[E]" + str);
+		logTable.putString(tableName, "[E]" + str);
 	}
 	
 	public static void logCritErr(String str){
-		logTable.putString(RMap.NETTABLE_DASH_LOG, "[CRITERROR]" + str);
+		logTable.putString(tableName, "[CRITERROR]" + str);
 	}
 
     public void initDefaultCommand() {

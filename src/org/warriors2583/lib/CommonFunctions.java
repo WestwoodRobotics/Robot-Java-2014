@@ -1,4 +1,4 @@
-package org.warriors2583.frc2014.lib;
+package org.warriors2583.lib;
 
 /**
  * Common functions for use in the robot code
