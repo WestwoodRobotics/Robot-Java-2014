@@ -11,13 +11,13 @@ public class C_RetractRam extends Command {
     public C_RetractRam() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_RetractRam");
-		requires(SS_Launcher.getInstance());
+        super("C_RetractRam");
+        requires(SS_Launcher.getInstance());
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		SS_Launcher.loaderRetract();
+        SS_Launcher.loaderRetract();
     }
 
     // Called repeatedly when this Command is scheduled to run

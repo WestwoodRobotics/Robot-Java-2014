@@ -9,19 +9,19 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class C_Delay extends Command {
 
-	private final double sec;
-	private final Timer timer = new Timer();
-	
+    private final double sec;
+    private final Timer timer = new Timer();
+    
     public C_Delay(double sec) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_Delay");
-		this.sec = sec;
+        super("C_Delay");
+        this.sec = sec;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		timer.start();
+        timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,7 +35,7 @@ public class C_Delay extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-		timer.stop();
+        timer.stop();
     }
 
     // Called when another command which requires one or more of the same

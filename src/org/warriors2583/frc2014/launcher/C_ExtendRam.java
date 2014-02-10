@@ -11,14 +11,14 @@ public class C_ExtendRam extends Command {
     public C_ExtendRam() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_ExtendRam");
-		requires(SS_Launcher.getInstance());
-		setInterruptible(false);
+        super("C_ExtendRam");
+        requires(SS_Launcher.getInstance());
+        setInterruptible(false);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		SS_Launcher.loaderExtend();
+        SS_Launcher.loaderExtend();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,7 +27,7 @@ public class C_ExtendRam extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-		return SS_Launcher.isCocked();
+        return SS_Launcher.isCocked();
     }
 
     // Called once after isFinished returns true

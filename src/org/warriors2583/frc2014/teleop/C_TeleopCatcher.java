@@ -14,8 +14,8 @@ public class C_TeleopCatcher extends Command {
     public C_TeleopCatcher() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_TeleopCatcher");
-		requires(SS_BallCatcher.getInstance());
+        super("C_TeleopCatcher");
+        requires(SS_BallCatcher.getInstance());
     }
 
     // Called just before this Command runs the first time
@@ -23,18 +23,18 @@ public class C_TeleopCatcher extends Command {
     }
 
     
-	private int bTI(boolean bool){return bool ? 1 : 0;}
-	
-	// Called repeatedly when this Command is scheduled to run
+    private int bTI(boolean bool){return bool ? 1 : 0;}
+    
+    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		SS_BallCatcher.spindleSet(
-				(bTI(OI.joy_drive.btnRightShoulder()) - 
-						bTI(OI.joy_drive.btnLeftShoulder())) * 0.65);
-		if(OI.joy_drive.btnX()){
-			SS_BallCatcher.catcherDown();
-		}else if(OI.joy_drive.btnY()){
-			SS_BallCatcher.catcherUp();
-		}
+        SS_BallCatcher.spindleSet(
+                (bTI(OI.joy_drive.btnRightShoulder()) - 
+                        bTI(OI.joy_drive.btnLeftShoulder())) * 0.65);
+        if(OI.joy_drive.btnX()){
+            SS_BallCatcher.catcherDown();
+        }else if(OI.joy_drive.btnY()){
+            SS_BallCatcher.catcherUp();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

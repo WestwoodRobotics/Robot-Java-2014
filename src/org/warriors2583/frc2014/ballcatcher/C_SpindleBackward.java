@@ -11,9 +11,9 @@ public class C_SpindleBackward extends Command {
     public C_SpindleBackward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_SpindleBackward");
-		setInterruptible(false);
-		requires(SS_BallCatcher.getInstance());
+        super("C_SpindleBackward");
+        setInterruptible(false);
+        requires(SS_BallCatcher.getInstance());
     }
 
     // Called just before this Command runs the first time
@@ -22,19 +22,19 @@ public class C_SpindleBackward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		SS_BallCatcher.spindleBackward();
+        SS_BallCatcher.spindleBackward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return true;
     }
-	
-	// Called to cancel the command
-	public void cancel() {
-		SS_BallCatcher.spindleStop();
-		super.cancel();
-	}
+    
+    // Called to cancel the command
+    public void cancel() {
+        SS_BallCatcher.spindleStop();
+        super.cancel();
+    }
 
     // Called once after isFinished returns true
     protected void end() {

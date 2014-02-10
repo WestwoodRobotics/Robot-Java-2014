@@ -1,4 +1,4 @@
-package org.warriors2583.frc2014.ballcatcher;
+package org.warriors2583.frc2014.teleop;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -6,18 +6,16 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Austin Reuland
  */
-public class C_SpindleStop extends Command {
+public class C_TeleopLauncher extends Command {
 
-    public C_SpindleStop() {
+    public C_TeleopLauncher() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        super("C_SpindleStop");
-        requires(SS_BallCatcher.getInstance());
+        super("C_TeleopLauncher");
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        SS_BallCatcher.spindleStop();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,7 +24,7 @@ public class C_SpindleStop extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

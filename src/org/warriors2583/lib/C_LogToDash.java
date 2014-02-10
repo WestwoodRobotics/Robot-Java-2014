@@ -11,7 +11,7 @@ public class C_LogToDash extends Command {
     public C_LogToDash() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_LogToDash");
+        super("C_LogToDash");
     }
 
     // Called just before this Command runs the first time

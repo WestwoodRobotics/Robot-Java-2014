@@ -11,14 +11,14 @@ public class C_CatcherUp extends Command {
     public C_CatcherUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_CatcherUp");
-		setInterruptible(false);
-		requires(SS_BallCatcher.getInstance());
+        super("C_CatcherUp");
+        setInterruptible(false);
+        requires(SS_BallCatcher.getInstance());
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		SS_BallCatcher.catcherUp();
+        SS_BallCatcher.catcherUp();
     }
 
     // Called repeatedly when this Command is scheduled to run

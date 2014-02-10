@@ -11,12 +11,12 @@ public class C_FireBall extends Command {
     public C_FireBall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_FireBall");
+        super("C_FireBall");
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		SS_Launcher.latchRelease();
+        SS_Launcher.latchRelease();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -30,7 +30,7 @@ public class C_FireBall extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-		SS_Launcher.latchLock();
+        SS_Launcher.latchLock();
     }
 
     // Called when another command which requires one or more of the same
