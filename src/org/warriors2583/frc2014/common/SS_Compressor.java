@@ -40,7 +40,7 @@ public class SS_Compressor extends Subsystem {
      * Get the current enabled state of the compressor
      * @return compressor enabled state
      */
-    public static boolean isOn(){
+    public static boolean isEnabled(){
         return compressor.enabled();
     }
     

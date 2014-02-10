@@ -14,5 +14,6 @@ public class CG_AutonStart extends CommandGroup {
         
         addSequential(new CG_CockTheLauncher());
         addSequential(new C_CatcherDown());
+        //addSequential(new C_LedStatus(C_LedStatus.AUTONREADY));
     }
 }
