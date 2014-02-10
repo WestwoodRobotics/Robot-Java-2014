@@ -12,7 +12,7 @@ import org.warriors2583.frc2014.launcher.CG_FireBall;
  *
  * @author Austin Reuland
  */
-public class OI {
+public class OI implements RMap {
     
     //Controllers
     public static final XBoxController joy_drive, joy_shoot;
@@ -22,15 +22,15 @@ public class OI {
     private static final JoystickButton fireBall;
     
     static{
-        SmartDashboard.putData(RMap.DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
-        SmartDashboard.putData(RMap.DASH_INSTANCE_BALLCATCHER, SS_BallCatcher.getInstance());
-        SmartDashboard.putData(RMap.DASH_INSTANCE_COMPRESSOR, SS_Compressor.getInstance());
-        SmartDashboard.putData(RMap.DASH_INSTANCE_DASHBOARD, SS_Dashboard.getInstance());
+        SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
+        SmartDashboard.putData(DASH_INSTANCE_BALLCATCHER, SS_BallCatcher.getInstance());
+        SmartDashboard.putData(DASH_INSTANCE_COMPRESSOR, SS_Compressor.getInstance());
+        SmartDashboard.putData(DASH_INSTANCE_DASHBOARD, SS_Dashboard.getInstance());
         
-        joy_drive = new XBoxController(RMap.JOY_DRIVE);
-        joy_shoot = new XBoxController(RMap.JOY_SHOOT);
+        joy_drive = new XBoxController(JOY_DRIVE);
+        joy_shoot = new XBoxController(JOY_SHOOT);
         
-        fireBall = new JoystickButton(OI.joy_drive, XBoxController.BTN_B_ID);
+        fireBall = new JoystickButton(joy_drive, XBoxController.BTN_B_ID);
         fireBall.whenPressed(new CG_FireBall());
 
 //      catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);

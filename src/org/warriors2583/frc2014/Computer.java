@@ -9,7 +9,7 @@ import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
  *
  * @author Austin Reuland
  */
-public class Computer {
+public class Computer implements RMap {
 
     private static final NetworkTable computerTable, settingsTable, statusTable;
     
@@ -18,14 +18,14 @@ public class Computer {
     private static boolean tablesInitd = false;
 
     static{
-        computerTable = NetworkTable.getTable(RMap.NETTABLE_COMPUTER);
-        settingsTable = (NetworkTable) computerTable.getSubTable(RMap.NETTABLE_COMPUTER_SETTINGS);
-        statusTable = (NetworkTable) computerTable.getSubTable(RMap.NETTABLE_COMPUTER_STATUS);
+        computerTable = NetworkTable.getTable(NETTABLE_COMPUTER);
+        settingsTable = (NetworkTable) computerTable.getSubTable(NETTABLE_COMPUTER_SETTINGS);
+        statusTable = (NetworkTable) computerTable.getSubTable(NETTABLE_COMPUTER_STATUS);
         
         settingsListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
-                if(key.equals(RMap.NETTABLE_COMPUTER_SETTINGS_DRIVEMODE)){
-                    SS_Drivetrain.setDriveMode((int)table.getNumber(RMap.NETTABLE_COMPUTER_SETTINGS_DRIVEMODE));
+                if(key.equals(NETTABLE_COMPUTER_SETTINGS_DRIVEMODE)){
+                    SS_Drivetrain.setDriveMode((int)table.getNumber(NETTABLE_COMPUTER_SETTINGS_DRIVEMODE));
                 }
             }
         };
@@ -48,7 +48,7 @@ public class Computer {
             statusTable.removeTableListener(statusListener);
         }
 
-        settingsTable.putNumber(RMap.NETTABLE_COMPUTER_SETTINGS_DRIVEMODE, 1.0);
+        settingsTable.putNumber(NETTABLE_COMPUTER_SETTINGS_DRIVEMODE, 1.0);
 
         settingsTable.addTableListener(settingsListener, false);
         statusTable.addTableListener(statusListener, false);

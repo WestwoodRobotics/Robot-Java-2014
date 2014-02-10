@@ -10,7 +10,7 @@ import org.warriors2583.frc2014.teleop.C_TeleopCatcher;
  *
  * @author Austin Reuland
  */
-public class SS_BallCatcher extends Subsystem {
+public class SS_BallCatcher extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
@@ -24,8 +24,8 @@ public class SS_BallCatcher extends Subsystem {
     }
 
     static{
-        motor_spindle = new Victor(RMap.MODULE_MOTOR, RMap.MOTOR_CATCHER);
-        solenoid_frame = new Solenoid(RMap.MODULE_SOLENOID_MAIN, RMap.SOLENOID_CATCHER);
+        motor_spindle = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
+        solenoid_frame = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
 
     }
 

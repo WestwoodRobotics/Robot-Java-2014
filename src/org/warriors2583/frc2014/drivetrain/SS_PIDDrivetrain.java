@@ -12,7 +12,7 @@ import org.warriors2583.frc2014.teleop.C_TeleopDrive;
  * Drivetrain Class. Controls the Drivetrain Sub-System
  * @author Austin Reuland
  */
-public class SS_PIDDrivetrain extends PIDSubsystem {
+public class SS_PIDDrivetrain extends PIDSubsystem implements RMap {
     
     /**
      * DriveMode Class
@@ -61,12 +61,12 @@ public class SS_PIDDrivetrain extends PIDSubsystem {
 
     static {
         
-        motor_front_left = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_FRONT_LEFT);
-        motor_back_left = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_BACK_LEFT);
-        motor_front_right = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_FRONT_RIGHT);
-        motor_back_right = new Talon(RMap.MODULE_DRIVE, RMap.DRIVE_BACK_RIGHT);
+        motor_front_left = new Talon(MODULE_DRIVE, DRIVE_FRONT_LEFT);
+        motor_back_left = new Talon(MODULE_DRIVE, DRIVE_BACK_LEFT);
+        motor_front_right = new Talon(MODULE_DRIVE, DRIVE_FRONT_RIGHT);
+        motor_back_right = new Talon(MODULE_DRIVE, DRIVE_BACK_RIGHT);
         
-        solenoid_wheelSwitch = new Solenoid(RMap.MODULE_SOLENOID_MAIN, RMap.SOLENOID_DRIVESWITCH);
+        solenoid_wheelSwitch = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_DRIVESWITCH);
         
         driveMain = new RobotDrive(motor_front_left, motor_back_left, motor_front_right, motor_back_right);
     }

@@ -9,7 +9,7 @@ import org.warriors2583.frc2014.RMap;
  *
  * @author Austin Reuland
  */
-public class SS_Launcher extends Subsystem {
+public class SS_Launcher extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
@@ -23,13 +23,13 @@ public class SS_Launcher extends Subsystem {
     }
 
     static{
-        solenoid_ram = new Solenoid(RMap.MODULE_SOLENOID_MAIN, RMap.SOLENOID_LAUNCHER_LOAD);
-        solenoid_release = new Solenoid(RMap.MODULE_SOLENOID_MAIN, RMap.SOLENOID_LAUNCHER_RELEASE);
+        solenoid_ram = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_LOAD);
+        solenoid_release = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_RELEASE);
         
-        dio_locked = new DigitalInput(RMap.MODULE_DIO, RMap.DIO_LAUNCHER_LOCKED);
-        dio_ball = new DigitalInput(RMap.MODULE_DIO, RMap.DIO_LAUNCHER_BALL);
-        dio_ramPosA = new DigitalInput(RMap.MODULE_DIO, RMap.DIO_LAUNCHER_RAM_A);
-        dio_ramPosB = new DigitalInput(RMap.MODULE_DIO, RMap.DIO_LAUNCHER_RAM_B);
+        dio_locked = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_LOCKED);
+        dio_ball = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_BALL);
+        dio_ramPosA = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_A);
+        dio_ramPosB = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_B);
     }
 
     private SS_Launcher(){

@@ -8,9 +8,9 @@ import org.warriors2583.frc2014.RMap;
  *
  * @author Austin Reuland
  */
-public class SS_Compressor extends Subsystem {
+public class SS_Compressor extends Subsystem implements RMap {
     
-    private static final Compressor compressor = new Compressor(RMap.DIO_COMPRESSOR, RMap.RELAY_COMPRESSOR);
+    private static final Compressor compressor = new Compressor(DIO_COMPRESSOR, RELAY_COMPRESSOR);
     
     private static final SS_Compressor instance = new SS_Compressor();
     

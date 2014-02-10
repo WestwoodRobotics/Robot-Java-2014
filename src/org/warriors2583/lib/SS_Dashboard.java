@@ -27,9 +27,9 @@ public class SS_Dashboard extends Subsystem {
     }
     
     public static void update(){
-        SmartDashboard.putBoolean(RMap.DASH_COMPRESSOR_RUNNING, SS_Compressor.isRunning());
+        SmartDashboard.putBoolean(DASH_COMPRESSOR_RUNNING, SS_Compressor.isRunning());
         double memFree = ((MathUtils.round(((double)Runtime.getRuntime().freeMemory()/1048576) * 1e2))/1e2);
-        SmartDashboard.putString(RMap.DASH_MEMORY_STATUS, memFree + "M/" + memMax);
+        SmartDashboard.putString(DASH_MEMORY_STATUS, memFree + "M/" + memMax);
     }
 
     private SS_Dashboard(){

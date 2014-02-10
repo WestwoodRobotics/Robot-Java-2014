@@ -1,6 +1,7 @@
 package org.warriors2583.frc2014.teleop;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.warriors2583.frc2014.launcher.SS_Launcher;
 
 /**
  *
@@ -12,6 +13,7 @@ public class C_TeleopLauncher extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         super("C_TeleopLauncher");
+        requires(SS_Launcher.getInstance());
     }
 
     // Called just before this Command runs the first time
@@ -20,6 +22,7 @@ public class C_TeleopLauncher extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()

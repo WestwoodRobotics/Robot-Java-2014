@@ -44,7 +44,7 @@ public class WestwoodBot extends IterativeRobot {
 
     public void autonomousInit(){
         System.gc();
-        if(!SS_Compressor.isOn()) compressor.start();
+        if(!SS_Compressor.isEnabled()) compressor.start();
     }
 
     /**
@@ -92,7 +92,7 @@ public class WestwoodBot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         //autonomousCommand.cancel();
-        if(!SS_Compressor.isOn()) compressor.start();
+        if(!SS_Compressor.isEnabled()) compressor.start();
         (new CG_TeleopMain()).start();
         System.gc();
     }

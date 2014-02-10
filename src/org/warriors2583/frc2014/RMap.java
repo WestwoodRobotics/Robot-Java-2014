@@ -8,7 +8,7 @@ package org.warriors2583.frc2014;
  * 
  * @author Austin Reuland
  */
-public class RMap {
+public interface RMap {
     
     /**
      * Driver Joystick ID Number
