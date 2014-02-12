@@ -14,6 +14,11 @@ public interface RMap {
      * Driver Joystick ID Number
      */
     public static final int JOY_DRIVE = 1;
+
+    /**
+     * Driver Joystick Speed Scaling Button
+     */
+    public static final int JOY_DRIVE_BTN_SCALE = 5;
     
     /**
      * Shooter Joystick ID Number

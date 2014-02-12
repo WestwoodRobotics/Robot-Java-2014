@@ -2,12 +2,14 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.warriors2583.frc2014.ballcatcher.*;
+import org.warriors2583.frc2014.ballcatcher.SS_BallCatcher;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.lib.SS_Dashboard;
 import org.warriors2583.lib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.launcher.CG_FireBall;
+import org.warriors2583.frc2014.launcher.SS_Launcher;
+
 /**
  *
  * @author Austin Reuland
@@ -23,6 +25,7 @@ public class OI implements RMap {
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
+        SmartDashboard.putData(DASH_INSTANCE_LAUNCHER, SS_Launcher.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_BALLCATCHER, SS_BallCatcher.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_COMPRESSOR, SS_Compressor.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_DASHBOARD, SS_Dashboard.getInstance());

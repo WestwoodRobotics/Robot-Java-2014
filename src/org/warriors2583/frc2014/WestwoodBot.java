@@ -27,7 +27,7 @@ public class WestwoodBot extends IterativeRobot {
     OI oi = new OI();
     RasPi raspi = new RasPi();
     Computer comp = new Computer();
-    Command compressor = new C_CompressorStart();
+    //Command compressor = new C_CompressorStart();
 
     /**
      * This function is run when the robot is first started up and should be
@@ -44,7 +44,7 @@ public class WestwoodBot extends IterativeRobot {
 
     public void autonomousInit(){
         System.gc();
-        if(!SS_Compressor.isEnabled()) compressor.start();
+        //if(!SS_Compressor.isEnabled()) compressor.start();
     }
 
     /**
@@ -61,7 +61,7 @@ public class WestwoodBot extends IterativeRobot {
      */
 
     public void disabledInit(){
-        compressor.cancel();
+        //compressor.cancel();
         System.gc();
     }
 
@@ -92,7 +92,7 @@ public class WestwoodBot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         //autonomousCommand.cancel();
-        if(!SS_Compressor.isEnabled()) compressor.start();
+        //if(!SS_Compressor.isEnabled()) compressor.start();
         (new CG_TeleopMain()).start();
         System.gc();
     }
@@ -103,7 +103,6 @@ public class WestwoodBot extends IterativeRobot {
     public void teleopPeriodic(){
         // feed the user watchdog at every period when in autonomous
         Watchdog.getInstance().feed();
-        
         Scheduler.getInstance().run();
     }
     

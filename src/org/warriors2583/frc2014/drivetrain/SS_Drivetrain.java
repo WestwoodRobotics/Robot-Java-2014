@@ -4,9 +4,9 @@ import com.sun.squawk.VM;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2014.RMap;
-import org.warriors2583.frc2014.teleop.C_TeleopDrive;
 
 /**
  * Drivetrain Class. Controls the Drivetrain Sub-System
@@ -21,31 +21,30 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     public static class DriveMode{
         private final int mode;
         private final boolean mecanum;
+        private final Command command;
         private final String name;
-        private DriveMode(int mode, boolean mecanum, String name){
+        
+        
+        private DriveMode(int mode, boolean mecanum, Command command, String name){
             this.mode = mode;
             this.mecanum = mecanum;
+            this.command = command;
             this.name = name;
         }
         public int getMode(){return mode;}
-        public void init(){
-            int num = takeLock(true);
-            solenoid_wheelSwitch.set(mecanum);
-            releaseLock(num);
-        }
-        public String toString(){
-            return name;
-        }
+        public boolean getSolenoid(){return mecanum;}
+        public Command getCommand(){return command;}
+        public String toString(){return name;}
         
-        public static final DriveMode ARCADE = new DriveMode(1, false, "Arcade Drive");
-        public static final DriveMode TANK = new DriveMode(2, false, "Tank Drive");
-        public static final DriveMode MECANUM = new DriveMode(3, true, "Mecanum Drive");
+        public static final DriveMode ARCADE = new DriveMode(1, false, new C_Arcade(), "Arcade Drive");
+        public static final DriveMode TANK = new DriveMode(2, false, new C_Tank(), "Tank Drive");
+        public static final DriveMode MECANUM = new DriveMode(3, true, new C_Mecanum(), "Mecanum Drive");
     }
     
     private static boolean externalLock = false;
     private static int lockNum = 0;
     
-    private static DriveMode driveMode = DriveMode.ARCADE;
+    private static DriveMode driveMode;
         
     private static final Talon motor_front_left, motor_back_left, motor_front_right, motor_back_right;
     
@@ -60,6 +59,8 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     }
 
     static {
+        
+        driveMode = DriveMode.ARCADE;
         
         motor_front_left = new Talon(MODULE_DRIVE, DRIVE_FRONT_LEFT);
         motor_back_left = new Talon(MODULE_DRIVE, DRIVE_BACK_LEFT);
@@ -97,46 +98,16 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         driveMain.arcadeDrive(0.0, rot);
     }
     
-    public static void modeDrive(double leftX, double leftY, double rot, double rightY){
-        if(externalLock){
-            return;
-        }
-        switch(driveMode.getMode()){
-            case 1: 
-                arcade(leftY, rot);
-                break;
-            case 2:
-                tank(leftY, rightY);
-                break;
-            case 3:
-                mecanum(leftX, leftY, rot, rightY);
-                break;
-        }       
+    public static void setDriveMode(DriveMode mode){
+        driveMode = mode;        
     }
     
-    public static void setDriveMode(DriveMode mode){
-        driveMode = mode;
-        driveMode.init();
+    public static void resetDefaultCommand(Command commnand){
+        instance.setDefaultCommand(commnand);   
     }
-
-    public static void setDriveMode(int mode){
-        switch(mode){
-        case 1:
-            setDriveMode(DriveMode.ARCADE);
-            break;
-
-        case 2:
-            setDriveMode(DriveMode.ARCADE);
-            break;
-
-        case 3:
-            setDriveMode(DriveMode.ARCADE);
-            break;
-            
-        default:
-            setDriveMode(DriveMode.ARCADE);
-            break;
-        }
+    
+    public static void setSolenoid(boolean on){
+        solenoid_wheelSwitch.set(on);
     }
     
     public static DriveMode getDriveMode(){
@@ -195,7 +166,6 @@ public class SS_Drivetrain extends Subsystem implements RMap {
 
 
     protected void initDefaultCommand() {
-        setDefaultCommand(new C_TeleopDrive());
+        setDefaultCommand(new C_Arcade());
     }
-
 }

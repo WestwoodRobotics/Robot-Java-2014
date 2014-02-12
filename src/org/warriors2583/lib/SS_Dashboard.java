@@ -10,7 +10,7 @@ import org.warriors2583.frc2014.common.SS_Compressor;
  *
  * @author Austin Reuland
  */
-public class SS_Dashboard extends Subsystem {
+public class SS_Dashboard extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
