@@ -51,7 +51,6 @@ public class C_MoveToDistance extends PIDCommand {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        m_timer.stop();
-        m_timer = null;
+        end();
     }
 }
