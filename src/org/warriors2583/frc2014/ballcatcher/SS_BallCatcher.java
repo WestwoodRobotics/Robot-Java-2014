@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2014.RMap;
-import org.warriors2583.frc2014.teleop.C_TeleopCatcher;
 
 /**
  *
@@ -92,7 +91,6 @@ public class SS_BallCatcher extends Subsystem implements RMap {
         return m_solenoid.get();
     }
     
-    
     public static void makeSafe(){
         m_motor.stopMotor();
         m_motor.disable();
@@ -105,6 +103,6 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new C_TeleopCatcher());
+        setDefaultCommand(new C_Teleop());
     }
 }

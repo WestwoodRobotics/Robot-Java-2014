@@ -60,6 +60,6 @@ public class SS_Compressor extends Subsystem implements RMap {
     
     
     protected void initDefaultCommand() {
-        setDefaultCommand(new C_CompressorStart());
+        //setDefaultCommand(new C_CompressorStart());
     }
 }
