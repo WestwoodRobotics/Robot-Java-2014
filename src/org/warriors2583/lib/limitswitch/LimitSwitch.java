@@ -32,70 +32,70 @@ public class LimitSwitch implements IStandardSwitch, IInputOutput, LiveWindowSen
         public static final SwitchType NC = new SwitchType(2);
     }
     
-    private DigitalInput limitSwitch;
-    private SwitchType type;
+    private DigitalInput m_limitSwitch;
+    private SwitchType m_type;
     
     public LimitSwitch(int channel, SwitchType type){
         this(1, channel, type);
     }
     
     public LimitSwitch(int module, int channel, SwitchType type){
-        limitSwitch = new DigitalInput(module, channel);
-        this.type = type;
+        m_limitSwitch = new DigitalInput(module, channel);
+        this.m_type = type;
     }
     
     public boolean state() {
-        return type.getValue(limitSwitch.get());
+        return m_type.getValue(m_limitSwitch.get());
     }
 
     public int getChannel() {
-        return limitSwitch.getChannel();
+        return m_limitSwitch.getChannel();
     }
 
     public SwitchType getType() {
-        return type;
+        return m_type;
     }
 
     /**
      * {@inheritDoc}
      */
     public void updateTable() {
-        limitSwitch.updateTable();
+        m_limitSwitch.updateTable();
     }
 
     /**
      * {@inheritDoc}
      */
     public void startLiveWindowMode() {
-        limitSwitch.startLiveWindowMode();
+        m_limitSwitch.startLiveWindowMode();
     }
 
     /**
      * {@inheritDoc}
      */
     public void stopLiveWindowMode() {
-        limitSwitch.stopLiveWindowMode();
+        m_limitSwitch.stopLiveWindowMode();
     }
 
     /**
      * {@inheritDoc}
      */
     public void initTable(ITable arg0) {
-        limitSwitch.initTable(arg0);
+        m_limitSwitch.initTable(arg0);
     }
 
     /**
      * {@inheritDoc}
      */
     public ITable getTable() {
-        return limitSwitch.getTable();
+        return m_limitSwitch.getTable();
     }
 
     /**
      * {@inheritDoc}
      */
     public String getSmartDashboardType() {
-        return limitSwitch.getSmartDashboardType();
+        return m_limitSwitch.getSmartDashboardType();
     }
 
 }

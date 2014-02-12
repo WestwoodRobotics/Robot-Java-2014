@@ -8,7 +8,7 @@ import org.warriors2583.lib.limitswitch.LimitSwitch.SwitchType;
  */
 public class DualLimitSwitchSystem implements ILimitSwitchSystem{
     
-    private LimitSwitch topSwitch, bottomSwitch;
+    private LimitSwitch m_topSwitch, m_bottomSwitch;
 
     public DualLimitSwitchSystem(int topChannel, SwitchType topType, int bottomChannel, SwitchType bottomType){
         this(new LimitSwitch(topChannel, topType), new LimitSwitch(bottomChannel, bottomType));
@@ -21,16 +21,16 @@ public class DualLimitSwitchSystem implements ILimitSwitchSystem{
     }
     
     public DualLimitSwitchSystem(LimitSwitch top, LimitSwitch bottom){
-        topSwitch = top;
-        bottomSwitch = bottom;
+        m_topSwitch = top;
+        m_bottomSwitch = bottom;
     }
     
     public boolean canUp() {
-        return !topSwitch.state();
+        return !m_topSwitch.state();
     }
 
     public boolean canDown() {
-        return !bottomSwitch.state();
+        return !m_bottomSwitch.state();
     }
 
 }

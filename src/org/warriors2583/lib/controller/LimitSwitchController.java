@@ -11,44 +11,44 @@ import org.warriors2583.lib.limitswitch.ILimitSwitchSystem;
  */
 public class LimitSwitchController implements SpeedController, IDeviceController, PIDOutput {
     
-    private final SpeedController motor;
-    private final ILimitSwitchSystem switchSystem;
+    private final SpeedController m_motor;
+    private final ILimitSwitchSystem m_switchSystem;
     
     public LimitSwitchController(SpeedController motor, ILimitSwitchSystem switchSystem){
-        this.motor = motor;
-        this.switchSystem = switchSystem;
+        this.m_motor = motor;
+        this.m_switchSystem = switchSystem;
     }
 
     public double get() {
-        return motor.get();
+        return m_motor.get();
     }
     
     private double speed = 0;
 
     public void set(double speed, byte syncGroup) {
-        speed = speed > 0 && !switchSystem.canUp() ? 0.00 : speed;
-        speed = speed < 0 && !switchSystem.canDown() ? 0.00 : speed;
-        motor.set(speed, syncGroup);
+        speed = speed > 0 && !m_switchSystem.canUp() ? 0.00 : speed;
+        speed = speed < 0 && !m_switchSystem.canDown() ? 0.00 : speed;
+        m_motor.set(speed, syncGroup);
         this.speed = speed;
     }
 
     public void set(double speed) {
-        speed = speed > 0 && !switchSystem.canUp() ? 0.00 : speed;
-        speed = speed < 0 && !switchSystem.canDown() ? 0.00 : speed;
-        motor.set(speed);
+        speed = speed > 0 && !m_switchSystem.canUp() ? 0.00 : speed;
+        speed = speed < 0 && !m_switchSystem.canDown() ? 0.00 : speed;
+        m_motor.set(speed);
         this.speed = speed;
     }
     
     public boolean atLimit(){
-        if(speed >= 0 && !switchSystem.canUp()) return true;
-        return speed < 0 && !switchSystem.canDown();
+        if(speed >= 0 && !m_switchSystem.canUp()) return true;
+        return speed < 0 && !m_switchSystem.canDown();
     }
 
     public void disable() {
-        motor.disable();
+        m_motor.disable();
     }
 
     public void pidWrite(double output) {
-        motor.pidWrite(output);
+        m_motor.pidWrite(output);
     }
 }

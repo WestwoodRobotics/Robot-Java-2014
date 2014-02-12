@@ -21,8 +21,8 @@ public class SingleLimitSwitchSystem implements ILimitSwitchSystem{
                 BOTTOM = new SingleSystemType(2);
     }
     
-    private LimitSwitch limitSwitch;
-    private SingleSystemType type;
+    private LimitSwitch m_limitSwitch;
+    private SingleSystemType m_type;
 
     /**
      * Construct a new Single Limit Switch System for use with a LimitSwitchController
@@ -51,8 +51,8 @@ public class SingleLimitSwitchSystem implements ILimitSwitchSystem{
      * @param type Single Switch System Type (SingleSystemType)
      */
     public SingleLimitSwitchSystem(LimitSwitch limitSwitch, SingleSystemType type){
-        this.limitSwitch = limitSwitch;
-        this.type = type;
+        this.m_limitSwitch = limitSwitch;
+        this.m_type = type;
     }
     
     
@@ -61,8 +61,8 @@ public class SingleLimitSwitchSystem implements ILimitSwitchSystem{
      * @return LimitSwitch value
      */
     public boolean canUp() {
-        if(type == SingleSystemType.BOTTOM) return true;
-        return !limitSwitch.state();
+        if(m_type == SingleSystemType.BOTTOM) return true;
+        return !m_limitSwitch.state();
     }
     
     /**
@@ -70,8 +70,8 @@ public class SingleLimitSwitchSystem implements ILimitSwitchSystem{
      * @return LimitSwitch value
      */
     public boolean canDown() {
-        if(type == SingleSystemType.TOP) return true;
-        return !limitSwitch.state();
+        if(m_type == SingleSystemType.TOP) return true;
+        return !m_limitSwitch.state();
     }
 
 }

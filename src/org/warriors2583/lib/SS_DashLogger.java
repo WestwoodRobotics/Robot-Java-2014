@@ -12,19 +12,19 @@ public class SS_DashLogger extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    private static final NetworkTable logTable;
+    private static final NetworkTable m_logTable;
     
-    private static final String tableName;
+    private static final String m_tableName;
 
-    private static final SS_DashLogger instance = new SS_DashLogger();
+    private static final SS_DashLogger m_instance = new SS_DashLogger();
 
     public static SS_DashLogger getInstance(){
-        return instance;
+        return m_instance;
     }
 
     static{
-        tableName = "DashLogger";
-        logTable = NetworkTable.getTable("Logger");
+        m_tableName = "DashLogger";
+        m_logTable = NetworkTable.getTable("Logger");
         
     }
 
@@ -33,23 +33,23 @@ public class SS_DashLogger extends Subsystem {
     }
     
     public static void logDebug(String str){ 
-        logTable.putString(tableName, "[D]" + str);
+        m_logTable.putString(m_tableName, "[D]" + str);
     }
     
     public static void logInfo(String str){
-        logTable.putString(tableName, "[I]" + str);
+        m_logTable.putString(m_tableName, "[I]" + str);
     }
     
     public static void logWarn(String str){
-        logTable.putString(tableName, "[W]" + str);
+        m_logTable.putString(m_tableName, "[W]" + str);
     }
     
     public static void logErr(String str){
-        logTable.putString(tableName, "[E]" + str);
+        m_logTable.putString(m_tableName, "[E]" + str);
     }
     
     public static void logCritErr(String str){
-        logTable.putString(tableName, "[CRITERROR]" + str);
+        m_logTable.putString(m_tableName, "[CRITERROR]" + str);
     }
 
     public void initDefaultCommand() {

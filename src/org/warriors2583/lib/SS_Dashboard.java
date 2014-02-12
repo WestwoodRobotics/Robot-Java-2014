@@ -15,21 +15,21 @@ public class SS_Dashboard extends Subsystem implements RMap {
     // here. Call these from Commands.
 
     
-    private static final String memMax;
-    private static final SS_Dashboard instance = new SS_Dashboard();
+    private static final String m_memMax;
+    private static final SS_Dashboard m_instance = new SS_Dashboard();
 
     public static SS_Dashboard getInstance(){
-        return instance;
+        return m_instance;
     }
 
     static{
-        memMax = String.valueOf((MathUtils.round(((double)Runtime.getRuntime().totalMemory()/1048576) * 1e2))/1e2) + "M";
+        m_memMax = String.valueOf((MathUtils.round(((double)Runtime.getRuntime().totalMemory()/1048576) * 1e2))/1e2) + "M";
     }
     
     public static void update(){
         SmartDashboard.putBoolean(DASH_COMPRESSOR_RUNNING, SS_Compressor.isRunning());
         double memFree = ((MathUtils.round(((double)Runtime.getRuntime().freeMemory()/1048576) * 1e2))/1e2);
-        SmartDashboard.putString(DASH_MEMORY_STATUS, memFree + "M/" + memMax);
+        SmartDashboard.putString(DASH_MEMORY_STATUS, memFree + "M/" + m_memMax);
     }
 
     private SS_Dashboard(){

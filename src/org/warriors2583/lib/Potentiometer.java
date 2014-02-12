@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.tables.ITable;
  */
 public class Potentiometer implements PIDSource, LiveWindowSendable {
     
-    private AnalogChannel pot;
+    private AnalogChannel m_pot;
     
     /**
      * 
@@ -31,22 +31,22 @@ public class Potentiometer implements PIDSource, LiveWindowSendable {
      * @param ovrBits Number of Oversample Bits
      */ 
     public Potentiometer(int module, int channel, int avgBits, int ovrBits){
-        pot = new AnalogChannel(module, channel);
-        pot.setAverageBits(avgBits);
-        pot.setOversampleBits(ovrBits);
+        m_pot = new AnalogChannel(module, channel);
+        m_pot.setAverageBits(avgBits);
+        m_pot.setOversampleBits(ovrBits);
     }
 
     /**
      * Get raw value
      * @return Potentiometer raw value
      */
-    public int getValue() {return pot.getValue(); }
+    public int getValue() {return m_pot.getValue(); }
     
     /**
      * Get raw voltage
      * @return Potentiometer raw voltage
      */
-    public double getVoltage() { return pot.getVoltage(); }
+    public double getVoltage() { return m_pot.getVoltage(); }
         
     private double lastRaw = 0;
     
@@ -59,22 +59,22 @@ public class Potentiometer implements PIDSource, LiveWindowSendable {
         return lastRaw;
     }
     
-    public int getAverageBits() { return pot.getAverageBits(); }
+    public int getAverageBits() { return m_pot.getAverageBits(); }
     
-    public int getOversampleBits() { return pot.getOversampleBits(); }
+    public int getOversampleBits() { return m_pot.getOversampleBits(); }
     
-    public double pidGet() { return pot.pidGet(); }
+    public double pidGet() { return m_pot.pidGet(); }
 
-    public void updateTable() { pot.updateTable(); }
+    public void updateTable() { m_pot.updateTable(); }
 
-    public void startLiveWindowMode() { pot.startLiveWindowMode(); }
+    public void startLiveWindowMode() { m_pot.startLiveWindowMode(); }
 
-    public void stopLiveWindowMode() { pot.stopLiveWindowMode(); }
+    public void stopLiveWindowMode() { m_pot.stopLiveWindowMode(); }
 
-    public void initTable(ITable arg0) { pot.initTable(arg0); }
+    public void initTable(ITable arg0) { m_pot.initTable(arg0); }
 
-    public ITable getTable() { return pot.getTable(); }
+    public ITable getTable() { return m_pot.getTable(); }
 
-    public String getSmartDashboardType() { return pot.getSmartDashboardType(); }
+    public String getSmartDashboardType() { return m_pot.getSmartDashboardType(); }
 
 }
