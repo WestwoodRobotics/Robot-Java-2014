@@ -19,57 +19,54 @@ public class SS_Drivetrain extends Subsystem implements RMap {
      * Used to determine the type of driving we are doing
      */
     public static class DriveMode{
-        private final int mode;
-        private final boolean mecanum;
-        private final Command command;
-        private final String name;
+        private final int m_mode;
+        private final boolean m_solenoid;
+        private final Command m_command;
+        private final String m_name;
         
         
         private DriveMode(int mode, boolean mecanum, Command command, String name){
-            this.mode = mode;
-            this.mecanum = mecanum;
-            this.command = command;
-            this.name = name;
+            this.m_mode = mode;
+            this.m_solenoid = mecanum;
+            this.m_command = command;
+            this.m_name = name;
         }
-        public int getMode(){return mode;}
-        public boolean getSolenoid(){return mecanum;}
-        public Command getCommand(){return command;}
-        public String toString(){return name;}
+        public int getMode(){return m_mode;}
+        public boolean getSolenoid(){return m_solenoid;}
+        public Command getCommand(){return m_command;}
+        public String toString(){return m_name;}
         
         public static final DriveMode ARCADE = new DriveMode(1, false, new C_Arcade(), "Arcade Drive");
         public static final DriveMode TANK = new DriveMode(2, false, new C_Tank(), "Tank Drive");
         public static final DriveMode MECANUM = new DriveMode(3, true, new C_Mecanum(), "Mecanum Drive");
     }
     
-    private static boolean externalLock = false;
-    private static int lockNum = 0;
-    
-    private static DriveMode driveMode;
+    private static DriveMode m_driveMode;
         
-    private static final Talon motor_front_left, motor_back_left, motor_front_right, motor_back_right;
+    private static final Talon m_motorFrontLeft, m_motorBackLeft, m_motorFrontRight, m_motorBackRight;
     
-    private static final Solenoid solenoid_wheelSwitch;
+    private static final Solenoid m_wheelSwitch;
     
-    private static final RobotDrive driveMain;
+    private static final RobotDrive m_drive;
     
-    private static final SS_Drivetrain instance = new SS_Drivetrain();
+    private static final SS_Drivetrain m_instance = new SS_Drivetrain();
 
-    public static SS_Drivetrain getInstance() {
-        return instance;
+    public static SS_Drivetrain getInstance(){
+        return m_instance;
     }
 
     static {
         
-        driveMode = DriveMode.ARCADE;
+        m_driveMode = DriveMode.ARCADE;
         
-        motor_front_left = new Talon(MODULE_DRIVE, DRIVE_FRONT_LEFT);
-        motor_back_left = new Talon(MODULE_DRIVE, DRIVE_BACK_LEFT);
-        motor_front_right = new Talon(MODULE_DRIVE, DRIVE_FRONT_RIGHT);
-        motor_back_right = new Talon(MODULE_DRIVE, DRIVE_BACK_RIGHT);
+        m_motorFrontLeft = new Talon(MODULE_DRIVE, DRIVE_FRONT_LEFT);
+        m_motorBackLeft = new Talon(MODULE_DRIVE, DRIVE_BACK_LEFT);
+        m_motorFrontRight = new Talon(MODULE_DRIVE, DRIVE_FRONT_RIGHT);
+        m_motorBackRight = new Talon(MODULE_DRIVE, DRIVE_BACK_RIGHT);
         
-        solenoid_wheelSwitch = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_DRIVESWITCH);
+        m_wheelSwitch = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_DRIVESWITCH);
         
-        driveMain = new RobotDrive(motor_front_left, motor_back_left, motor_front_right, motor_back_right);
+        m_drive = new RobotDrive(m_motorFrontLeft, m_motorBackLeft, m_motorFrontRight, m_motorBackRight);
     }
     
     
@@ -77,95 +74,64 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         super("SS_Drivetrain");
     }
     
-    
-    public static void tank(double l, double r) {
-        driveMain.tankDrive(l, r);
+    public static void arcade(double throt, double rot){
+        m_drive.arcadeDrive(throt, rot);
     }
     
-    public static void arcade(double throt, double rot) {
-        driveMain.arcadeDrive(throt, rot);
+    public static void tank(double l, double r){
+        m_drive.tankDrive(l, r);
     }
     
-    public static void mecanum(double x, double y, double rot, double gyro) {
-        driveMain.mecanumDrive_Cartesian(x, y, rot, gyro);
+    public static void mecanum(double x, double y, double rot, double gyro){
+        m_drive.mecanumDrive_Cartesian(x, y, rot, gyro);
     }
     
-    public static void drive(double mag, double curve) {
-        driveMain.drive(mag, curve);
+    public static void drive(double mag, double curve){
+        m_drive.drive(mag, curve);
     }
     
-    public static void rotate(double rot) {
-        driveMain.arcadeDrive(0.0, rot);
+    public static void PIDMove(double throt){
+        m_drive.arcadeDrive(throt, 0.0);
+    }
+    
+    public static void PIDrotate(double rot){
+        m_drive.arcadeDrive(0.0, rot);
     }
     
     public static void setDriveMode(DriveMode mode){
-        driveMode = mode;        
+        m_driveMode = mode;        
     }
     
     public static void resetDefaultCommand(Command commnand){
-        instance.setDefaultCommand(commnand);   
+        m_instance.setDefaultCommand(commnand);   
     }
     
     public static void setSolenoid(boolean on){
-        solenoid_wheelSwitch.set(on);
+        m_wheelSwitch.set(on);
     }
     
     public static DriveMode getDriveMode(){
-        return driveMode;
-    }
-    
-    public static int takeLock(boolean force){
-        if(!externalLock || force){
-            lockNum = (int)VM.getTimeMillis();
-            externalLock = true;
-            return lockNum;
-        }else{
-            return -1;
-        }
-        
-    }
-    
-    public static boolean releaseLock(int num){
-        if(externalLock){
-            if(num == lockNum){
-                externalLock = false;
-                lockNum = 0;
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
-        }
-    }
-    
-    public static void setExternalLock(boolean value) {
-        externalLock = value;
-    }
-    
-    public static boolean getExternLock() {
-        return externalLock;
+        return m_driveMode;
     }
     
     public static void makeSafe(){
-        externalLock = true;
-        driveMain.stopMotor();
-        motor_front_left.disable();
-        motor_front_left.free();
+        m_drive.stopMotor();
+        m_motorFrontLeft.disable();
+        m_motorFrontLeft.free();
         
-        motor_back_left.disable();
-        motor_back_left.free();
+        m_motorBackLeft.disable();
+        m_motorBackLeft.free();
         
-        motor_front_right.disable();
-        motor_front_right.free();
+        m_motorFrontRight.disable();
+        m_motorFrontRight.free();
         
-        motor_back_right.disable();
-        motor_back_right.free();        
+        m_motorBackRight.disable();
+        m_motorBackRight.free();        
         
     }
 
 
-    protected void initDefaultCommand() {
+    protected void initDefaultCommand(){
         setDefaultCommand(new C_Arcade());
     }
 }

@@ -13,23 +13,23 @@ public class SS_Launcher extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    private static final Solenoid solenoid_ram, solenoid_release;
-    private static final DigitalInput dio_locked, dio_ball, dio_ramPosA, dio_ramPosB;
+    private static final Solenoid m_solenoidRam, m_solenoidRelease;
+    private static final DigitalInput m_dioLocked, m_dioBall, m_dioRamPosA, m_dioRamPosB;
     
-    private static final SS_Launcher instance = new SS_Launcher();
+    private static final SS_Launcher m_instance = new SS_Launcher();
 
     public static SS_Launcher getInstance(){
-        return instance;
+        return m_instance;
     }
 
     static{
-        solenoid_ram = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_LOAD);
-        solenoid_release = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_RELEASE);
+        m_solenoidRam = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_LOAD);
+        m_solenoidRelease = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_RELEASE);
         
-        dio_locked = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_LOCKED);
-        dio_ball = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_BALL);
-        dio_ramPosA = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_A);
-        dio_ramPosB = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_B);
+        m_dioLocked = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_LOCKED);
+        m_dioBall = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_BALL);
+        m_dioRamPosA = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_A);
+        m_dioRamPosB = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_B);
     }
 
     private SS_Launcher(){
@@ -37,35 +37,35 @@ public class SS_Launcher extends Subsystem implements RMap {
     }
     
     public static void loaderExtend(){
-        solenoid_ram.set(true);
+        m_solenoidRam.set(true);
     }
     
     public static void loaderRetract(){
-        solenoid_ram.set(false);
+        m_solenoidRam.set(false);
     }
     
     public static void latchRelease(){
-        solenoid_release.set(true);
+        m_solenoidRelease.set(true);
     }
     
     public static void latchLock(){
-        solenoid_release.set(false);
+        m_solenoidRelease.set(false);
     }
     
     public static boolean isRamExtended(){
-        return dio_ramPosB.get();
+        return m_dioRamPosB.get();
     }
     
     public static boolean isRamRetracted(){
-        return dio_ramPosA.get();
+        return m_dioRamPosA.get();
     }
     
     public static boolean isCocked(){
-        return dio_locked.get();
+        return m_dioLocked.get();
     }
     
     public static boolean ballPresent(){
-        return dio_ball.get();
+        return m_dioBall.get();
     }
 
     public void initDefaultCommand() {

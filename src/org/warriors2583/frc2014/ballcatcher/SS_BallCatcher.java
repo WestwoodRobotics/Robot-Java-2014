@@ -14,8 +14,8 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    private static final Victor motor_spindle;
-    private static final Solenoid solenoid_frame;
+    private static final Victor m_motor;
+    private static final Solenoid m_solenoid;
 
     private static final SS_BallCatcher instance = new SS_BallCatcher();
 
@@ -24,8 +24,8 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     }
 
     static{
-        motor_spindle = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
-        solenoid_frame = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
+        m_motor = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
+        m_solenoid = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
 
     }
 
@@ -37,14 +37,14 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * Set the Ball Catcher Frame Down
      */
     public static void catcherUp(){
-        solenoid_frame.set(false);
+        m_solenoid.set(false);
     }
     
     /**
      * Set the Ball Catcher Frame Down
      */
     public static void catcherDown(){
-        solenoid_frame.set(true);
+        m_solenoid.set(true);
     }
     
     /**
@@ -52,28 +52,28 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * @return state of Ball Catcher frame
      */
     public static boolean isDown(){
-        return solenoid_frame.get();
+        return m_solenoid.get();
     }
     
     /**
      * Run the Ball Catcher Spindle Forward
      */
     public static void spindleForward(){
-        motor_spindle.set(0.75);
+        m_motor.set(0.75);
     }
     
     /**
      * Run the Ball Catcher Spindle Backward
      */
     public static void spindleBackward(){
-        motor_spindle.set(-0.75);
+        m_motor.set(-0.75);
     }
     
     /**
      * Stop the Ball Catcher Spindle
      */
     public static void spindleStop(){
-        motor_spindle.set(0);
+        m_motor.set(0);
     }
     
     /**
@@ -81,7 +81,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * @param speed Spindle Speed
      */
     public static void spindleSet(double speed){
-        motor_spindle.set(speed);
+        m_motor.set(speed);
     }
     
     /**
@@ -89,17 +89,17 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * @return ball catcher frame state (up/down)
      */
     public static boolean getCatcherState(){
-        return solenoid_frame.get();
+        return m_solenoid.get();
     }
     
     
     public static void makeSafe(){
-        motor_spindle.stopMotor();
-        motor_spindle.disable();
-        motor_spindle.free();
+        m_motor.stopMotor();
+        m_motor.disable();
+        m_motor.free();
         
-        solenoid_frame.set(false);
-        solenoid_frame.free();
+        m_solenoid.set(false);
+        m_solenoid.free();
     }
 
     public void initDefaultCommand() {

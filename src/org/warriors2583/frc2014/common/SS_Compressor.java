@@ -10,12 +10,12 @@ import org.warriors2583.frc2014.RMap;
  */
 public class SS_Compressor extends Subsystem implements RMap {
     
-    private static final Compressor compressor = new Compressor(DIO_COMPRESSOR, RELAY_COMPRESSOR);
+    private static final Compressor m_compressor = new Compressor(DIO_COMPRESSOR, RELAY_COMPRESSOR);
     
-    private static final SS_Compressor instance = new SS_Compressor();
+    private static final SS_Compressor m_instance = new SS_Compressor();
     
     public static SS_Compressor getInstance() {
-        return instance;
+        return m_instance;
     }
     
     private SS_Compressor(){
@@ -26,14 +26,14 @@ public class SS_Compressor extends Subsystem implements RMap {
      * Enable the Compressor control loop
      */
     public static void start(){
-        compressor.start();
+        m_compressor.start();
     }
     
     /**
      * Disable the Compressor control loop
      */ 
     public static void stop(){
-        compressor.stop();
+        m_compressor.stop();
     }
     
     /**
@@ -41,7 +41,7 @@ public class SS_Compressor extends Subsystem implements RMap {
      * @return compressor enabled state
      */
     public static boolean isEnabled(){
-        return compressor.enabled();
+        return m_compressor.enabled();
     }
     
     /**
@@ -49,13 +49,13 @@ public class SS_Compressor extends Subsystem implements RMap {
      * @return compressor running state
      */
     public static boolean isRunning(){
-        return compressor.getPressureSwitchValue();
+        return m_compressor.getPressureSwitchValue();
     }
     
     
     public static void makeSafe(){
-        compressor.stop();
-        compressor.free();
+        m_compressor.stop();
+        m_compressor.free();
     }
     
     
