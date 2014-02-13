@@ -105,7 +105,7 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         m_drive.tankDrive(l, r);
     }
     
-    public static void mecanum(double x, double y, double rot, double gyro){
+    public static void mecanum(double x, double rot, double y, double gyro){
         m_drive.mecanumDrive_Cartesian(x, y, rot, gyro);
     }
     

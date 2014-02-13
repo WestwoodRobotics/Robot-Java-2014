@@ -19,17 +19,17 @@ public interface RMap {
      * Driver Joystick Speed Scaling Button
      */
     public static final int JOY_DRIVE_BTN_SCALE = 5;
-    
+
     /**
      * Shooter Joystick ID Number
      */
     public static final int JOY_SHOOT = 2;
-    
+
     /**
      * Drive Motor Module Number
      */
     public static final int MODULE_DRIVE = 1;
-    
+
     /**
      * Front Left Drive Motor PWM Number
      */
@@ -162,7 +162,7 @@ public interface RMap {
      * System Memory Dashboard label
      */
     public static final String DASH_MEMORY_STATUS = "System-Memory";
-    
+
     /**
      * Compressor Status Dashboard label
      */
@@ -172,12 +172,12 @@ public interface RMap {
      * Default NetworkTables Table
      */
     public static final String NETTABLE_DEFAULT_TABLE = "NetworkTables";
-    
+
     /**
      * Dashboard Logging Table
      */
     public static final String NETTABLE_DASH_LOG = "DashboardLog";
-    
+       
     /**
      * Raspberry Pi Subtable name
      */

@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Watchdog;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.warriors2583.frc2014.auton.CG_OneBall;
 import org.warriors2583.frc2014.common.C_CompressorStart;
 
 /**
@@ -27,6 +28,7 @@ public class WestwoodBot extends IterativeRobot {
     RasPi raspi = new RasPi();
     Computer comp = new Computer();
     Command compressor = new C_CompressorStart();
+    CommandGroup auton = new CG_OneBall();
 
     /**
      * This function is run when the robot is first started up and should be
@@ -44,6 +46,7 @@ public class WestwoodBot extends IterativeRobot {
     public void autonomousInit(){
         System.gc();
         compressor.start();
+        auton.start();
     }
 
     /**
@@ -60,7 +63,6 @@ public class WestwoodBot extends IterativeRobot {
      */
 
     public void disabledInit(){
-        //compressor.cancel();
         System.gc();
     }
 
@@ -85,11 +87,7 @@ public class WestwoodBot extends IterativeRobot {
     }
 
     public void teleopInit(){
-        // This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        //autonomousCommand.cancel();
+
         System.gc();
         compressor.start();
     }

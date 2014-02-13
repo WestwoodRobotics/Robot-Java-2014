@@ -23,7 +23,8 @@ public class SS_Dashboard extends Subsystem implements RMap {
     }
 
     static{
-        m_memMax = String.valueOf((MathUtils.round(((double)Runtime.getRuntime().totalMemory()/1048576) * 1e2))/1e2) + "M";
+        m_memMax = 
+        String.valueOf((MathUtils.round(((double)Runtime.getRuntime().totalMemory()/1048576) * 1e2))/1e2) + "M";
     }
     
     public static void update(){
