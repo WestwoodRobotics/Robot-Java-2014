@@ -22,7 +22,7 @@ public class OI implements RMap {
     
     //Button Controls
     //private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
-    private static final JoystickButton fireBall, mecanumButton, arcadeButton;
+    private static final JoystickButton fireBall, arcadeButton, tankButton, mecanumButton, mecatankButton;
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -34,16 +34,21 @@ public class OI implements RMap {
         joy_drive = new XBoxController(JOY_DRIVE);
         joy_shoot = new XBoxController(JOY_SHOOT);
         
-        fireBall = new JoystickButton(joy_drive, XBoxController.BTN_B_ID);
+        fireBall = new JoystickButton(joy_drive, XBoxController.BTN_RIGHT_SHOULDER_ID);
         fireBall.whenPressed(new CG_FireBall());
-        
-        mecanumButton = new JoystickButton(joy_drive, XBoxController.BTN_Y_ID);
-        mecanumButton.whenPressed(new C_ChangeDrivemode(3));
         
         arcadeButton = new JoystickButton(joy_drive, XBoxController.BTN_Y_ID);
         arcadeButton.whenPressed(new C_ChangeDrivemode(1));
         
-
+        tankButton = new JoystickButton(joy_drive, XBoxController.BTN_X_ID);
+        tankButton.whenPressed(new C_ChangeDrivemode(2));
+        
+        mecanumButton = new JoystickButton(joy_drive, XBoxController.BTN_B_ID);
+        mecanumButton.whenPressed(new C_ChangeDrivemode(3));
+        
+        mecatankButton = new JoystickButton(joy_drive, XBoxController.BTN_A_ID);
+        mecatankButton.whenPressed(new C_ChangeDrivemode(4));
+        
 //      catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
 //      catchUp.whenPressed(new C_CatcherUp());
 //      

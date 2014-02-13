@@ -34,14 +34,19 @@ public class C_ChangeDrivemode extends Command {
             dmode = SS_Drivetrain.DriveMode.MECANUM;
             break;
             
+        case 4:
+            dmode = SS_Drivetrain.DriveMode.MECATANK;
+            break;
+            
         default:
             dmode = SS_Drivetrain.DriveMode.ARCADE;
             break;
         }
         
-        SS_Drivetrain.setDriveMode(dmode);
-        SS_Drivetrain.resetDefaultCommand(dmode.getCommand());
-        SS_Drivetrain.setSolenoid(dmode.getSolenoid());
+        //SS_Drivetrain.setDriveMode(dmode);
+        //SS_Drivetrain.resetDefaultCommand(dmode.getCommand());
+        //SS_Drivetrain.setSolenoid(dmode.getSolenoid());
+        dmode.init();
     }
 
     // Called repeatedly when this Command is scheduled to run
