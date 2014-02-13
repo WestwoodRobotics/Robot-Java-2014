@@ -89,8 +89,7 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         
         m_wheelSwitch = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_DRIVESWITCH);
         
-        //Had to change Front and back of left side because the mecanum is stupid
-        m_drive = new RobotDrive(m_motorBackLeft, m_motorFrontLeft, m_motorFrontRight, m_motorBackRight);
+        m_drive = new RobotDrive(m_motorFrontLeft, m_motorBackLeft, m_motorFrontRight, m_motorBackRight);
     }
 
     private SS_Drivetrain(){
@@ -119,6 +118,17 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     
     public static void PIDrotate(double rot){
         m_drive.arcadeDrive(0.0, rot);
+    }
+
+    public static void setMotors(double values[], byte syncGroup){
+        setMotors(values[0], values[1], values[2], values[3], syncGroup);
+    }
+
+    public static void setMotors(double frontLeft, double backLeft, double frontRight, double backRight, byte syncGroup){
+        m_motorFrontLeft.set(frontLeft, syncGroup);
+        m_motorbackLeft.set(frontLeft, syncGroup);
+        m_motorFrontRight.set(frontLeft, syncGroup);
+        m_motorbackRight.set(frontLeft, syncGroup);
     }
     
     public static void setDriveMode(DriveMode mode){
