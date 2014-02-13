@@ -8,3 +8,5 @@
 *.sublime-*
 /build/
 /doc/
+
+/nbproject/private/private.xml
