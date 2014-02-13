@@ -17,7 +17,7 @@ public class C_Mecanum extends Command {
     }
 
     // Called just before this Command runs the first time
-    protected void initialize() {
+    protected void initialize() {        
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,7 +26,7 @@ public class C_Mecanum extends Command {
         SS_Drivetrain.mecanum(OI.getJDriveLeftX() * (scale ? 0.7 : 1),
                 OI.getJDriveLeftY() * (scale ? 0.7 : 1),
                 OI.getJDriveRightX() * (scale ? 0.75 : 1),
-                0);
+                90.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

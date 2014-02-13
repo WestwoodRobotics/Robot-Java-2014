@@ -7,6 +7,7 @@ import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.lib.SS_Dashboard;
 import org.warriors2583.lib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
+import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.launcher.CG_FireBall;
 import org.warriors2583.frc2014.launcher.SS_Launcher;
 
@@ -21,7 +22,7 @@ public class OI implements RMap {
     
     //Button Controls
     //private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
-    private static final JoystickButton fireBall;
+    private static final JoystickButton fireBall, mecanumButton, arcadeButton;
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -35,6 +36,13 @@ public class OI implements RMap {
         
         fireBall = new JoystickButton(joy_drive, XBoxController.BTN_B_ID);
         fireBall.whenPressed(new CG_FireBall());
+        
+        mecanumButton = new JoystickButton(joy_drive, XBoxController.BTN_Y_ID);
+        mecanumButton.whenPressed(new C_ChangeDrivemode(3));
+        
+        arcadeButton = new JoystickButton(joy_drive, XBoxController.BTN_Y_ID);
+        arcadeButton.whenPressed(new C_ChangeDrivemode(1));
+        
 
 //      catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
 //      catchUp.whenPressed(new C_CatcherUp());

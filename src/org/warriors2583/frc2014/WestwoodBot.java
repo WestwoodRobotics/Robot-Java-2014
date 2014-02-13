@@ -10,6 +10,7 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Watchdog;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.warriors2583.frc2014.common.C_CompressorStart;
@@ -25,6 +26,7 @@ public class WestwoodBot extends IterativeRobot {
     OI oi = new OI();
     RasPi raspi = new RasPi();
     Computer comp = new Computer();
+    Command compressor = new C_CompressorStart();
 
     /**
      * This function is run when the robot is first started up and should be
@@ -33,7 +35,7 @@ public class WestwoodBot extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         Watchdog.getInstance().setEnabled(true);
-        new C_CompressorStart().start();
+        compressor.start();
         
         // Initialize all subsystems
         System.out.println("Robot Initiated");
@@ -41,6 +43,7 @@ public class WestwoodBot extends IterativeRobot {
 
     public void autonomousInit(){
         System.gc();
+        compressor.start();
     }
 
     /**
@@ -88,6 +91,7 @@ public class WestwoodBot extends IterativeRobot {
         // this line or comment it out.
         //autonomousCommand.cancel();
         System.gc();
+        compressor.start();
     }
 
     /**
