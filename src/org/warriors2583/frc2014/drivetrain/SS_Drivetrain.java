@@ -126,9 +126,9 @@ public class SS_Drivetrain extends Subsystem implements RMap {
 
     public static void setMotors(double frontLeft, double backLeft, double frontRight, double backRight, byte syncGroup){
         m_motorFrontLeft.set(frontLeft, syncGroup);
-        m_motorbackLeft.set(frontLeft, syncGroup);
+        m_motorBackLeft.set(frontLeft, syncGroup);
         m_motorFrontRight.set(frontLeft, syncGroup);
-        m_motorbackRight.set(frontLeft, syncGroup);
+        m_motorBackRight.set(frontLeft, syncGroup);
     }
     
     public static void setDriveMode(DriveMode mode){

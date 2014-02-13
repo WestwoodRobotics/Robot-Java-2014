@@ -21,7 +21,7 @@ public class C_Mecanum extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         //0 FrontLeft, 1 BackLeft, 2 FrontRight, 3 BackRight
-        wheelSpeeds[] = new double[4];     
+        wheelSpeeds = new double[4];     
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -44,7 +44,7 @@ public class C_Mecanum extends Command {
         //normalize(wheelSpeeds);
 
         //Lets set dem motors!
-        SS_Drivemode.setMotors(wheelSpeeds, (byte)0x80);
+        SS_Drivetrain.setMotors(wheelSpeeds, (byte)0x80);
 
         /*boolean scale = OI.getJDriveButton(5);
         SS_Drivetrain.mecanum(OI.getJDriveLeftX() * (scale ? 0.7 : 1),
