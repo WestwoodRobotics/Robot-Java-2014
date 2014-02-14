@@ -274,6 +274,11 @@ public interface RMap {
     public static final String NETTABLE_COMPUTER_SETTINGS_DRIVEMODE = "drivemode";
 
     /**
+     * Computer Settings Ball Catcher Spindle Scale value key
+     */
+    public static final String NETTABLE_COMPUTER_SETTINGS_CATCHER_SCALE = "spindleScale";
+
+    /**
      * Computer Status Subtable name
      */
     public static final String NETTABLE_COMPUTER_STATUS = "Status";

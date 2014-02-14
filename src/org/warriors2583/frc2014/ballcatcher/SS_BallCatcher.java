@@ -13,6 +13,8 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
+    private static double m_spindleScale;
+
     private static final Victor m_motor;
     private static final Solenoid m_solenoid;
 
@@ -23,6 +25,8 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     }
 
     static{
+        m_spindleScale = 0.75;
+
         m_motor = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
         m_solenoid = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
 
@@ -58,14 +62,14 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * Run the Ball Catcher Spindle Forward
      */
     public static void spindleForward(){
-        m_motor.set(0.75);
+        m_motor.set(getSpindleScale());
     }
     
     /**
      * Run the Ball Catcher Spindle Backward
      */
     public static void spindleBackward(){
-        m_motor.set(-0.75);
+        m_motor.set(getSpindleScale());
     }
     
     /**
@@ -80,9 +84,25 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * @param speed Spindle Speed
      */
     public static void spindleSet(double speed){
-        m_motor.set(speed);
+        m_motor.set(speed * m_spindleScale);
     }
-    
+
+    /**
+     * Gets the scaling speed of the spindle
+     * @return double value
+     */
+    public static void getSpindleScale(){
+        return m_spindleScale;
+    }
+
+    /**
+     * Sets the scaling speed of the spindle
+     * @param scale Spindle Speed Scaling Factor
+     */
+    public static void setSpindleScale(double scale){
+        m_spindleScale = scale;
+    }
+
     /**
      * Get the state of the Ball Catcher Frame
      * @return ball catcher frame state (up/down)

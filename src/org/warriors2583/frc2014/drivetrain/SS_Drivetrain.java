@@ -119,20 +119,24 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     public static void PIDrotate(double rot){
         m_drive.arcadeDrive(0.0, rot);
     }
-
-    public static void setMotors(double values[], byte syncGroup){
-        setMotors(values[0], values[1], values[2], values[3], syncGroup);
+    
+    public static void feedDrive(){
+        m_drive.feedSafety();
+    }
+    
+    public static void setMotors(double values[]){
+        setMotors(values[0], values[1], values[2], values[3]);
     }
 
-    public static void setMotors(double frontLeft, double backLeft, double frontRight, double backRight, byte syncGroup){
-        m_motorFrontLeft.set(frontLeft, syncGroup);
-        m_motorBackLeft.set(frontLeft, syncGroup);
-        m_motorFrontRight.set(frontLeft, syncGroup);
-        m_motorBackRight.set(frontLeft, syncGroup);
+    public static void setMotors(double frontLeft, double backLeft, double frontRight, double backRight){
+        m_motorFrontLeft.set(frontLeft);
+        m_motorBackLeft.set(frontLeft);
+        m_motorFrontRight.set(frontLeft);
+        m_motorBackRight.set(frontLeft);
     }
     
     public static void setDriveMode(DriveMode mode){
-        m_driveMode = mode;        
+        m_driveMode = mode;
     }
     
     public static void resetDefaultCommand(Command commnand){

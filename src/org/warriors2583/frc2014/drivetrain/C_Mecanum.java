@@ -9,7 +9,7 @@ import org.warriors2583.frc2014.OI;
  */
 public class C_Mecanum extends Command {
 
-    private double wheelSpeeds[];
+    //private double wheelSpeeds[];
 
     public C_Mecanum() {
         // Use requires() here to declare subsystem dependencies
@@ -21,14 +21,14 @@ public class C_Mecanum extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         //0 FrontLeft, 1 BackLeft, 2 FrontRight, 3 BackRight
-        wheelSpeeds = new double[4];     
+        //wheelSpeeds = new double[4];     
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double xIn = OI.getJDriveLeftX();
-        double yIn = -OI.getJDriveLeftY();
-        double rotation = OI.getJDriveRightX();
+        /*double xIn = OI.getJDriveLeftX();
+        double yIn = OI.getJDriveLeftY();
+        double rotation = -OI.getJDriveRightX();*/
 
         // Compenstate for gyro angle.
         //double rotated[] = rotateVector(xIn, yIn, gyroAngle);
@@ -36,21 +36,23 @@ public class C_Mecanum extends Command {
         //yIn = rotated[1];
 
         //How Mecanum is REALLY supposed to be done. Note the Signs, WPI!!!!
-        wheelSpeeds[0] = xIn + yIn + rotation;
+        /*wheelSpeeds[0] = xIn + yIn + rotation;
         wheelSpeeds[1] = -xIn + yIn + rotation;
         wheelSpeeds[2] = xIn - yIn + rotation;
-        wheelSpeeds[3] = -xIn - yIn + rotation;
+        wheelSpeeds[3] = -xIn - yIn + rotation;*/
 
         //normalize(wheelSpeeds);
 
         //Lets set dem motors!
-        SS_Drivetrain.setMotors(wheelSpeeds, (byte)0x80);
+        /*SS_Drivetrain.setMotors(wheelSpeeds);
+        
+        SS_Drivetrain.feedDrive();*/
 
-        /*boolean scale = OI.getJDriveButton(5);
-        SS_Drivetrain.mecanum(OI.getJDriveLeftX() * (scale ? 0.7 : 1),
-                OI.getJDriveLeftY() * (scale ? 0.7 : 1),
-                OI.getJDriveRightX() * (scale ? 0.75 : 1),
-                90.0);*/
+        double scale = (OI.getJDriveButton(1) ? 0.75 : 1.0);
+        SS_Drivetrain.mecanum(OI.getJDriveLeftX() * scale,
+                OI.getJDriveLeftY() * scale,
+                OI.getJDriveRightX() * scale,
+                90.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

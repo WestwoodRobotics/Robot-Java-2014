@@ -23,7 +23,7 @@ public class C_Arcade extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         boolean scale = OI.getJDriveButton(5);
-        SS_Drivetrain.tank(OI.getJDriveLeftY() * (scale ? 0.7 : 1),
+        SS_Drivetrain.arcade(OI.getJDriveLeftY() * (scale ? 0.7 : 1),
                 OI.getJDriveRightX() * (scale ? 0.7 : 1));
     }
 

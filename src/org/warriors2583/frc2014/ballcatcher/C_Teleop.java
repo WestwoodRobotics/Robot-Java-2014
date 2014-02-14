@@ -28,7 +28,7 @@ public class C_Teleop extends Command {
     protected void execute() {
         SS_BallCatcher.spindleSet(
                 (bTI(OI.joy_drive.btnRightShoulder()) - 
-                        bTI(OI.joy_drive.btnLeftShoulder())) * 0.65);
+                        bTI(OI.joy_drive.btnLeftShoulder())));
         if(OI.joy_drive.btnX()){
             SS_BallCatcher.catcherDown();
         }else if(OI.joy_drive.btnY()){

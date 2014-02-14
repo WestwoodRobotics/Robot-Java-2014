@@ -43,9 +43,9 @@ public class C_ChangeDrivemode extends Command {
             break;
         }
         
-        //SS_Drivetrain.setDriveMode(dmode);
-        //SS_Drivetrain.resetDefaultCommand(dmode.getCommand());
-        //SS_Drivetrain.setSolenoid(dmode.getSolenoid());
+        SS_Drivetrain.setDriveMode(dmode);
+        SS_Drivetrain.resetDefaultCommand(dmode.getCommand());
+        SS_Drivetrain.setSolenoid(dmode.getSolenoid());
         dmode.init();
     }
 
