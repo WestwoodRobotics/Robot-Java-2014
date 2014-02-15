@@ -9,6 +9,8 @@ import org.warriors2583.lib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.launcher.CG_FireBall;
+import org.warriors2583.frc2014.launcher.C_FlapperDown;
+import org.warriors2583.frc2014.launcher.C_FlapperUp;
 import org.warriors2583.frc2014.launcher.SS_Launcher;
 
 /**
@@ -22,7 +24,8 @@ public class OI implements RMap {
     
     //Button Controls
     //private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
-    private static final JoystickButton fireBall, arcadeButton, tankButton, mecanumButton, mecatankButton;
+    private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
+    private static final JoystickButton fireBall, flapperUp, flapperDown;
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -33,9 +36,6 @@ public class OI implements RMap {
         
         joy_drive = new XBoxController(JOY_DRIVE);
         joy_shoot = new XBoxController(JOY_SHOOT);
-        
-        fireBall = new JoystickButton(joy_drive, XBoxController.BTN_B_ID);
-        fireBall.whenPressed(new CG_FireBall());
         
         arcadeButton = new JoystickButton(joy_drive, XBoxController.BTN_SELECT_ID);
         arcadeButton.whenPressed(new C_ChangeDrivemode(1));
@@ -48,6 +48,18 @@ public class OI implements RMap {
         
         mecatankButton = new JoystickButton(joy_drive, XBoxController.BTN_RIGHT_STICK_ID);
         mecatankButton.whenPressed(new C_ChangeDrivemode(4));
+        
+        fireBall = new JoystickButton(joy_shoot, XBoxController.BTN_B_ID);
+        fireBall.whenPressed(new CG_FireBall());
+        
+        flapperDown = new JoystickButton(joy_shoot, XBoxController.BTN_A_ID);
+        flapperDown.whenPressed(new C_FlapperDown());
+        
+        flapperUp = new JoystickButton(joy_shoot, XBoxController.BTN_START_ID);
+        flapperUp.whenPressed(new C_FlapperUp());
+        
+        
+        
         
 //      catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
 //      catchUp.whenPressed(new C_CatcherUp());

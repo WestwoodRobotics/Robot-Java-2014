@@ -96,6 +96,11 @@ public interface RMap {
     public static final int SOLENOID_LAUNCHER_FLAPPER = 6;
     
     /**
+     * Launcher Lock Solenoid Number
+     */
+    public static final int SOLENOID_LAUNCHER_LOCK = 7;
+    
+    /**
      * Relay Module Number
      */
     public static final int MODULE_RELAY = 1;
