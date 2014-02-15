@@ -91,7 +91,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * Gets the scaling speed of the spindle
      * @return double value
      */
-    public static void getSpindleScale(){
+    public static double getSpindleScale(){
         return m_spindleScale;
     }
 

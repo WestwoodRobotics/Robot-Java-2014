@@ -37,7 +37,7 @@ public class OI implements RMap {
         fireBall = new JoystickButton(joy_drive, XBoxController.BTN_B_ID);
         fireBall.whenPressed(new CG_FireBall());
         
-        arcadeButton = new JoystickButton(joy_drive, XBoxController.BTN_BACK_ID);
+        arcadeButton = new JoystickButton(joy_drive, XBoxController.BTN_SELECT_ID);
         arcadeButton.whenPressed(new C_ChangeDrivemode(1));
         
         tankButton = new JoystickButton(joy_drive, XBoxController.BTN_LEFT_STICK_ID);

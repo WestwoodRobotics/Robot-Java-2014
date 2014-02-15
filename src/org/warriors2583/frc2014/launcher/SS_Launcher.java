@@ -13,8 +13,8 @@ public class SS_Launcher extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    private static final Solenoid m_solenoidRam, m_solenoidRelease;
-    private static final DigitalInput m_dioLocked, m_dioBall, m_dioRamPosA, m_dioRamPosB;
+    private static final Solenoid m_solenoidRam, m_solenoidRelease, m_solenoidFlow, m_solenoidFlapper;
+    private static final DigitalInput m_dioLocked, m_dioBall, m_dioRamPosA;
     
     private static final SS_Launcher m_instance = new SS_Launcher();
 
@@ -25,11 +25,13 @@ public class SS_Launcher extends Subsystem implements RMap {
     static{
         m_solenoidRam = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_LOAD);
         m_solenoidRelease = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_RELEASE);
+        m_solenoidFlow = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLOW);
+        m_solenoidFlapper = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLAPPER);
         
         m_dioLocked = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_LOCKED);
         m_dioBall = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_BALL);
         m_dioRamPosA = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_A);
-        m_dioRamPosB = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_B);
+        //m_dioRamPosB = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_B);
     }
 
     private SS_Launcher(){
@@ -44,6 +46,10 @@ public class SS_Launcher extends Subsystem implements RMap {
         m_solenoidRam.set(false);
     }
     
+    public static void setFlow(boolean on){
+        m_solenoidFlow.set(on);
+    }
+    
     public static void latchRelease(){
         m_solenoidRelease.set(true);
     }
@@ -52,8 +58,17 @@ public class SS_Launcher extends Subsystem implements RMap {
         m_solenoidRelease.set(false);
     }
     
+    public static void flapperDown(){
+        m_solenoidFlapper.set(true);
+    }
+    
+    public static void flapperUp(){
+        m_solenoidFlapper.set(false);
+    }
+    
     public static boolean isRamExtended(){
-        return m_dioRamPosB.get();
+        //return m_dioRamPosB.get();
+        return false;
     }
     
     public static boolean isRamRetracted(){

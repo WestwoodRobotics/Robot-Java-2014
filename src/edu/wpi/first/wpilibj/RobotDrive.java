@@ -765,6 +765,4 @@ public class RobotDrive implements MotorSafety, IUtility {
         if (m_rearRightMotor != null) motors++;
         return motors;
     }
-
-    public void setMotors()
 }

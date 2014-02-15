@@ -6,28 +6,26 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Austin Reuland
  */
-public class C_ExtendRam extends Command {
+public class C_FlapperDown extends Command {
 
-    public C_ExtendRam() {
+    public C_FlapperDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        super("C_ExtendRam");
+		super("C_FlapperDown");
         requires(SS_Launcher.getInstance());
-        setInterruptible(false);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        SS_Launcher.loaderExtend();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        SS_Launcher.flapperDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return SS_Launcher.isCocked();
         return true;
     }
 

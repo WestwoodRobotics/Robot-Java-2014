@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.warriors2583.frc2014.auton.CG_OneBall;
 import org.warriors2583.frc2014.common.C_CompressorStart;
+import org.warriors2583.frc2014.launcher.SS_Launcher;
 
 /**
  * The main class for the robot.
@@ -42,6 +43,7 @@ public class WestwoodBot extends IterativeRobot {
         
         // Initialize all subsystems
         System.out.println("Robot Initiated");
+        SS_Launcher.setFlow(true);
     }
 
     public void autonomousInit(){
