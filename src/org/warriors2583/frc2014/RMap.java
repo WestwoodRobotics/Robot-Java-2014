@@ -1,5 +1,7 @@
 package org.warriors2583.frc2014;
 
+import org.warriors2583.lib.XBoxController;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -144,6 +146,30 @@ public interface RMap {
      * Launcher Ram Forward Position Sensor DIO Number
      */
     public static final int DIO_LAUNCHER_RAM_B = 5;
+    
+    public static final int JOY_DRIVER_MODE_ARCADE = XBoxController.BTN_A_ID;
+    
+    public static final int JOY_DRIVER_MODE_MECANUM = XBoxController.BTN_B_ID;
+    
+    public static final int JOY_DRIVER_MODE_TANK = XBoxController.BTN_LEFT_STICK_ID;
+    
+    public static final int JOY_DRIVER_MODE_MECATANK = XBoxController.BTN_RIGHT_STICK_ID;
+    
+    public static final int JOY_SHOOT_CATCHER_UP = XBoxController.BTN_Y_ID;
+    
+    public static final int JOY_SHOOT_CATCHER_DOWN = XBoxController.BTN_X_ID;
+    
+    public static final int JOY_SHOOT_WHEELS_FORWARD = XBoxController.BTN_RIGHT_SHOULDER_ID;
+    
+    public static final int JOY_SHOOT_WHEELS_BACK = XBoxController.BTN_LEFT_SHOULDER_ID;
+    
+    public static final int JOY_SHOOT_LAUNCHER_FIRE = XBoxController.BTN_B_ID;
+    
+    public static final int JOY_SHOOT_LAUNCHER_COCK = XBoxController.BTN_A_ID;
+    
+    public static final int JOY_SHOOT_FLIPPER_UP = XBoxController.BTN_SELECT_ID;
+    
+    public static final int JOY_SHOOT_FLIPPER_DOWN = XBoxController.BTN_START_ID;
     
     /* Dashboard and NetworkTable Values */
     /* --------------------------------- */

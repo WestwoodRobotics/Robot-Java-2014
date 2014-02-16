@@ -50,6 +50,7 @@ public class WestwoodBot extends IterativeRobot {
         System.gc();
         compressor.start();
         auton.start();
+        SS_Launcher.setFlow(true);
     }
 
     /**
@@ -101,6 +102,7 @@ public class WestwoodBot extends IterativeRobot {
     public void teleopPeriodic(){
         Watchdog.getInstance().feed();
         Scheduler.getInstance().run();
+        SS_Launcher.setFlow(true);
     }
     
     public void testPeriodic(){

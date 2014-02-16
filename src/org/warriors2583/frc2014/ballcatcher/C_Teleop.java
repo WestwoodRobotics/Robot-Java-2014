@@ -2,13 +2,14 @@ package org.warriors2583.frc2014.ballcatcher;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.warriors2583.frc2014.OI;
+import org.warriors2583.frc2014.RMap;
 import org.warriors2583.lib.CommonFunctions.*;
 
 /**
  *
  * @author Austin Reuland
  */
-public class C_Teleop extends Command {
+public class C_Teleop extends Command implements RMap {
 
     public C_Teleop() {
         // Use requires() here to declare subsystem dependencies
@@ -27,11 +28,11 @@ public class C_Teleop extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         SS_BallCatcher.spindleSet(
-                (bTI(OI.joy_drive.btnRightShoulder()) - 
-                        bTI(OI.joy_drive.btnLeftShoulder())));
-        if(OI.joy_drive.btnX()){
+                (bTI(OI.joy_shoot.getRawButton(JOY_SHOOT_WHEELS_FORWARD)) - 
+                        bTI(OI.joy_shoot.getRawButton(JOY_SHOOT_WHEELS_BACK))));
+        if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_UP)){
             SS_BallCatcher.catcherDown();
-        }else if(OI.joy_drive.btnY()){
+        }else if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_DOWN)){
             SS_BallCatcher.catcherUp();
         }
     }

@@ -8,6 +8,7 @@ import org.warriors2583.lib.SS_Dashboard;
 import org.warriors2583.lib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
+import org.warriors2583.frc2014.launcher.CG_CockTheLauncher;
 import org.warriors2583.frc2014.launcher.CG_FireBall;
 import org.warriors2583.frc2014.launcher.C_FlapperDown;
 import org.warriors2583.frc2014.launcher.C_FlapperUp;
@@ -25,7 +26,7 @@ public class OI implements RMap {
     //Button Controls
     //private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
     private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
-    private static final JoystickButton fireBall, flapperUp, flapperDown;
+    private static final JoystickButton fireBall, cockLauncher, flipperUp, flipperDown;
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -37,26 +38,29 @@ public class OI implements RMap {
         joy_drive = new XBoxController(JOY_DRIVE);
         joy_shoot = new XBoxController(JOY_SHOOT);
         
-        arcadeButton = new JoystickButton(joy_drive, XBoxController.BTN_SELECT_ID);
+        arcadeButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_ARCADE);
         arcadeButton.whenPressed(new C_ChangeDrivemode(1));
         
-        tankButton = new JoystickButton(joy_drive, XBoxController.BTN_LEFT_STICK_ID);
+        tankButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_TANK);
         tankButton.whenPressed(new C_ChangeDrivemode(2));
         
-        mecanumButton = new JoystickButton(joy_drive, XBoxController.BTN_START_ID);
+        mecanumButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_MECANUM);
         mecanumButton.whenPressed(new C_ChangeDrivemode(3));
         
-        mecatankButton = new JoystickButton(joy_drive, XBoxController.BTN_RIGHT_STICK_ID);
+        mecatankButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_MECATANK);
         mecatankButton.whenPressed(new C_ChangeDrivemode(4));
         
-        fireBall = new JoystickButton(joy_shoot, XBoxController.BTN_B_ID);
+        fireBall = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_FIRE);
         fireBall.whenPressed(new CG_FireBall());
         
-        flapperDown = new JoystickButton(joy_shoot, XBoxController.BTN_A_ID);
-        flapperDown.whenPressed(new C_FlapperDown());
+        cockLauncher = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK);
+        cockLauncher.whenPressed(new CG_CockTheLauncher());
         
-        flapperUp = new JoystickButton(joy_shoot, XBoxController.BTN_START_ID);
-        flapperUp.whenPressed(new C_FlapperUp());
+        flipperUp = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_UP);
+        flipperUp.whenPressed(new C_FlapperUp());
+        
+        flipperDown = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_DOWN);
+        flipperDown.whenPressed(new C_FlapperDown());
         
         
         
