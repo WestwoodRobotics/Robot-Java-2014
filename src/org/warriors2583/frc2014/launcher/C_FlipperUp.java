@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  * @author Austin Reuland
  */
-public class C_FlapperDown extends Command {
+public class C_FlipperUp extends Command {
 
-    public C_FlapperDown() {
+    public C_FlipperUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_FlapperDown");
+		super("C_FlipperUp");
         requires(SS_Launcher.getInstance());
     }
 
@@ -21,7 +21,7 @@ public class C_FlapperDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        SS_Launcher.flapperDown();
+        SS_Launcher.flipperUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()

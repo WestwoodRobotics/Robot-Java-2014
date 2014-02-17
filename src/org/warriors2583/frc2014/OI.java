@@ -10,8 +10,9 @@ import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.launcher.CG_CockTheLauncher;
 import org.warriors2583.frc2014.launcher.CG_FireBall;
-import org.warriors2583.frc2014.launcher.C_FlapperDown;
-import org.warriors2583.frc2014.launcher.C_FlapperUp;
+//import org.warriors2583.frc2014.launcher.C_FlipperDown;
+import org.warriors2583.frc2014.launcher.C_FlipperToggle;
+//import org.warriors2583.frc2014.launcher.C_FlipperUp;
 import org.warriors2583.frc2014.launcher.SS_Launcher;
 
 /**
@@ -26,7 +27,7 @@ public class OI implements RMap {
     //Button Controls
     //private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
     private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
-    private static final JoystickButton fireBall, cockLauncher, flipperUp, flipperDown;
+    private static final JoystickButton fireBall, cockLauncher, flipperToggle; //flipperUp, flipperDown;
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -56,11 +57,14 @@ public class OI implements RMap {
         cockLauncher = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK);
         cockLauncher.whenPressed(new CG_CockTheLauncher());
         
-        flipperUp = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_UP);
-        flipperUp.whenPressed(new C_FlapperUp());
+        flipperToggle = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_TOGGLE);
+        flipperToggle.whenPressed(new C_FlipperToggle());
         
-        flipperDown = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_DOWN);
-        flipperDown.whenPressed(new C_FlapperDown());
+        //flipperUp = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_UP);
+        //flipperUp.whenPressed(new C_FlipperUp());
+        
+        //flipperDown = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_DOWN);
+        //flipperDown.whenPressed(new C_FlipperDown());
         
         
         

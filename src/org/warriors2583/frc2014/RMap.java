@@ -147,30 +147,71 @@ public interface RMap {
      * Launcher Ram Forward Position Sensor DIO Number
      */
     public static final int DIO_LAUNCHER_RAM_B = 5;
-    
+
+    /**
+     * Driver Joystick Arcade Mode Button
+     */
     public static final int JOY_DRIVER_MODE_ARCADE = XBoxController.BTN_A_ID;
     
+    /**
+     * Driver Joystick Mecanum Mode Button
+     */
     public static final int JOY_DRIVER_MODE_MECANUM = XBoxController.BTN_B_ID;
     
+    /**
+     * Driver Joystick Tank Mode Button
+     */
     public static final int JOY_DRIVER_MODE_TANK = XBoxController.BTN_LEFT_STICK_ID;
     
+    /**
+     * Driver Joystick MecaTank Mode Button
+     */
     public static final int JOY_DRIVER_MODE_MECATANK = XBoxController.BTN_RIGHT_STICK_ID;
     
+    /**
+     * Shooter Joystick Catcher Up Button
+     */
     public static final int JOY_SHOOT_CATCHER_UP = XBoxController.BTN_Y_ID;
     
+    /**
+     * Shooter Joystick Catcher Down BUtton
+     */
     public static final int JOY_SHOOT_CATCHER_DOWN = XBoxController.BTN_X_ID;
     
+    /**
+     * Shooter Joystick Wheels Forward Button
+     */
     public static final int JOY_SHOOT_WHEELS_FORWARD = XBoxController.BTN_RIGHT_SHOULDER_ID;
     
+    /**
+     * Shooter Joystick Wheels Backward Button
+     */
     public static final int JOY_SHOOT_WHEELS_BACK = XBoxController.BTN_LEFT_SHOULDER_ID;
     
-    public static final int JOY_SHOOT_LAUNCHER_FIRE = XBoxController.BTN_B_ID;
+    /**
+     * Shooter Joystick Fire Launcher Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_FIRE = XBoxController.BTN_A_ID;
     
-    public static final int JOY_SHOOT_LAUNCHER_COCK = XBoxController.BTN_A_ID;
+    /**
+     * Shooter Joystick Cock Launcher Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_COCK = XBoxController.BTN_B_ID;
     
+    /**
+     * Shooter Joystick Flipper Up Button (Not Used)
+     */
     public static final int JOY_SHOOT_FLIPPER_UP = XBoxController.BTN_SELECT_ID;
     
+    /**
+     * Shooter Joystick Flipper Down Button (Not Used)
+     */
     public static final int JOY_SHOOT_FLIPPER_DOWN = XBoxController.BTN_START_ID;
+    
+    /**
+     * Shooter Joystick Flipper Toggle Button
+     */
+    public static final int JOY_SHOOT_FLIPPER_TOGGLE = XBoxController.BTN_START_ID;
     
     /* Dashboard and NetworkTable Values */
     /* --------------------------------- */
