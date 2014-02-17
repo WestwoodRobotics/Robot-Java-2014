@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2014.RMap;
 
 /**
- *
+ * The Compressor Class. Controls the Compressor Sub-System.
  * @author Austin Reuland
  */
 public class SS_Compressor extends Subsystem implements RMap {

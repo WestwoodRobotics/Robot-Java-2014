@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.warriors2583.frc2014.OI;
 
 /**
- *
+ * Mecanum Driving mode Logic
  * @author Austin Reuland
  */
 public class C_Mecanum extends Command {

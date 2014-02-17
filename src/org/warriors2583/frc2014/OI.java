@@ -16,7 +16,7 @@ import org.warriors2583.frc2014.launcher.C_FlipperToggle;
 import org.warriors2583.frc2014.launcher.SS_Launcher;
 
 /**
- *
+ * The Operator Interface Class. Controls Things that interface with the operator.
  * @author Austin Reuland
  */
 public class OI implements RMap {

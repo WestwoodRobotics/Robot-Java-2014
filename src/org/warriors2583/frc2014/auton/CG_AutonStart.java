@@ -6,7 +6,8 @@ import org.warriors2583.frc2014.drivetrain.C_MoveToDistance;
 import org.warriors2583.frc2014.launcher.CG_CockTheLauncher;
 
 /**
- *
+ * The Main Autonomous Command.
+ * This must be called at the beginning of every autonomous period.
  * @author Austin Reuland
  */
 public class CG_AutonStart extends CommandGroup {

@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Lower the Ball Catcher
  * @author Austin Reuland
  */
 public class C_CatcherDown extends Command {

@@ -5,7 +5,7 @@ import org.warriors2583.frc2014.launcher.CG_FireBall;
 import org.warriors2583.lib.C_Delay;
 
 /**
- *
+ * Shoot one Ball.
  * @author Austin Reuland
  */
 public class CG_OneBall extends CommandGroup {

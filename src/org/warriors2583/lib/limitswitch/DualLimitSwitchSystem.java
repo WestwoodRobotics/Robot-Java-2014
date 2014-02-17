@@ -3,7 +3,7 @@ package org.warriors2583.lib.limitswitch;
 import org.warriors2583.lib.limitswitch.LimitSwitch.SwitchType;
 
 /**
- *
+ * A Limit Switch System using two Switches
  * @author Austin Reuland
  */
 public class DualLimitSwitchSystem implements ILimitSwitchSystem{

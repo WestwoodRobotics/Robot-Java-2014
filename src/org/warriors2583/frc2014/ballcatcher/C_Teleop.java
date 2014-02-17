@@ -6,7 +6,7 @@ import org.warriors2583.frc2014.RMap;
 import org.warriors2583.lib.CommonFunctions.*;
 
 /**
- *
+ * Tele-Operation Class.
  * @author Austin Reuland
  */
 public class C_Teleop extends Command implements RMap {

@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindowSendable;
 import edu.wpi.first.wpilibj.tables.ITable;
 
 /**
- *
+ * Potentiometer Class for use with the WPILib Code
  * @author Austin Reuland
  */
 public class Potentiometer implements PIDSource, LiveWindowSendable {

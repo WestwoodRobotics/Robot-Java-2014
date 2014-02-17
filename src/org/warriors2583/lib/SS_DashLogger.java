@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.warriors2583.frc2014.RMap;
 
 /**
- *
+ * Dashboard Logging Class.
  * @author Austin Reuland
  */
 public class SS_DashLogger extends Subsystem {

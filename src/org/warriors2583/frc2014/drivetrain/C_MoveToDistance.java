@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
- *
+ * Moves the Robot to a the specified distance (in Feet).
  * @author Austin Reuland
  */
 public class C_MoveToDistance extends PIDCommand {

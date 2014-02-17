@@ -3,11 +3,14 @@ package org.warriors2583.lib.limitswitch;
 import org.warriors2583.lib.limitswitch.LimitSwitch.SwitchType;
 
 /**
- *
+ * A Limit Switch System using only one Switch
  * @author Austin Reuland
  */
 public class SingleLimitSwitchSystem implements ILimitSwitchSystem{
     
+    /**
+     * Single System Type Class
+     */
     public static class SingleSystemType{
         private final int type;
         private SingleSystemType(int type){

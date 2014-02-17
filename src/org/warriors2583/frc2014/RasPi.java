@@ -3,7 +3,7 @@ package org.warriors2583.frc2014;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
- *
+ * THe Raspberry Pi Control Class
  * @author Austin Reuland
  */
 public class RasPi implements RMap {

@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.launcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Toggles the Flipper Up/Down
  * @author Austin Reuland
  */
 public class C_FlipperToggle extends Command {

@@ -3,7 +3,7 @@ package org.warriors2583.lib;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Updates the Dashboard
  * @author Austin Reuland
  */
 public class C_UpdateDashboard extends Command {

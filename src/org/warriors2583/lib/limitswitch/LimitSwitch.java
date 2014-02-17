@@ -6,11 +6,14 @@ import edu.wpi.first.wpilibj.parsing.IInputOutput;
 import edu.wpi.first.wpilibj.tables.ITable;
 
 /**
- *
+ * Limit Switch Class
  * @author Austin Reuland
  */
 public class LimitSwitch implements IStandardSwitch, IInputOutput, LiveWindowSendable {
     
+    /**
+     * Limit Switch Type Class
+     */
     public static class SwitchType{
         private final int type;
         private SwitchType(int type){

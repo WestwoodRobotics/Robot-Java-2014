@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.warriors2583.lib.C_Delay;
 
 /**
- *
+ * Quickly toggles the Launcher Release
  * @author Austin Reuland
  */
 public class CG_LatchToggle extends CommandGroup {

@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.drivetrain;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Change the Robot's Drivemode and Wheels
  * @author Austin Reuland
  */
 public class C_ChangeDrivemode extends Command {

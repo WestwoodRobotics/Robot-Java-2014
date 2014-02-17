@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.launcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Releases the Launcher
  * @author Austin Reuland
  */
 public class C_LatchRelease extends Command {

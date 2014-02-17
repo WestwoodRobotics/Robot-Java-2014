@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.warriors2583.frc2014.OI;
 
 /**
- *
+ * Arcade mode Driving Logic
  * @author Austin Reuland
  */
 public class C_Arcade extends Command {

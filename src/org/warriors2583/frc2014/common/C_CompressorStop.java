@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.common;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Disables the Compressor.
  * @author Austin Reuland
  */
 public class C_CompressorStop extends Command {

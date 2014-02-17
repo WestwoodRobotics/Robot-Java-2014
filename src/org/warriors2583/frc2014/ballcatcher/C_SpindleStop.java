@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Stop the rotating Ball Catcher Wheels.
  * @author Austin Reuland
  */
 public class C_SpindleStop extends Command {

@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2014.RMap;
 
 /**
- *
+ * The Ball Catcher Subsystem
  * @author Austin Reuland
  */
 public class SS_BallCatcher extends Subsystem implements RMap {

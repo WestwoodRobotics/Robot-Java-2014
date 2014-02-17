@@ -1,7 +1,7 @@
 package org.warriors2583.lib.limitswitch;
 
 /**
- *
+ * The Limit Switch System Interface
  * @author Austin Reuland
  */
 public interface ILimitSwitchSystem {

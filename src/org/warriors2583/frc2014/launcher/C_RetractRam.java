@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.launcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Retracts the Launcher Cocking Piston
  * @author Austin Reuland
  */
 public class C_RetractRam extends Command {

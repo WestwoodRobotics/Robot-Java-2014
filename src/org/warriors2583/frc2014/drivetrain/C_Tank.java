@@ -5,7 +5,7 @@ import org.warriors2583.frc2014.OI;
 import org.warriors2583.frc2014.RMap;
 
 /**
- *
+ * Tank mode Driving Logic
  * @author Austin Reuland
  */
 public class C_Tank extends Command implements RMap {

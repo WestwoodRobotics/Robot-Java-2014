@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Rotate the Catcher Wheels Forward
  * @author Austin Reuland
  */
 public class C_SpindleForward extends Command {

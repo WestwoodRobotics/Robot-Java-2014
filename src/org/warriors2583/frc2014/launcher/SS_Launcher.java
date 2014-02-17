@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.warriors2583.frc2014.RMap;
 
 /**
- *
+ * Ball Launcher Class. Controls the Launcher Sub-System
  * @author Austin Reuland
  */
 public class SS_Launcher extends Subsystem implements RMap {

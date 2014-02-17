@@ -6,7 +6,7 @@ import org.warriors2583.frc2014.RasPi;
 import org.warriors2583.lib.CommonFunctions;
 
 /**
- *
+ * Rotates the Robot to the specified angle (relative to earth).
  * @author Austin Reuland
  */
 public class C_RotateToAngle extends PIDCommand {

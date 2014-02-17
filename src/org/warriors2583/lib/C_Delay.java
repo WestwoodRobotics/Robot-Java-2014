@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Delays the a Command Group
  * @author Austin Reuland
  */
 public class C_Delay extends Command {

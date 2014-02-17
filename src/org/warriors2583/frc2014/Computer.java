@@ -7,7 +7,7 @@ import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.ballcatcher.SS_BallCatcher;
 
 /**
- *
+ * The Computer Control Class
  * @author Austin Reuland
  */
 public class Computer implements RMap {

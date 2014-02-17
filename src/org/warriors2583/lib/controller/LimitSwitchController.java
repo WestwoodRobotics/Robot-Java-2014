@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.parsing.IDeviceController;
 import org.warriors2583.lib.limitswitch.ILimitSwitchSystem;
 
 /**
- *
+ * A SpeedController limited by Limit Switches
  * @author Austin Reuland
  */
 public class LimitSwitchController implements SpeedController, IDeviceController, PIDOutput {

@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.warriors2583.lib.C_Delay;
 
 /**
- *
+ * Fires the Ball
  * @author Austin Reuland
  */
 public class CG_FireBall extends CommandGroup {

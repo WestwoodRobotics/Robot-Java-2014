@@ -7,7 +7,7 @@ import org.warriors2583.frc2014.RMap;
 import org.warriors2583.frc2014.common.SS_Compressor;
 
 /**
- *
+ * Dashboard Control Class
  * @author Austin Reuland
  */
 public class SS_Dashboard extends Subsystem implements RMap {
