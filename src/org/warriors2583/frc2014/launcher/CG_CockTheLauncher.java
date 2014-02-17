@@ -15,7 +15,7 @@ public class CG_CockTheLauncher extends CommandGroup {
         addSequential(new C_ExtendRam());
         addSequential(new C_Delay(3));
         //addSequential(new C_)
-        addSequential(new C_RetractRam());
-        addSequential(new C_Delay(3));
+        addParallel(new C_RetractRam());
+        addSequential(new C_Delay(2));
     }
 }

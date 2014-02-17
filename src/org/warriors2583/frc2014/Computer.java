@@ -26,7 +26,7 @@ public class Computer implements RMap {
         settingsListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
                 if(key.equals(NETTABLE_COMPUTER_SETTINGS_DRIVEMODE)){
-                    new C_ChangeDrivemode((int)table.getNumber(NETTABLE_COMPUTER_SETTINGS_DRIVEMODE));
+                    new C_ChangeDrivemode((int)table.getNumber(NETTABLE_COMPUTER_SETTINGS_DRIVEMODE)).start();
                 }else if(key.equals(NETTABLE_COMPUTER_SETTINGS_CATCHER_SCALE)){
                     SS_BallCatcher.setSpindleScale(table.getNumber(NETTABLE_COMPUTER_SETTINGS_CATCHER_SCALE));
                 }
@@ -59,6 +59,10 @@ public class Computer implements RMap {
         
         tablesInitd = true;
 
+    }
+    
+    public static void updateValues(){
+        statusTable.putNumber("batery_level", 0.0);
     }
 
 }

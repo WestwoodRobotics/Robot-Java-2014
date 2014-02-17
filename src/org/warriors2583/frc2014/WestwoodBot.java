@@ -37,28 +37,22 @@ public class WestwoodBot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        // instantiate the command used for the autonomous period
         Watchdog.getInstance().setEnabled(true);
         compressor.start();
         
-        // Initialize all subsystems
         System.out.println("Robot Initiated");
-        SS_Launcher.setFlow(true);
     }
 
     public void autonomousInit(){
         System.gc();
         compressor.start();
         auton.start();
-        SS_Launcher.setFlow(true);
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        // feed the user watchdog at every period when in autonomous
-        Watchdog.getInstance().feed();
         Scheduler.getInstance().run();
     }
 
@@ -76,7 +70,6 @@ public class WestwoodBot extends IterativeRobot {
      */
 
     public void disabledPeriodic() {
-        Watchdog.getInstance().feed();
         Scheduler.getInstance().run();
     }
 
@@ -100,13 +93,10 @@ public class WestwoodBot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic(){
-        Watchdog.getInstance().feed();
         Scheduler.getInstance().run();
-        SS_Launcher.setFlow(true);
     }
     
     public void testPeriodic(){
-        Watchdog.getInstance().feed();
         LiveWindow.run();
         Scheduler.getInstance().run();
     }
