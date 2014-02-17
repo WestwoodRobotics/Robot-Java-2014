@@ -49,8 +49,9 @@ public interface RMap {
     
     /**
      * Back Right Drive Motor PWM Number
+     * Would be 4, but wires are too short
      */
-    public static final int DRIVE_BACK_RIGHT = 4;
+    public static final int DRIVE_BACK_RIGHT = 8;
     
     /**
      * Motor Module Number
@@ -75,27 +76,27 @@ public interface RMap {
     /**
      * Ball Catcher Solenoid Number
      */
-    public static final int SOLENOID_CATCHER = 2;
+    public static final int SOLENOID_CATCHER = 4;
     
     /**
      * Launcher Loading Solenoid Number
      */
-    public static final int SOLENOID_LAUNCHER_LOAD = 3;
+    public static final int SOLENOID_LAUNCHER_LOAD = 2;
     
     /**
      * Launcher Release Solenoid Number
      */
-    public static final int SOLENOID_LAUNCHER_RELEASE = 4;
+    public static final int SOLENOID_LAUNCHER_RELEASE = 3;
     
     /**
      * Launcher Flow Solenoid Number
      */
-    public static final int SOLENOID_LAUNCHER_FLOW = 5;
+    public static final int SOLENOID_LAUNCHER_FLOW = 6;
     
     /**
      * Launcher Flapper Solenoid Number
      */
-    public static final int SOLENOID_LAUNCHER_FLAPPER = 6;
+    public static final int SOLENOID_LAUNCHER_FLAPPER = 5;
     
     /**
      * Launcher Lock Solenoid Number
@@ -115,7 +116,7 @@ public interface RMap {
     /**
      * LED Relay Number
      */
-    public static final int RELAY_LED = 3;
+    public static final int RELAY_LED = 2;
     
     /**
      * Digital I/O Module Number
