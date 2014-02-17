@@ -12,23 +12,115 @@ public class XBoxController extends GenericHID implements IInputOutput{
     
     private final Joystick m_controller;
     
-    public static final int AXIS_LEFT_X_ID = 1,
-    AXIS_LEFT_Y_ID = 2,
-    AXIS_TRIGGERS_ID = 3,
-    AXIS_RIGHT_X_ID = 4,
-    AXIS_RIGHT_Y_ID = 5,
-    AXIS_HAT_X_ID = 6;
+    /**
+     * Left X Axis ID
+     */
+    public static final int AXIS_LEFT_X_ID = 1;
+    
+    /**
+     * Left Y Axis ID
+     */
+    public static final int AXIS_LEFT_Y_ID = 2;
+    
+    /**
+     * Triggers Axis ID
+     */
+    public static final int AXIS_TRIGGERS_ID = 3;
+    
+    /**
+     * Right X Axis ID
+     */
+    public static final int AXIS_RIGHT_X_ID = 4;
+    
+    /**
+     * Right Y Axis ID
+     */
+    public static final int AXIS_RIGHT_Y_ID = 5;
+    
+    /**
+     * Hat X Axis ID
+     */
+    public static final int AXIS_HAT_X_ID = 6;
 
-    public static final int BTN_A_ID = 1,
-    BTN_B_ID = 2,
-    BTN_X_ID = 3,
-    BTN_Y_ID = 4,
-    BTN_LEFT_SHOULDER_ID = 5,
-    BTN_RIGHT_SHOULDER_ID = 6,
-    BTN_START_ID = 7,
-    BTN_SELECT_ID = 8,
-    BTN_LEFT_STICK_ID = 9,
-    BTN_RIGHT_STICK_ID = 10;
+    /**
+     * A Button ID
+     */
+    public static final int BTN_A_ID = 1;
+    
+    /**
+     * B Button ID
+     */
+    public static final int BTN_B_ID = 2;
+    
+    /**
+     * X Button ID
+     */
+    public static final int BTN_X_ID = 3;
+    
+    /**
+     * Y Button ID
+     */
+    public static final int BTN_Y_ID = 4;
+    
+    /**
+     * Left Shoulder Button ID
+     */
+    public static final int BTN_LEFT_SHOULDER_ID = 5;
+    
+    /**
+     * Right Shoulder Button ID
+     */
+    public static final int BTN_RIGHT_SHOULDER_ID = 6;
+    
+    /**
+     * Start Button ID
+     */
+    public static final int BTN_START_ID = 7;
+    
+    /**
+     * Back Button ID
+     */
+    public static final int BTN_SELECT_ID = 8;
+    
+    /**
+     * Left Stick Button ID
+     */
+    public static final int BTN_LEFT_STICK_ID = 9;
+    
+    /**
+     * Right Stick Button ID
+     */
+    public static final int BTN_RIGHT_STICK_ID = 10;
+    
+    /**
+     * Left X Axis Button ID
+     */
+    public static final int BTN_AXIS_LEFT_X_ID = AXIS_LEFT_X_ID + 12;
+    
+    /**
+     * Left Y Axis Button ID
+     */
+    public static final int BTN_AXIS_LEFT_Y_ID = AXIS_LEFT_Y_ID + 12;
+    
+    /**
+     * Triggers Axis Button ID
+     */
+    public static final int BTN_AXIS_TRIGGERS_ID = AXIS_TRIGGERS_ID + 12;
+    
+    /**
+     * Right X Axis Button ID
+     */
+    public static final int BTN_AXIS_RIGHT_X_ID = AXIS_RIGHT_X_ID + 12;
+    
+    /**
+     * Right Y Axis Button ID
+     */
+    public static final int BTN_AXIS_RIGHT_Y_ID = AXIS_RIGHT_Y_ID + 12;
+    
+    /**
+     * Hat X Axis Button ID
+     */
+    public static final int BTN_AXIS_HAT_X_ID = AXIS_HAT_X_ID + 12;
 
     public XBoxController(final int port){
         m_controller = new Joystick(port);
@@ -166,8 +258,29 @@ public class XBoxController extends GenericHID implements IInputOutput{
         return m_controller.getBumper(hand);
     }
 
+    /**
+     * Returns The state of a button.
+     * @param button Joystick button number
+     * @return the state of the button
+     */
     public boolean getRawButton(int button) {
-        return m_controller.getRawButton(button);
+        if(button >= 13){
+            return getAxisButton(button - 12);
+        }else return m_controller.getRawButton(button);
+    }
+    
+    /**
+     * Returns 
+     * @param axis the axis of the 
+     * @return 
+     */
+    public boolean getAxisButton(int axis){
+        return getAxisButton(axis, 0.5, 0.5);
+    }
+    
+    public boolean getAxisButton(int axis, double topThreshold, double botThreshold){
+        double value = getRawAxis(axis);
+        return value >= topThreshold | value <= botThreshold;
     }
 
 }

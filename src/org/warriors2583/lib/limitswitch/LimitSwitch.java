@@ -56,44 +56,26 @@ public class LimitSwitch implements IStandardSwitch, IInputOutput, LiveWindowSen
         return m_type;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void updateTable() {
         m_limitSwitch.updateTable();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void startLiveWindowMode() {
         m_limitSwitch.startLiveWindowMode();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void stopLiveWindowMode() {
         m_limitSwitch.stopLiveWindowMode();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public void initTable(ITable arg0) {
         m_limitSwitch.initTable(arg0);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public ITable getTable() {
         return m_limitSwitch.getTable();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public String getSmartDashboardType() {
         return m_limitSwitch.getSmartDashboardType();
     }
