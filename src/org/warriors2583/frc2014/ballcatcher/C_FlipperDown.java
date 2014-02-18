@@ -1,18 +1,18 @@
-package org.warriors2583.frc2014.launcher;
+package org.warriors2583.frc2014.ballcatcher;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Toggles the Flipper Up/Down
+ * Flips the Flipper Down
  * @author Austin Reuland
  */
-public class C_FlipperToggle extends Command {
+public class C_FlipperDown extends Command {
 
-    public C_FlipperToggle() {
+    public C_FlipperDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_FlipperToggle");
-        requires(SS_Launcher.getInstance());
+		super("C_FlipperDown");
+        requires(SS_BallCatcher.getInstance());
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +21,7 @@ public class C_FlipperToggle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if(SS_Launcher.isFlipperDown()){
-            SS_Launcher.flipperUp();
-        }else{
-            SS_Launcher.flipperDown();
-        }
-        
+        SS_BallCatcher.flipperDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -11,6 +11,7 @@ import org.warriors2583.lib.C_Delay;
 public class CG_CockTheLauncher extends CommandGroup {
 
     public CG_CockTheLauncher() {
+        setInterruptible(false);
         
         addSequential(new C_ExtendRam());
         addSequential(new C_Delay(3));

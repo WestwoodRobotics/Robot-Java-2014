@@ -75,12 +75,12 @@ public class XBoxController extends GenericHID implements IInputOutput{
     /**
      * Start Button ID
      */
-    public static final int BTN_START_ID = 7;
+    public static final int BTN_START_ID = 8;
     
     /**
      * Back Button ID
      */
-    public static final int BTN_SELECT_ID = 8;
+    public static final int BTN_SELECT_ID = 7;
     
     /**
      * Left Stick Button ID

@@ -11,7 +11,7 @@ import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.launcher.CG_CockTheLauncher;
 import org.warriors2583.frc2014.launcher.CG_FireBall;
 //import org.warriors2583.frc2014.launcher.C_FlipperDown;
-import org.warriors2583.frc2014.launcher.C_FlipperToggle;
+import org.warriors2583.frc2014.ballcatcher.C_FlipperToggle;
 //import org.warriors2583.frc2014.launcher.C_FlipperUp;
 import org.warriors2583.frc2014.launcher.SS_Launcher;
 

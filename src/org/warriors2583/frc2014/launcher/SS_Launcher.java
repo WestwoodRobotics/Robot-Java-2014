@@ -13,7 +13,7 @@ public class SS_Launcher extends Subsystem implements RMap {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    private static final Solenoid m_solenoidRam, m_solenoidRelease, m_solenoidFlow, m_solenoidFlipper, m_solenoidLock;
+    private static final Solenoid m_solenoidRam, m_solenoidRelease, m_solenoidFlow, m_solenoidLock;
     private static final DigitalInput m_dioLocked, m_dioBall, m_dioRamPosA;
     
     private static final SS_Launcher m_instance = new SS_Launcher();
@@ -26,7 +26,6 @@ public class SS_Launcher extends Subsystem implements RMap {
         m_solenoidRam = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_LOAD);
         m_solenoidRelease = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_RELEASE);
         m_solenoidFlow = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLOW);
-        m_solenoidFlipper = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLAPPER);
         m_solenoidLock = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_LOCK);
         
         m_dioLocked = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_LOCKED);
@@ -59,18 +58,6 @@ public class SS_Launcher extends Subsystem implements RMap {
     
     public static void latchLock(){
         m_solenoidRelease.set(false);
-    }
-    
-    public static void flipperDown(){
-        m_solenoidFlipper.set(true);
-    }
-    
-    public static void flipperUp(){
-        m_solenoidFlipper.set(false);
-    }
-    
-    public static boolean isFlipperDown(){
-        return m_solenoidFlipper.get();
     }
     
     public static boolean isRamExtended(){

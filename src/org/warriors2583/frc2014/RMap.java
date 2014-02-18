@@ -76,7 +76,7 @@ public interface RMap {
     /**
      * Ball Catcher Solenoid Number
      */
-    public static final int SOLENOID_CATCHER = 4;
+    public static final int SOLENOID_CATCHER = 5;
     
     /**
      * Launcher Loading Solenoid Number
@@ -96,7 +96,7 @@ public interface RMap {
     /**
      * Launcher Flapper Solenoid Number
      */
-    public static final int SOLENOID_LAUNCHER_FLAPPER = 5;
+    public static final int SOLENOID_LAUNCHER_FLAPPER = 4;
     
     /**
      * Launcher Lock Solenoid Number

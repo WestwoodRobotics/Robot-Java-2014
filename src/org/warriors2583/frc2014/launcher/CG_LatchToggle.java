@@ -10,9 +10,9 @@ import org.warriors2583.lib.C_Delay;
 public class CG_LatchToggle extends CommandGroup {
 
     public CG_LatchToggle() {
-
+        setInterruptible(false);
         addSequential(new C_LatchRelease());
-        addSequential(new C_Delay(0.1));
+        addSequential(new C_Delay(0.05));
         addSequential(new C_LatchLock());
     }
 }

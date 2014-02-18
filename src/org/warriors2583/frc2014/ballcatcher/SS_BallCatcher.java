@@ -16,7 +16,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     private static double m_spindleScale;
 
     private static final Victor m_motor;
-    private static final Solenoid m_solenoid;
+    private static final Solenoid m_solenoid, m_solenoidFlipper;
 
     private static final SS_BallCatcher instance = new SS_BallCatcher();
 
@@ -26,9 +26,10 @@ public class SS_BallCatcher extends Subsystem implements RMap {
 
     static{
         m_spindleScale = 0.75;
-
+        
         m_motor = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
         m_solenoid = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
+        m_solenoidFlipper = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLAPPER);
 
     }
 
@@ -101,6 +102,18 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      */
     public static void setSpindleScale(double scale){
         m_spindleScale = scale;
+    }
+    
+    public static void flipperDown(){
+        m_solenoidFlipper.set(true);
+    }
+    
+    public static void flipperUp(){
+        m_solenoidFlipper.set(false);
+    }
+    
+    public static boolean isFlipperDown(){
+        return m_solenoidFlipper.get();
     }
 
     /**
