@@ -358,10 +358,30 @@ public interface RMap {
     public static final String NETTABLE_COMPUTER_SETTINGS = "Settings";
 
     /**
-     * Computer Settings Drivemode value key
+     * Drivetrain Subtable name
      */
-    public static final String NETTABLE_COMPUTER_SETTINGS_DRIVEMODE = "drivemode";
+    public static final String NETTABLE_DRIVETRAIN = "Drivetrain";
+    
+    /**
+     * Drivetrain Drivemode value key
+     */
+    public static final String NETTABLE_DRIVETRAIN_DRIVEMODE = "drivemode";
+    
+    /**
+     * Drivetrain Drivemode String value key
+     */
+    public static final String NETTABLE_DRIVETRAIN_DRIVEMODE_STRING = "drivemode_string";
 
+    /**
+     * Drivetrain Solenoid value key
+     */
+    public static final String NETTABLE_DRIVETRAIN_SOLENOID = "solenoid";
+    
+    /**
+     * Drivetrain Default Command Name value key
+     */
+    public static final String NETTABLE_DRIVETRAIN_DEFAULT_COMMAND = "default_cmd";
+    
     /**
      * Computer Settings Ball Catcher Spindle Scale value key
      */

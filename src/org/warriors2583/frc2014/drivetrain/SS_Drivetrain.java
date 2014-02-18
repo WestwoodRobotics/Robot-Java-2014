@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.tables.ITable;
+import edu.wpi.first.wpilibj.tables.ITableListener;
 import org.warriors2583.frc2014.RMap;
 
 /**
@@ -45,9 +47,9 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         }
         
         public void init(){
-            m_instance.setDefaultCommand(m_command);
-            m_wheelSwitch.set(m_solenoid);
-            m_driveMode = this;
+            resetDefaultCommand(m_command);
+            setSolenoid(m_solenoid);
+            setDriveMode(this);
         }
         
         public static final DriveMode ARCADE = new DriveMode(1, false, new C_Arcade(), "Arcade Drive");
@@ -65,6 +67,10 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     private static final Solenoid m_wheelSwitch;
     
     private static final RobotDrive m_drive;
+    
+    private static ITable m_table;
+    
+    private static ITableListener m_tableListener;
     
     private static final SS_Drivetrain m_instance = new SS_Drivetrain();
 
@@ -90,6 +96,7 @@ public class SS_Drivetrain extends Subsystem implements RMap {
 
     private SS_Drivetrain(){
         super("SS_Drivetrain");
+        initDriveTable(roboTable.getSubTable(NETTABLE_DRIVETRAIN));
     }
     
     public static void arcade(double throt, double rot){
@@ -133,14 +140,18 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     
     public static void setDriveMode(DriveMode mode){
         m_driveMode = mode;
+        m_table.putNumber("drivemode", m_driveMode.getMode());
+        m_table.putString("drivemode_string", m_driveMode.toString());
     }
     
     public static void resetDefaultCommand(Command commnand){
-        m_instance.setDefaultCommand(commnand);   
+        m_instance.setDefaultCommand(commnand);
+        m_table.putString("default_cmd", m_instance.getDefaultCommand().toString());
     }
     
     public static void setSolenoid(boolean on){
         m_wheelSwitch.set(on);
+        m_table.putBoolean("solenoid", on);
     }
     
     public static DriveMode getDriveMode(){
@@ -165,5 +176,20 @@ public class SS_Drivetrain extends Subsystem implements RMap {
 
     protected void initDefaultCommand(){
         setDefaultCommand(new C_Arcade());
+    }
+    
+    private static void initDriveTable(ITable subtable){
+        m_table = subtable;
+        m_table.putNumber(NETTABLE_DRIVETRAIN_DRIVEMODE, 1);
+        m_table.putString(NETTABLE_DRIVETRAIN_DRIVEMODE_STRING, m_driveMode.toString());
+        m_table.putBoolean(NETTABLE_DRIVETRAIN_SOLENOID, false);
+        m_table.putString(NETTABLE_DRIVETRAIN_DEFAULT_COMMAND, "Arcade");
+        m_tableListener = new ITableListener(){
+            public void valueChanged(ITable table, String key, Object value, boolean isNew){
+                new C_ChangeDrivemode(((Integer) value).intValue()).start();
+            }
+        };
+        
+        m_table.addTableListener(NETTABLE_DRIVETRAIN_DRIVEMODE, m_tableListener, true);
     }
 }
