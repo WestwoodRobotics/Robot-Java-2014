@@ -48,10 +48,6 @@ public class SS_Drivetrain extends Subsystem implements RMap {
             m_instance.setDefaultCommand(m_command);
             m_wheelSwitch.set(m_solenoid);
             m_driveMode = this;
-            
-            if(!inMode()){
-                init();
-            }
         }
         
         public static final DriveMode ARCADE = new DriveMode(1, false, new C_Arcade(), "Arcade Drive");

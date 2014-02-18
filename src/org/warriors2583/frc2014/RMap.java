@@ -1,5 +1,6 @@
 package org.warriors2583.frc2014;
 
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.warriors2583.lib.XBoxController;
 
 /**
@@ -252,6 +253,11 @@ public interface RMap {
     public static final String DASH_COMPRESSOR_RUNNING = "CompressorState";
 
     /**
+     * Robot NetworkTables Table
+     */
+    public static final String NETTABLE_ROBOT_TABLE = "Robot";
+    
+    /**
      * Default NetworkTables Table
      */
     public static final String NETTABLE_DEFAULT_TABLE = "NetworkTables";
@@ -365,5 +371,8 @@ public interface RMap {
      * Computer Status Subtable name
      */
     public static final String NETTABLE_COMPUTER_STATUS = "Status";
+    
+    
+    public static final NetworkTable roboTable = NetworkTable.getTable(NETTABLE_ROBOT_TABLE);
 
 }
