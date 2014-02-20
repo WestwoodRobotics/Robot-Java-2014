@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.parsing.IInputOutput;
  * A better Joystick implementation for the XBox Controller
  * @author Austin Reuland
  */
-public class XBoxController extends GenericHID implements IInputOutput{
+public class XBoxController extends GenericHID implements IInputOutput {
     
     private final Joystick m_controller;
     
