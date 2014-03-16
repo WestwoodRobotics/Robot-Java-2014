@@ -83,7 +83,6 @@ public class WestwoodBot extends IterativeRobot {
     }
 
     public void teleopInit(){
-
         System.gc();
         compressor.start();
     }

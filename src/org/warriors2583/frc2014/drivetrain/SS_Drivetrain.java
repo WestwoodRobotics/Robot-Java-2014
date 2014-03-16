@@ -1,6 +1,6 @@
 package org.warriors2583.frc2014.drivetrain;
 
-import edu.wpi.first.wpilibj.Encoder;
+//import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
@@ -89,6 +89,8 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         m_motorBackRight = new Talon(MODULE_DRIVE, DRIVE_BACK_RIGHT);
         //m_encBR = new Encoder(10, 11);
         
+        m_driveMode = DriveMode.ARCADE;
+        
         m_wheelSwitch = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_DRIVESWITCH);
         
         m_drive = new RobotDrive(m_motorFrontLeft, m_motorBackLeft, m_motorFrontRight, m_motorBackRight);
@@ -146,7 +148,7 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     
     public static void resetDefaultCommand(Command commnand){
         m_instance.setDefaultCommand(commnand);
-        m_table.putString("default_cmd", m_instance.getDefaultCommand().toString());
+        m_table.putString("default_cmd", m_instance.getDefaultCommand().getName());
     }
     
     public static void setSolenoid(boolean on){
@@ -175,15 +177,15 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     }
 
     protected void initDefaultCommand(){
-        setDefaultCommand(new C_Arcade());
+        setDefaultCommand(m_driveMode.getCommand());
     }
     
     private static void initDriveTable(ITable subtable){
         m_table = subtable;
-        m_table.putNumber(NETTABLE_DRIVETRAIN_DRIVEMODE, 1);
+        m_table.putNumber(NETTABLE_DRIVETRAIN_DRIVEMODE, m_driveMode.getMode());
         m_table.putString(NETTABLE_DRIVETRAIN_DRIVEMODE_STRING, m_driveMode.toString());
-        m_table.putBoolean(NETTABLE_DRIVETRAIN_SOLENOID, false);
-        m_table.putString(NETTABLE_DRIVETRAIN_DEFAULT_COMMAND, "Arcade");
+        m_table.putBoolean(NETTABLE_DRIVETRAIN_SOLENOID, m_driveMode.getSolenoid());
+        m_table.putString(NETTABLE_DRIVETRAIN_DEFAULT_COMMAND, m_driveMode.getCommand().getName());
         m_tableListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
                 new C_ChangeDrivemode(((Integer) value).intValue()).start();

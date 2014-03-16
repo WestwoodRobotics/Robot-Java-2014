@@ -172,17 +172,17 @@ public interface RMap {
     /**
      * Shooter Joystick Catcher Up Button
      */
-    public static final int JOY_SHOOT_CATCHER_UP = XBoxController.BTN_Y_ID;
+    public static final int JOY_SHOOT_CATCHER_UP = ArcadeController.BUTTON_CATCHER_UP;
     
     /**
      * Shooter Joystick Catcher Down BUtton
      */
-    public static final int JOY_SHOOT_CATCHER_DOWN = XBoxController.BTN_X_ID;
+    public static final int JOY_SHOOT_CATCHER_DOWN = ArcadeController.BUTTON_CATCHER_DOWN;
     
     /**
      * Shooter Joystick Wheels Forward Button
      */
-    public static final int JOY_SHOOT_WHEELS_FORWARD = XBoxController.BTN_RIGHT_SHOULDER_ID;
+    public static final int JOY_SHOOT_WHEELS_FORWARD = 0;
     
     /**
      * Shooter Joystick Wheels Backward Button

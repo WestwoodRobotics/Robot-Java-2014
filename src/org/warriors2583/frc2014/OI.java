@@ -22,7 +22,8 @@ import org.warriors2583.frc2014.launcher.SS_Launcher;
 public class OI implements RMap {
     
     //Controllers
-    public static final XBoxController joy_drive, joy_shoot;
+    public static final XBoxController joy_drive;
+    public static final ArcadeController joy_shoot;
     
     //Button Controls
     //private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
@@ -37,7 +38,7 @@ public class OI implements RMap {
         SmartDashboard.putData(DASH_INSTANCE_DASHBOARD, SS_Dashboard.getInstance());
         
         joy_drive = new XBoxController(JOY_DRIVE);
-        joy_shoot = new XBoxController(JOY_SHOOT);
+        joy_shoot = new ArcadeController(JOY_SHOOT);
         
         arcadeButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_ARCADE);
         arcadeButton.whenPressed(new C_ChangeDrivemode(1));

@@ -47,8 +47,6 @@ public class Computer implements RMap {
             settingsTable.removeTableListener(settingsListener);
             statusTable.removeTableListener(statusListener);
         }
-
-        settingsTable.putNumber(NETTABLE_DRIVETRAIN_DRIVEMODE, 1.0);
         settingsTable.putNumber(NETTABLE_COMPUTER_SETTINGS_CATCHER_SCALE, 0.75);
 
         settingsTable.addTableListener(settingsListener, false);
