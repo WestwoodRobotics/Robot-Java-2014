@@ -22,7 +22,7 @@ public class OI implements RMap {
     
     //Button Controls
     private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
-    private static final JoystickButton fireBall, cockLauncher, cockLauncherCatch, cockLauncherPickup;
+    private static final JoystickButton fireBall, prepLauncher, prepLauncherCatch, prepLauncherPickup;
     private static final JoystickButton latchRelease, latchLock, pistonExtend, pistonRetract;
     private static final JoystickButton flipperToggle, flipperUp, flipperDown;
     private static final JoystickButton catcherToggle, catcherUp, catcherDown;
@@ -53,14 +53,14 @@ public class OI implements RMap {
         fireBall = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_FIRE);
         fireBall.whenPressed(new CG_FireBall());
         
-        cockLauncher = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK);
-        cockLauncher.whenPressed(new CG_CockTheLauncher());
+        prepLauncher = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PREP);
+        prepLauncher.whenPressed(new CG_PrepLauncher());
         
-        cockLauncherCatch = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK_CATCH);
-        cockLauncherCatch.whenPressed(new CG_CockLaucherCatch());
+        prepLauncherCatch = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PREP_CATCH);
+        prepLauncherCatch.whenPressed(new CG_PrepLauncherCatch());
         
-        cockLauncherPickup = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK_PICKUP);
-        cockLauncherPickup.whenPressed(new CG_CockLauncherPickup());
+        prepLauncherPickup = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PREP_PICKUP);
+        prepLauncherPickup.whenPressed(new CG_PrepLauncherPickup());
         
         latchRelease = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_LATCH_RELEASE);
         latchRelease.whenPressed(new C_LatchRelease());

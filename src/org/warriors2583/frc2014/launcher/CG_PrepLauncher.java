@@ -5,12 +5,11 @@ import org.warriors2583.lib.C_Delay;
 
 /**
  * Command Group to ready the Launcher for firing.
- * Had to add the 'The' because too many kids are immature
  * @author Austin Reuland
  */
-public class CG_CockTheLauncher extends CommandGroup {
+public class CG_PrepLauncher extends CommandGroup {
 
-    public CG_CockTheLauncher() {
+    public CG_PrepLauncher() {
         setInterruptible(false);
         
         addSequential(new C_ExtendRam());

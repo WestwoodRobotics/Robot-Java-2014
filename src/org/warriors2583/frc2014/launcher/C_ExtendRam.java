@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.launcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Extend the Launcher Cocking Piston
+ * Extend the Launcher Preping Piston
  * @author Austin Reuland
  */
 public class C_ExtendRam extends Command {
@@ -27,7 +27,7 @@ public class C_ExtendRam extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return SS_Launcher.isCocked();
+        //return SS_Launcher.isPreped();
         return true;
     }
 

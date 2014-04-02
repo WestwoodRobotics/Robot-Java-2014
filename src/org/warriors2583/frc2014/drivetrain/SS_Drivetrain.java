@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.tables.ITable;
 import edu.wpi.first.wpilibj.tables.ITableListener;
 import org.warriors2583.frc2014.RMap;
@@ -98,7 +99,7 @@ public class SS_Drivetrain extends Subsystem implements RMap {
 
     private SS_Drivetrain(){
         super("SS_Drivetrain");
-        initDriveTable(roboTable.getSubTable(NETTABLE_DRIVETRAIN));
+        initDriveTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_DRIVETRAIN));
     }
     
     public static void arcade(double throt, double rot){
@@ -188,10 +189,12 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         m_table.putString(NETTABLE_DRIVETRAIN_DEFAULT_COMMAND, m_driveMode.getCommand().getName());
         m_tableListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
-                new C_ChangeDrivemode(((Integer) value).intValue()).start();
+                if(key.equalsIgnoreCase(NETTABLE_DRIVETRAIN_DRIVEMODE)){
+                    new C_ChangeDrivemode(((Integer) value).intValue()).start();
+                }
             }
         };
         
-        m_table.addTableListener(NETTABLE_DRIVETRAIN_DRIVEMODE, m_tableListener, true);
+        m_table.addTableListener(m_tableListener, true);
     }
 }

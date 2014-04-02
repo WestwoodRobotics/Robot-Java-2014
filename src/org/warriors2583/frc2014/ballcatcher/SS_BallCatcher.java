@@ -3,6 +3,9 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.tables.ITable;
+import edu.wpi.first.wpilibj.tables.ITableListener;
 import org.warriors2583.frc2014.RMap;
 
 /**
@@ -17,6 +20,10 @@ public class SS_BallCatcher extends Subsystem implements RMap {
 
     private static final Victor m_motor;
     private static final Solenoid m_solenoidCatcher, m_solenoidFlipper;
+    
+    private static ITable m_table;
+    
+    private static ITableListener m_tableListener;
 
     private static final SS_BallCatcher instance = new SS_BallCatcher();
 
@@ -26,7 +33,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
 
     static{
         m_spindleScale = 0.75;
-        
+         
         m_motor = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
         m_solenoidCatcher = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
         m_solenoidFlipper = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLAPPER);
@@ -35,6 +42,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
 
     private SS_BallCatcher(){
         super("SS_BallCatcher");
+        initDriveTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_CATCHER));
     }
     
     /**
@@ -42,6 +50,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      */
     public static void catcherClose(){
         m_solenoidCatcher.set(false);
+        m_table.putBoolean(NETTABLE_CATCHER_CATCHER_STATE, false);
     }
     
     /**
@@ -49,6 +58,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      */
     public static void catcherOpen(){
         m_solenoidCatcher.set(true);
+        m_table.putBoolean(NETTABLE_CATCHER_CATCHER_STATE, true);
     }
     
     /**
@@ -102,14 +112,17 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      */
     public static void setSpindleScale(double scale){
         m_spindleScale = scale;
+        m_table.putNumber(NETTABLE_CATCHER_SPINDLE_SCALE, scale);
     }
     
     public static void flipperDown(){
         m_solenoidFlipper.set(true);
+        m_table.putBoolean(NETTABLE_CATCHER_FLIPPER_STATE, true);
     }
     
     public static void flipperUp(){
         m_solenoidFlipper.set(false);
+        m_table.putBoolean(NETTABLE_CATCHER_FLIPPER_STATE, false);
     }
     
     public static boolean isFlipperDown(){
@@ -137,5 +150,26 @@ public class SS_BallCatcher extends Subsystem implements RMap {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new C_Teleop());
+    }
+    
+    private static void initDriveTable(ITable subtable){
+        m_table = subtable;
+        
+        m_table.putBoolean(NETTABLE_CATCHER_CATCHER_STATE, m_solenoidCatcher.get());
+        m_table.putBoolean(NETTABLE_CATCHER_FLIPPER_STATE, m_solenoidFlipper.get());
+        m_table.putNumber(NETTABLE_CATCHER_SPINDLE_SCALE, m_spindleScale);
+        m_tableListener = new ITableListener(){
+            public void valueChanged(ITable table, String key, Object value, boolean isNew){
+                if(key.equals(NETTABLE_CATCHER_CATCHER_STATE)){
+                    m_solenoidCatcher.set(((Boolean)value).booleanValue());
+                }else if(key.equals(NETTABLE_CATCHER_FLIPPER_STATE)){
+                    m_solenoidFlipper.set(((Boolean)value).booleanValue());
+                }else if(key.equals(NETTABLE_CATCHER_SPINDLE_SCALE)){
+                    setSpindleScale(((Double)value).doubleValue());
+                }
+            }
+        };
+        
+        m_table.addTableListener(m_tableListener, true);
     }
 }

@@ -22,9 +22,9 @@ public class ArcadeController  extends GenericHID implements IInputOutput {
     public static final int BUTTON_RELEASE_UNLATCH = 10;
     
     public static final int BUTTON_FIRE = 11;
-    public static final int BUTTON_COCK_CATCH = 12;
-    public static final int BUTTON_COCK_PICKUP = 13;
-    public static final int BUTTON_RECOCK = 14;
+    public static final int BUTTON_PREP_CATCH = 12;
+    public static final int BUTTON_PREP_PICKUP = 13;
+    public static final int BUTTON_REPREP = 14;
     public static final int BUTTON_CATCHER_TOGGLE = 15;
     public static final int BUTTON_FLIPPER_TOGGLE = 16;
     

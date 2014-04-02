@@ -16,6 +16,6 @@ public class CG_FireBall extends CommandGroup {
         addSequential(new C_Delay(0.1));
         addSequential(new CG_LatchToggle());
         //addSequential(new C_Delay(0.1));
-        //addSequential(new CG_CockTheLauncher());
+        //addSequential(new CG_PrepLauncher());
     }
 }

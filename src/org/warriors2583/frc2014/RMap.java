@@ -200,19 +200,19 @@ public interface RMap {
     public static final int JOY_SHOOT_LAUNCHER_FIRE = ArcadeController.BUTTON_FIRE;
     
     /**
-     * Shooter Joystick Cock Launcher Button
+     * Shooter Joystick Prep Launcher Button
      */
-    public static final int JOY_SHOOT_LAUNCHER_COCK = ArcadeController.BUTTON_RECOCK;
+    public static final int JOY_SHOOT_LAUNCHER_PREP = ArcadeController.BUTTON_REPREP;
     
     /**
-     * Shooter Joystick Cock Launcher Catch Button
+     * Shooter Joystick Prep Launcher Catch Button
      */
-    public static final int JOY_SHOOT_LAUNCHER_COCK_CATCH = ArcadeController.BUTTON_COCK_CATCH;
+    public static final int JOY_SHOOT_LAUNCHER_PREP_CATCH = ArcadeController.BUTTON_PREP_CATCH;
     
     /**
-     * Shooter Joystick Cock Launcher Pickup Button
+     * Shooter Joystick Prep Launcher Pickup Button
      */
-    public static final int JOY_SHOOT_LAUNCHER_COCK_PICKUP = ArcadeController.BUTTON_COCK_PICKUP;
+    public static final int JOY_SHOOT_LAUNCHER_PREP_PICKUP = ArcadeController.BUTTON_PREP_PICKUP;
     
     /**
      * Shooter Joystick Launcher Latch Release Button
@@ -416,6 +416,37 @@ public interface RMap {
      * Drivetrain Default Command Name value key
      */
     public static final String NETTABLE_DRIVETRAIN_DEFAULT_COMMAND = "default_cmd";
+    
+    /**
+     * Launcher Subtable name
+     */
+    public static final String NETTABLE_LAUNCHER = "Launcher";
+    
+    /**
+     * Launcher isCcoked value key
+     */
+    public static final String NETTABLE_LAUNCHER_PREPED = "ispreped";
+    
+    /**
+     * Ball Catcher Subtable name
+     */
+    
+    public static final String NETTABLE_CATCHER = "catcher";
+    
+    /**
+     * Ball Catcher Catcher State key name
+     */
+    public static final String NETTABLE_CATCHER_CATCHER_STATE = "catcherState";
+    
+    /**
+     * Ball Catcher Flipper State key name
+     */
+    public static final String NETTABLE_CATCHER_FLIPPER_STATE = "flipperState";
+    
+    /**
+     * Ball Catcher Spindle Speed key name
+     */
+    public static final String NETTABLE_CATCHER_SPINDLE_SCALE = "spindleScale";
     
     /**
      * Computer Settings Ball Catcher Spindle Scale value key

@@ -3,6 +3,9 @@ package org.warriors2583.frc2014.launcher;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.tables.ITable;
+import edu.wpi.first.wpilibj.tables.ITableListener;
 import org.warriors2583.frc2014.RMap;
 
 /**
@@ -16,7 +19,11 @@ public class SS_Launcher extends Subsystem implements RMap {
     private static final Solenoid m_solenoidRam, m_solenoidRelease, m_solenoidFlow, m_solenoidLock;
     private static final DigitalInput m_dioLocked, m_dioBall, m_dioRamPosA;
     
-    private static boolean isCocked;
+    private static boolean isPreped;
+    
+    private static ITable m_table;
+    
+    private static ITableListener m_tableListener;
     
     private static final SS_Launcher m_instance = new SS_Launcher();
 
@@ -38,6 +45,7 @@ public class SS_Launcher extends Subsystem implements RMap {
 
     private SS_Launcher(){
         super("SS_Launcher");
+        initDriveTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_LAUNCHER));
     }
     
     public static void loaderExtend(){
@@ -70,7 +78,7 @@ public class SS_Launcher extends Subsystem implements RMap {
         return m_dioRamPosA.get();
     }
     
-    public static boolean isCocked(){
+    public static boolean isPreped(){
         return m_dioLocked.get();
     }
     
@@ -81,5 +89,17 @@ public class SS_Launcher extends Subsystem implements RMap {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    
+    private static void initDriveTable(ITable subtable){
+        m_table = subtable;
+        m_table.putBoolean(NETTABLE_LAUNCHER_PREPED, isPreped);
+        m_tableListener = new ITableListener(){
+            public void valueChanged(ITable table, String key, Object value, boolean isNew){
+                
+            }
+        };
+        
+        m_table.addTableListener(m_tableListener, true);
     }
 }
