@@ -175,44 +175,79 @@ public interface RMap {
     public static final int JOY_SHOOT_CATCHER_UP = ArcadeController.BUTTON_CATCHER_UP;
     
     /**
-     * Shooter Joystick Catcher Down BUtton
+     * Shooter Joystick Catcher Down Button
      */
     public static final int JOY_SHOOT_CATCHER_DOWN = ArcadeController.BUTTON_CATCHER_DOWN;
     
     /**
+     * Shooter Joystick Catcher Toggle Button
+     */
+    public static final int JOY_SHOOT_CATCHER_TOGGLE = ArcadeController.BUTTON_CATCHER_TOGGLE;
+    
+    /**
      * Shooter Joystick Wheels Forward Button
      */
-    public static final int JOY_SHOOT_WHEELS_FORWARD = 0;
+    public static final int JOY_SHOOT_WHEELS_FORWARD = ArcadeController.BUTTON_ROLLERS_FORWARD;
     
     /**
      * Shooter Joystick Wheels Backward Button
      */
-    public static final int JOY_SHOOT_WHEELS_BACK = XBoxController.BTN_LEFT_SHOULDER_ID;
+    public static final int JOY_SHOOT_WHEELS_BACK = ArcadeController.BUTTON_ROLLERS_BACK;
     
     /**
      * Shooter Joystick Fire Launcher Button
      */
-    public static final int JOY_SHOOT_LAUNCHER_FIRE = XBoxController.BTN_A_ID;
+    public static final int JOY_SHOOT_LAUNCHER_FIRE = ArcadeController.BUTTON_FIRE;
     
     /**
      * Shooter Joystick Cock Launcher Button
      */
-    public static final int JOY_SHOOT_LAUNCHER_COCK = XBoxController.BTN_B_ID;
+    public static final int JOY_SHOOT_LAUNCHER_COCK = ArcadeController.BUTTON_RECOCK;
+    
+    /**
+     * Shooter Joystick Cock Launcher Catch Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_COCK_CATCH = ArcadeController.BUTTON_COCK_CATCH;
+    
+    /**
+     * Shooter Joystick Cock Launcher Pickup Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_COCK_PICKUP = ArcadeController.BUTTON_COCK_PICKUP;
+    
+    /**
+     * Shooter Joystick Launcher Latch Release Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_LATCH_RELEASE = ArcadeController.BUTTON_RELEASE_UNLATCH;
+    
+    /**
+     * Shooter Joystick Launcher Latch Lock Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_LATCH_LOCK = ArcadeController.BUTTON_RELEASE_LATCH;
+    
+    /**
+     * Shooter Joystick Launcher Piston Extend Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_PISTON_EXTEND = ArcadeController.BUTTON_LAUNCHER_EXTEND;
+    
+    /**
+     * Shooter Joystick Launcher Piston Retract Button
+     */
+    public static final int JOY_SHOOT_LAUNCHER_PISTON_RETRACT = ArcadeController.BUTTON_LAUNCHER_RETRACT;
     
     /**
      * Shooter Joystick Flipper Up Button (Not Used)
      */
-    public static final int JOY_SHOOT_FLIPPER_UP = XBoxController.BTN_SELECT_ID;
+    public static final int JOY_SHOOT_FLIPPER_UP = ArcadeController.BUTTON_FLIPPER_UP;
     
     /**
      * Shooter Joystick Flipper Down Button (Not Used)
      */
-    public static final int JOY_SHOOT_FLIPPER_DOWN = XBoxController.BTN_START_ID;
+    public static final int JOY_SHOOT_FLIPPER_DOWN = ArcadeController.BUTTON_FLIPPER_DOWN;
     
     /**
      * Shooter Joystick Flipper Toggle Button
      */
-    public static final int JOY_SHOOT_FLIPPER_TOGGLE = XBoxController.BTN_START_ID;
+    public static final int JOY_SHOOT_FLIPPER_TOGGLE = ArcadeController.BUTTON_FLIPPER_TOGGLE;
     
     /* Dashboard and NetworkTable Values */
     /* --------------------------------- */
@@ -270,12 +305,12 @@ public interface RMap {
     /**
      * Raspberry Pi Subtable name
      */
-    public static final String NETTABLE_RASPI = "RasPi";
+    public static final String NETTABLE_RASPI = "pi";
     
     /**
      * Raspberry Pi Compass Subtable name
      */
-    public static final String NETTABLE_RASPI_COMP = "Compass";
+    public static final String NETTABLE_RASPI_COMP = "compass";
     
     /**
      * Raspberry Pi Compass Raw X value key
@@ -320,17 +355,17 @@ public interface RMap {
     /**
      * Raspberry Pi Accelerometer Subtable name
      */
-    public static final String NETTABLE_RASPI_ACCEL = "Accel";
+    public static final String NETTABLE_RASPI_ACCEL = "accel";
     
     /**
      * Raspberry Pi Gyro Subtable name
      */
-    public static final String NETTABLE_RASPI_GYRO = "Gyro";
+    public static final String NETTABLE_RASPI_GYRO = "gyro";
     
     /**
      * Raspberry Pi Status Subtable name
      */
-    public static final String NETTABLE_RASPI_STATUS = "Status";
+    public static final String NETTABLE_RASPI_STATUS = "status";
     
     /**
      * Raspberry Pi Status Enabled value key

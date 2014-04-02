@@ -16,7 +16,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     private static double m_spindleScale;
 
     private static final Victor m_motor;
-    private static final Solenoid m_solenoid, m_solenoidFlipper;
+    private static final Solenoid m_solenoidCatcher, m_solenoidFlipper;
 
     private static final SS_BallCatcher instance = new SS_BallCatcher();
 
@@ -28,7 +28,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
         m_spindleScale = 0.75;
         
         m_motor = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
-        m_solenoid = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
+        m_solenoidCatcher = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
         m_solenoidFlipper = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLAPPER);
 
     }
@@ -40,23 +40,23 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     /**
      * Set the Ball Catcher Frame Down
      */
-    public static void catcherUp(){
-        m_solenoid.set(false);
+    public static void catcherClose(){
+        m_solenoidCatcher.set(false);
     }
     
     /**
      * Set the Ball Catcher Frame Down
      */
-    public static void catcherDown(){
-        m_solenoid.set(true);
+    public static void catcherOpen(){
+        m_solenoidCatcher.set(true);
     }
     
     /**
      * Find if the Ball Catcher frame is Down
      * @return state of Ball Catcher frame
      */
-    public static boolean isDown(){
-        return m_solenoid.get();
+    public static boolean isCatcherOpen(){
+        return m_solenoidCatcher.get();
     }
     
     /**
@@ -121,7 +121,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * @return ball catcher frame state (up/down)
      */
     public static boolean getCatcherState(){
-        return m_solenoid.get();
+        return m_solenoidCatcher.get();
     }
     
     public static void makeSafe(){
@@ -129,8 +129,8 @@ public class SS_BallCatcher extends Subsystem implements RMap {
         m_motor.disable();
         m_motor.free();
         
-        m_solenoid.set(false);
-        m_solenoid.free();
+        m_solenoidCatcher.set(false);
+        m_solenoidCatcher.free();
     }
 
     public void initDefaultCommand() {

@@ -16,6 +16,8 @@ public class SS_Launcher extends Subsystem implements RMap {
     private static final Solenoid m_solenoidRam, m_solenoidRelease, m_solenoidFlow, m_solenoidLock;
     private static final DigitalInput m_dioLocked, m_dioBall, m_dioRamPosA;
     
+    private static boolean isCocked;
+    
     private static final SS_Launcher m_instance = new SS_Launcher();
 
     public static SS_Launcher getInstance(){
@@ -44,7 +46,6 @@ public class SS_Launcher extends Subsystem implements RMap {
     }
     
     public static void loaderRetract(){
-        m_solenoidRam.set(false);
         m_solenoidRam.set(false);
     }
     

@@ -2,18 +2,13 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.warriors2583.frc2014.ballcatcher.SS_BallCatcher;
-import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.lib.SS_Dashboard;
 import org.warriors2583.lib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
+import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
-import org.warriors2583.frc2014.launcher.CG_CockTheLauncher;
-import org.warriors2583.frc2014.launcher.CG_FireBall;
-//import org.warriors2583.frc2014.launcher.C_FlipperDown;
-import org.warriors2583.frc2014.ballcatcher.C_FlipperToggle;
-//import org.warriors2583.frc2014.launcher.C_FlipperUp;
-import org.warriors2583.frc2014.launcher.SS_Launcher;
+import org.warriors2583.frc2014.ballcatcher.*;
+import org.warriors2583.frc2014.launcher.*;
 
 /**
  * The Operator Interface Class. Controls Things that interface with the operator.
@@ -26,9 +21,12 @@ public class OI implements RMap {
     public static final ArcadeController joy_shoot;
     
     //Button Controls
-    //private static final JoystickButton catchUp, catchDown, spindleForward, spindleBackward;
     private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
-    private static final JoystickButton fireBall, cockLauncher, flipperToggle; //flipperUp, flipperDown;
+    private static final JoystickButton fireBall, cockLauncher, cockLauncherCatch, cockLauncherPickup;
+    private static final JoystickButton latchRelease, latchLock, pistonExtend, pistonRetract;
+    private static final JoystickButton flipperToggle, flipperUp, flipperDown;
+    private static final JoystickButton catcherToggle, catcherUp, catcherDown;
+    private static final JoystickButton spindleForward, spindleBackward;
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -51,36 +49,54 @@ public class OI implements RMap {
         
         mecatankButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_MECATANK);
         mecatankButton.whenPressed(new C_ChangeDrivemode(4));
-        
+      
         fireBall = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_FIRE);
         fireBall.whenPressed(new CG_FireBall());
         
         cockLauncher = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK);
         cockLauncher.whenPressed(new CG_CockTheLauncher());
         
+        cockLauncherCatch = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK_CATCH);
+        cockLauncherCatch.whenPressed(new CG_CockLaucherCatch());
+        
+        cockLauncherPickup = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_COCK_PICKUP);
+        cockLauncherPickup.whenPressed(new CG_CockLauncherPickup());
+        
+        latchRelease = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_LATCH_RELEASE);
+        latchRelease.whenPressed(new C_LatchRelease());
+        
+        latchLock = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_LATCH_LOCK);
+        latchLock.whenPressed(new C_LatchLock());
+        
+        pistonExtend = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PISTON_EXTEND);
+        pistonExtend.whenPressed(new C_ExtendRam());
+        
+        pistonRetract = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PISTON_RETRACT);
+        pistonRetract.whenPressed(new C_RetractRam());
+        
         flipperToggle = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_TOGGLE);
         flipperToggle.whenPressed(new C_FlipperToggle());
+
+        flipperUp = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_UP);
+        flipperUp.whenPressed(new C_FlipperUp());
         
-        //flipperUp = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_UP);
-        //flipperUp.whenPressed(new C_FlipperUp());
+        flipperDown = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_DOWN);
+        flipperDown.whenPressed(new C_FlipperDown());
+
+        catcherToggle = new JoystickButton(joy_shoot, JOY_SHOOT_CATCHER_TOGGLE);
+        catcherToggle.whenPressed(new C_CatcherToggle());
         
-        //flipperDown = new JoystickButton(joy_shoot, JOY_SHOOT_FLIPPER_DOWN);
-        //flipperDown.whenPressed(new C_FlipperDown());
-        
-        
-        
-        
-//      catchUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
-//      catchUp.whenPressed(new C_CatcherUp());
-//      
-//      catchDown = new JoystickButton(OI.joy_drive, XBoxController.BTN_Y_ID);
-//      catchDown.whenPressed(new C_CatcherDown());
-//      
-//      spindleForward = new JoystickButton(OI.joy_drive, XBoxController.BTN_RIGHT_SHOULDER_ID);
-//      spindleForward.whileHeld(new C_SpindleForward());
-//      
-//      spindleBackward = new JoystickButton(OI.joy_drive, XBoxController.BTN_LEFT_SHOULDER_ID);
-//      spindleBackward.whileHeld(new C_SpindleBackward());
+        catcherUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
+        catcherUp.whenPressed(new C_CatcherClose());
+
+        catcherDown = new JoystickButton(OI.joy_drive, XBoxController.BTN_Y_ID);
+        catcherDown.whenPressed(new C_CatcherOpen());
+
+        spindleForward = new JoystickButton(OI.joy_drive, XBoxController.BTN_RIGHT_SHOULDER_ID);
+        spindleForward.whileHeld(new C_SpindleForward());
+
+        spindleBackward = new JoystickButton(OI.joy_drive, XBoxController.BTN_LEFT_SHOULDER_ID);
+        spindleBackward.whileHeld(new C_SpindleBackward());
         
     }
 

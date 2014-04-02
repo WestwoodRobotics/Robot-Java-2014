@@ -1,45 +1,33 @@
 package org.warriors2583.frc2014.ballcatcher;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.warriors2583.frc2014.OI;
-import org.warriors2583.frc2014.RMap;
-import org.warriors2583.lib.CommonFunctions.*;
 
 /**
- * Tele-Operation Class.
+ * Lower the Ball Catcher
  * @author Austin Reuland
  */
-public class C_Teleop extends Command implements RMap {
+public class C_CatcherOpen extends Command {
 
-    public C_Teleop() {
+    public C_CatcherOpen() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        super("C_TeleopCatcher");
+        super("C_CatcherOpen");
+        setInterruptible(false);
         requires(SS_BallCatcher.getInstance());
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        SS_BallCatcher.catcherOpen();
     }
 
-    
-    private int bTI(boolean bool){return bool ? 1 : 0;}
-    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        SS_BallCatcher.spindleSet(
-                (bTI(OI.joy_shoot.getRawButton(JOY_SHOOT_WHEELS_FORWARD)) - 
-                        bTI(OI.joy_shoot.getRawButton(JOY_SHOOT_WHEELS_BACK))));
-        if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_UP)){
-            SS_BallCatcher.catcherOpen();
-        }else if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_DOWN)){
-            SS_BallCatcher.catcherClose();
-        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return SS_BallCatcher.isCatcherOpen();
     }
 
     // Called once after isFinished returns true

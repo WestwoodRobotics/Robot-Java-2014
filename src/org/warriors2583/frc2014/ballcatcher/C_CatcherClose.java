@@ -3,22 +3,22 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Lower the Ball Catcher
+ * Raise the Ball Catcher
  * @author Austin Reuland
  */
-public class C_CatcherDown extends Command {
+public class C_CatcherClose extends Command {
 
-    public C_CatcherDown() {
+    public C_CatcherClose() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        super("C_CatcherDown");
+        super("C_CatcherClose");
         setInterruptible(false);
         requires(SS_BallCatcher.getInstance());
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        SS_BallCatcher.catcherDown();
+        SS_BallCatcher.catcherClose();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,7 +27,7 @@ public class C_CatcherDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return SS_BallCatcher.isDown();
+        return !SS_BallCatcher.isCatcherOpen();
     }
 
     // Called once after isFinished returns true

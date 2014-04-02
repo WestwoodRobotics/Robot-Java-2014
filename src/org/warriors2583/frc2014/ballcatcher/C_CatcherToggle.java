@@ -3,31 +3,35 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Raise the Ball Catcher
+ * Toggles the Flipper Up/Down
  * @author Austin Reuland
  */
-public class C_CatcherUp extends Command {
+public class C_CatcherToggle extends Command {
 
-    public C_CatcherUp() {
+    public C_CatcherToggle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        super("C_CatcherUp");
-        setInterruptible(false);
+		super("C_CatcherToggle");
         requires(SS_BallCatcher.getInstance());
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        SS_BallCatcher.catcherUp();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if(SS_BallCatcher.isCatcherOpen()){
+            SS_BallCatcher.catcherClose();
+        }else{
+            SS_BallCatcher.catcherOpen();
+        }
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !SS_BallCatcher.isDown();
+        return true;
     }
 
     // Called once after isFinished returns true
