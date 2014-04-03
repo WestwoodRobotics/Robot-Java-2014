@@ -17,7 +17,7 @@ public class CG_OneBall extends CommandGroup {
     public CG_OneBall(boolean secondFive){
         addSequential(new CG_AutonStart());
         if(secondFive){
-            addSequential(new C_Delay(6.0));
+            addSequential(new C_Delay(3.0));
         }
         addSequential(new CG_FireBall());
     }

@@ -19,6 +19,7 @@ public class C_MoveToDistance extends PIDCommand {
 		super("C_MoveToDistance", 0.0, 0.0, 0.0);
         requires(SS_Drivetrain.getInstance());
         setSetpoint(distance);
+        getPIDController().setAbsoluteTolerance(2.0);
     }
 
     // Called just before this Command runs the first time
@@ -41,7 +42,7 @@ public class C_MoveToDistance extends PIDCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return m_timer.get() >= m_timeout;
+        return (getPIDController().onTarget()) || (m_timer.get() >= m_timeout);
     }
 
     // Called once after isFinished returns true
