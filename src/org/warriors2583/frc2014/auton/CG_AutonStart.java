@@ -14,9 +14,9 @@ public class CG_AutonStart extends CommandGroup {
 
     public CG_AutonStart() {
         
-        addParallel(new C_MoveToDistance(14.0*12));
         addParallel(new CG_PrepLauncher());
-        addSequential(new C_CatcherOpen());
+        addParallel(new C_CatcherOpen());
+        addSequential(new C_MoveToDistance(14.0*12));
         //addSequential(new C_LedStatus(C_LedStatus.AUTONREADY));
     }
 }

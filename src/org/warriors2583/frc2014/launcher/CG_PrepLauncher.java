@@ -12,7 +12,7 @@ public class CG_PrepLauncher extends CommandGroup {
     public CG_PrepLauncher() {
         setInterruptible(false);
         
-        addSequential(new C_ExtendRam());
+        addParallel(new C_ExtendRam());
         addSequential(new C_Delay(3));
         //addSequential(new C_)
         addParallel(new C_RetractRam());

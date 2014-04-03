@@ -9,9 +9,6 @@ import org.warriors2583.frc2014.SS_Sensors;
  * @author Austin Reuland
  */
 public class C_MoveToDistance extends PIDCommand {
-    
-    Timer m_timer;
-    double m_timeout;
 
     public C_MoveToDistance(double distance) {
         // Use requires() here to declare subsystem dependencies
@@ -20,16 +17,15 @@ public class C_MoveToDistance extends PIDCommand {
         requires(SS_Drivetrain.getInstance());
         setSetpoint(distance);
         getPIDController().setAbsoluteTolerance(2.0);
+        setTimeout(3.0);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        m_timer = new Timer();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
     }
     
     protected double returnPIDInput() {
@@ -42,13 +38,11 @@ public class C_MoveToDistance extends PIDCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (getPIDController().onTarget()) || (m_timer.get() >= m_timeout);
+        return (getPIDController().onTarget()) || isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        m_timer.stop();
-        m_timer = null;
     }
 
     // Called when another command which requires one or more of the same

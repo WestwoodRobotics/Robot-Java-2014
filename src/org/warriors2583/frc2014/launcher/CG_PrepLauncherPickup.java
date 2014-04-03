@@ -14,7 +14,7 @@ public class CG_PrepLauncherPickup extends CommandGroup {
     public CG_PrepLauncherPickup() {
         setInterruptible(false);
         
-        addSequential(new C_CatcherOpen());
+        addParallel(new C_CatcherOpen());
         addParallel(new C_FlipperDown());
         addParallel(new CG_PrepLauncher());
     }

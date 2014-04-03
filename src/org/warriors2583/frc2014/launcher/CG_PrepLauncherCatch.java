@@ -14,7 +14,7 @@ public class CG_PrepLauncherCatch extends CommandGroup {
     public CG_PrepLauncherCatch() {
         setInterruptible(false);
         
-        addSequential(new C_CatcherOpen());
+        addParallel(new C_CatcherOpen());
         addParallel(new C_FlipperUp());
         addParallel(new CG_PrepLauncher());
     }
