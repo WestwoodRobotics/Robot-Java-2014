@@ -8,6 +8,7 @@ import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.ballcatcher.*;
+import org.warriors2583.frc2014.drivetrain.C_MoveToDistance;
 import org.warriors2583.frc2014.launcher.*;
 
 /**
@@ -22,6 +23,7 @@ public class OI implements RMap {
     
     //Button Controls
     private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
+    private static final JoystickButton moveToSetDistance1, moveToSetDistance2;
     private static final JoystickButton fireBall, prepLauncher, prepLauncherCatch, prepLauncherPickup;
     private static final JoystickButton latchRelease, latchLock, pistonExtend, pistonRetract;
     private static final JoystickButton flipperToggle, flipperUp, flipperDown;
@@ -33,6 +35,7 @@ public class OI implements RMap {
         SmartDashboard.putData(DASH_INSTANCE_LAUNCHER, SS_Launcher.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_BALLCATCHER, SS_BallCatcher.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_COMPRESSOR, SS_Compressor.getInstance());
+        SmartDashboard.putData(DASH_INSTANCE_SENSORS, SS_Sensors.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_DASHBOARD, SS_Dashboard.getInstance());
         
         joy_drive = new XBoxController(JOY_DRIVE);
@@ -49,6 +52,12 @@ public class OI implements RMap {
         
         mecatankButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_MECATANK);
         mecatankButton.whenPressed(new C_ChangeDrivemode(4));
+        
+        moveToSetDistance1 = new JoystickButton(joy_drive, JOY_DRIVER_SETDISTANCE_1);
+        moveToSetDistance1.whenPressed(new C_MoveToDistance(7.0*12));
+        
+        moveToSetDistance2 = new JoystickButton(joy_drive, JOY_DRIVER_SETDISTANCE_2);
+        moveToSetDistance2.whenPressed(new C_MoveToDistance(14.0*12));
       
         fireBall = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_FIRE);
         fireBall.whenPressed(new CG_FireBall());

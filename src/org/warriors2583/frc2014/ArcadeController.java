@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj.parsing.IInputOutput;
  */
 public class ArcadeController  extends GenericHID implements IInputOutput {
         
-    public static final int BUTTON_ROLLERS_FORWARD = 1;
-    public static final int BUTTON_ROLLERS_BACK = 2;
-    public static final int BUTTON_CATCHER_UP = 3;
-    public static final int BUTTON_CATCHER_DOWN = 4;
+    public static final int BUTTON_ROLLERS_FORWARD = 14;
+    public static final int BUTTON_ROLLERS_BACK = 13;
+    public static final int BUTTON_CATCHER_CLOSE = 2;
+    public static final int BUTTON_CATCHER_OPEN = 4;
     public static final int BUTTON_FLIPPER_UP = 5;
     public static final int BUTTON_FLIPPER_DOWN = 6;
     public static final int BUTTON_LAUNCHER_EXTEND = 7;

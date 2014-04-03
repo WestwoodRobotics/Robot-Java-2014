@@ -1,6 +1,5 @@
 package org.warriors2583.frc2014;
 
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.warriors2583.lib.XBoxController;
 
 /**
@@ -150,6 +149,16 @@ public interface RMap {
     public static final int DIO_LAUNCHER_RAM_B = 5;
 
     /**
+     * Digital I/O Sensor Ultrasonic Trigger
+     */
+    public static final int DIO_SENSOR_ULTRASONIC_TRIGGER = 8;
+    
+    /**
+     * Digital I/O Sensor Ultrasonic Pulse
+     */
+    public static final int DIO_SENSOR_ULTRASONIC_ECHO = 9;
+    
+    /**
      * Driver Joystick Arcade Mode Button
      */
     public static final int JOY_DRIVER_MODE_ARCADE = XBoxController.BTN_A_ID;
@@ -170,14 +179,24 @@ public interface RMap {
     public static final int JOY_DRIVER_MODE_MECATANK = XBoxController.BTN_RIGHT_STICK_ID;
     
     /**
+     * Driver Joystick Move to Point 1
+     */
+    public static final int JOY_DRIVER_SETDISTANCE_1 = XBoxController.BTN_X_ID;
+    
+    /**
+     * Driver Joystick Move to Point 2
+     */
+    public static final int JOY_DRIVER_SETDISTANCE_2 = XBoxController.BTN_Y_ID;
+    
+    /**
      * Shooter Joystick Catcher Up Button
      */
-    public static final int JOY_SHOOT_CATCHER_UP = ArcadeController.BUTTON_CATCHER_UP;
+    public static final int JOY_SHOOT_CATCHER_UP = ArcadeController.BUTTON_CATCHER_CLOSE;
     
     /**
      * Shooter Joystick Catcher Down Button
      */
-    public static final int JOY_SHOOT_CATCHER_DOWN = ArcadeController.BUTTON_CATCHER_DOWN;
+    public static final int JOY_SHOOT_CATCHER_DOWN = ArcadeController.BUTTON_CATCHER_OPEN;
     
     /**
      * Shooter Joystick Catcher Toggle Button
@@ -271,6 +290,11 @@ public interface RMap {
      * Compressor Dashboard label
      */
     public static final String DASH_INSTANCE_COMPRESSOR = "Subsystem-Compressor";
+    
+    /**
+     * Sensors Dashboard label
+     */
+    public static final String DASH_INSTANCE_SENSORS = "Subsystem-Sensors";
     
     /**
      * System Stats Dashboard label
@@ -449,16 +473,17 @@ public interface RMap {
     public static final String NETTABLE_CATCHER_SPINDLE_SCALE = "spindleScale";
     
     /**
-     * Computer Settings Ball Catcher Spindle Scale value key
+     * Sensors Subtable name
      */
-    public static final String NETTABLE_COMPUTER_SETTINGS_CATCHER_SCALE = "spindleScale";
+    public static final String NETTABLE_SENSORS = "sensors";
+    
+    /**
+     * Sensors Ultrasonic key name
+     */
+    public static final String NETTABLE_SENSORS_ULTRASONIC = "ultrasonic";
 
     /**
      * Computer Status Subtable name
      */
     public static final String NETTABLE_COMPUTER_STATUS = "Status";
-    
-    
-    public static final NetworkTable roboTable = NetworkTable.getTable(NETTABLE_ROBOT_TABLE);
-
 }

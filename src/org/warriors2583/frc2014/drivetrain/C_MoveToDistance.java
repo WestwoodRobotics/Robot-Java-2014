@@ -2,6 +2,7 @@ package org.warriors2583.frc2014.drivetrain;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import org.warriors2583.frc2014.SS_Sensors;
 
 /**
  * Moves the Robot to a the specified distance (in Feet).
@@ -17,6 +18,7 @@ public class C_MoveToDistance extends PIDCommand {
         // eg. requires(chassis);
 		super("C_MoveToDistance", 0.0, 0.0, 0.0);
         requires(SS_Drivetrain.getInstance());
+        setSetpoint(distance);
     }
 
     // Called just before this Command runs the first time
@@ -30,7 +32,7 @@ public class C_MoveToDistance extends PIDCommand {
     }
     
     protected double returnPIDInput() {
-        return 0.0;
+        return SS_Sensors.getDistance();
     }
 
     protected void usePIDOutput(double output) {
