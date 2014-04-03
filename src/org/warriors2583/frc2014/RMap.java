@@ -191,12 +191,12 @@ public interface RMap {
     /**
      * Shooter Joystick Catcher Up Button
      */
-    public static final int JOY_SHOOT_CATCHER_UP = ArcadeController.BUTTON_CATCHER_CLOSE;
+    public static final int JOY_SHOOT_CATCHER_CLOSE = ArcadeController.BUTTON_CATCHER_CLOSE;
     
     /**
      * Shooter Joystick Catcher Down Button
      */
-    public static final int JOY_SHOOT_CATCHER_DOWN = ArcadeController.BUTTON_CATCHER_OPEN;
+    public static final int JOY_SHOOT_CATCHER_OPEN = ArcadeController.BUTTON_CATCHER_OPEN;
     
     /**
      * Shooter Joystick Catcher Toggle Button

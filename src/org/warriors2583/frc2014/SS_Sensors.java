@@ -34,7 +34,7 @@ public class SS_Sensors extends Subsystem implements RMap {
 
 	private SS_Sensors(){
 		super("SS_Sensors");
-        initDriveTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_SENSORS));
+        initSensorsTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_SENSORS));
 	}
     
     public static double getDistance(){
@@ -47,10 +47,10 @@ public class SS_Sensors extends Subsystem implements RMap {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new C_UpdateSensors());
     }
     
-    private static void initDriveTable(ITable subtable){
+    private static void initSensorsTable(ITable subtable){
         m_table = subtable;
         m_table.putNumber(NETTABLE_SENSORS_ULTRASONIC, m_ultrasonic.getRangeInches());
         

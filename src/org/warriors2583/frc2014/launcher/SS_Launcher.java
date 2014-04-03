@@ -45,7 +45,7 @@ public class SS_Launcher extends Subsystem implements RMap {
 
     private SS_Launcher(){
         super("SS_Launcher");
-        initDriveTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_LAUNCHER));
+        initLauncherTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_LAUNCHER));
     }
     
     public static void loaderExtend(){
@@ -91,7 +91,7 @@ public class SS_Launcher extends Subsystem implements RMap {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    private static void initDriveTable(ITable subtable){
+    private static void initLauncherTable(ITable subtable){
         m_table = subtable;
         m_table.putBoolean(NETTABLE_LAUNCHER_PREPED, isPreped);
         m_tableListener = new ITableListener(){

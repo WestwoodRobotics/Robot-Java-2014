@@ -42,7 +42,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
 
     private SS_BallCatcher(){
         super("SS_BallCatcher");
-        initDriveTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_CATCHER));
+        initCatcherTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_CATCHER));
     }
     
     /**
@@ -148,11 +148,10 @@ public class SS_BallCatcher extends Subsystem implements RMap {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-        setDefaultCommand(new C_Teleop());
+        //setDefaultCommand(new C_Teleop());
     }
     
-    private static void initDriveTable(ITable subtable){
+    private static void initCatcherTable(ITable subtable){
         m_table = subtable;
         
         m_table.putBoolean(NETTABLE_CATCHER_CATCHER_STATE, m_solenoidCatcher.get());
