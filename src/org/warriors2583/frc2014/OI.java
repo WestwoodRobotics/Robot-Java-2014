@@ -95,16 +95,16 @@ public class OI implements RMap {
         catcherToggle = new JoystickButton(joy_shoot, JOY_SHOOT_CATCHER_TOGGLE);
         catcherToggle.whenPressed(new C_CatcherToggle());
         
-        catcherUp = new JoystickButton(OI.joy_drive, XBoxController.BTN_X_ID);
+        catcherUp = new JoystickButton(joy_shoot, JOY_SHOOT_CATCHER_CLOSE);
         catcherUp.whenPressed(new C_CatcherClose());
 
-        catcherDown = new JoystickButton(OI.joy_drive, XBoxController.BTN_Y_ID);
+        catcherDown = new JoystickButton(joy_shoot, JOY_SHOOT_CATCHER_OPEN);
         catcherDown.whenPressed(new C_CatcherOpen());
 
-        spindleForward = new JoystickButton(OI.joy_drive, XBoxController.BTN_RIGHT_SHOULDER_ID);
+        spindleForward = new JoystickButton(joy_shoot, JOY_SHOOT_WHEELS_FORWARD);
         spindleForward.whileHeld(new C_SpindleForward());
 
-        spindleBackward = new JoystickButton(OI.joy_drive, XBoxController.BTN_LEFT_SHOULDER_ID);
+        spindleBackward = new JoystickButton(joy_shoot, JOY_SHOOT_WHEELS_BACK);
         spindleBackward.whileHeld(new C_SpindleBackward());
         
     }

@@ -10,6 +10,14 @@ public class C_ChangeDrivemode extends Command {
     
     int mode;
 
+    public C_ChangeDrivemode(double mode) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+		//super("C_ChangeDrivemode");
+        //requires(SS_Drivetrain.getInstance());
+        this((int) mode);
+    }
+    
     public C_ChangeDrivemode(int mode) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

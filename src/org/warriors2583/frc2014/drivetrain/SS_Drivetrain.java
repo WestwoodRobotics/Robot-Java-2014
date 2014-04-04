@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.tables.ITable;
 import edu.wpi.first.wpilibj.tables.ITableListener;
 import org.warriors2583.frc2014.RMap;
@@ -69,7 +68,7 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     
     private static final RobotDrive m_drive;
     
-    private static ITable m_table;
+    private static final ITable m_table;
     
     private static ITableListener m_tableListener;
     
@@ -95,11 +94,14 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         m_wheelSwitch = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_DRIVESWITCH);
         
         m_drive = new RobotDrive(m_motorFrontLeft, m_motorBackLeft, m_motorFrontRight, m_motorBackRight);
+        
+        m_table = roboTable.getSubTable(NETTABLE_DRIVETRAIN);
+
+        initDriveTable();
     }
 
     private SS_Drivetrain(){
         super("SS_Drivetrain");
-        initDriveTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_DRIVETRAIN));
     }
     
     public static void arcade(double throt, double rot){
@@ -119,7 +121,7 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     }
     
     public static void PIDMove(double throt){
-        m_drive.arcadeDrive(throt, 0.0);
+        m_drive.arcadeDrive(-throt, 0.0);
     }
     
     public static void PIDrotate(double rot){
@@ -181,16 +183,15 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         setDefaultCommand(m_driveMode.getCommand());
     }
     
-    private static void initDriveTable(ITable subtable){
-        m_table = subtable;
-        m_table.putNumber(NETTABLE_DRIVETRAIN_DRIVEMODE, m_driveMode.getMode());
-        m_table.putString(NETTABLE_DRIVETRAIN_DRIVEMODE_STRING, m_driveMode.toString());
-        m_table.putBoolean(NETTABLE_DRIVETRAIN_SOLENOID, m_driveMode.getSolenoid());
-        m_table.putString(NETTABLE_DRIVETRAIN_DEFAULT_COMMAND, m_driveMode.getCommand().getName());
+    private static void initDriveTable(){
+        m_table.putNumber(NETTABLE_DRIVETRAIN_DRIVEMODE, DriveMode.ARCADE.getMode());
+        m_table.putString(NETTABLE_DRIVETRAIN_DRIVEMODE_STRING, DriveMode.ARCADE.toString());
+        m_table.putBoolean(NETTABLE_DRIVETRAIN_SOLENOID, DriveMode.ARCADE.getSolenoid());
+        m_table.putString(NETTABLE_DRIVETRAIN_DEFAULT_COMMAND, DriveMode.ARCADE.getCommand().getName());
         m_tableListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
                 if(key.equalsIgnoreCase(NETTABLE_DRIVETRAIN_DRIVEMODE)){
-                    new C_ChangeDrivemode(((Integer) value).intValue()).start();
+                    new C_ChangeDrivemode(table.getNumber(NETTABLE_DRIVETRAIN_DRIVEMODE)).start();
                 }
             }
         };

@@ -2,7 +2,6 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.tables.ITable;
 
 /**
@@ -15,7 +14,7 @@ public class SS_Sensors extends Subsystem implements RMap {
 
     private static final Ultrasonic m_ultrasonic;
     
-    private static ITable m_table;
+    private static final ITable m_table;
     
 	private static final SS_Sensors instance = new SS_Sensors();
 
@@ -28,13 +27,14 @@ public class SS_Sensors extends Subsystem implements RMap {
                 DIO_SENSOR_ULTRASONIC_ECHO, Ultrasonic.Unit.kInches);
         
         m_ultrasonic.setAutomaticMode(true);
+        m_table = roboTable.getSubTable(NETTABLE_SENSORS);
+        initSensorsTable();
 
 		
 	}
 
 	private SS_Sensors(){
 		super("SS_Sensors");
-        initSensorsTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_SENSORS));
 	}
     
     public static double getDistance(){
@@ -42,6 +42,7 @@ public class SS_Sensors extends Subsystem implements RMap {
     }
     
     public static void updateValues(){
+        //System.out.println(m_ultrasonic.getRangeInches());
         m_table.putNumber(NETTABLE_SENSORS_ULTRASONIC, m_ultrasonic.getRangeInches());
     }
 
@@ -50,9 +51,9 @@ public class SS_Sensors extends Subsystem implements RMap {
         setDefaultCommand(new C_UpdateSensors());
     }
     
-    private static void initSensorsTable(ITable subtable){
-        m_table = subtable;
+    private static void initSensorsTable(){
         m_table.putNumber(NETTABLE_SENSORS_ULTRASONIC, m_ultrasonic.getRangeInches());
+        //m_table.putNumber(NETTABLE_SENSORS_BATTERY);
         
     }
 }

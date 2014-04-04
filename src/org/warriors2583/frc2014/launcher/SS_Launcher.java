@@ -3,7 +3,6 @@ package org.warriors2583.frc2014.launcher;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.tables.ITable;
 import edu.wpi.first.wpilibj.tables.ITableListener;
 import org.warriors2583.frc2014.RMap;
@@ -17,14 +16,14 @@ public class SS_Launcher extends Subsystem implements RMap {
     // here. Call these from Commands.
     
     private static final Solenoid m_solenoidRam, m_solenoidRelease, m_solenoidFlow, m_solenoidLock;
-    private static final DigitalInput m_dioLocked, m_dioBall, m_dioRamPosA;
+    private static final DigitalInput m_dioPreped, m_dioBall, m_dioRamPosA;
     
     private static boolean isPreped;
     
-    private static ITable m_table;
+    private static final ITable m_table;
     
     private static ITableListener m_tableListener;
-    
+
     private static final SS_Launcher m_instance = new SS_Launcher();
 
     public static SS_Launcher getInstance(){
@@ -37,15 +36,17 @@ public class SS_Launcher extends Subsystem implements RMap {
         m_solenoidFlow = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLOW);
         m_solenoidLock = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_LOCK);
         
-        m_dioLocked = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_LOCKED);
+        m_dioPreped = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_PREPRED);
         m_dioBall = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_BALL);
         m_dioRamPosA = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_A);
         //m_dioRamPosB = new DigitalInput(MODULE_DIO, DIO_LAUNCHER_RAM_B);
+        
+        m_table = roboTable.getSubTable(NETTABLE_LAUNCHER);
+        initLauncherTable();
     }
 
     private SS_Launcher(){
         super("SS_Launcher");
-        initLauncherTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_LAUNCHER));
     }
     
     public static void loaderExtend(){
@@ -79,7 +80,7 @@ public class SS_Launcher extends Subsystem implements RMap {
     }
     
     public static boolean isPreped(){
-        return m_dioLocked.get();
+        return m_dioPreped.get();
     }
     
     public static boolean ballPresent(){
@@ -91,9 +92,8 @@ public class SS_Launcher extends Subsystem implements RMap {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    private static void initLauncherTable(ITable subtable){
-        m_table = subtable;
-        m_table.putBoolean(NETTABLE_LAUNCHER_PREPED, isPreped);
+    private static void initLauncherTable(){
+        m_table.putBoolean(NETTABLE_LAUNCHER_READY, isPreped);
         m_tableListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
                 

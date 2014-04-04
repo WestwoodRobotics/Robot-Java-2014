@@ -1,5 +1,7 @@
 package org.warriors2583.frc2014;
 
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.tables.ITable;
 import org.warriors2583.lib.XBoxController;
 
 /**
@@ -131,7 +133,7 @@ public interface RMap {
     /**
      * Launcher Locked Status Switch DIO Number
      */
-    public static final int DIO_LAUNCHER_LOCKED = 2;
+    public static final int DIO_LAUNCHER_PREPRED = 2;
     
     /**
      * Launcher Ball Loaded Status Switch DIO Number
@@ -449,13 +451,13 @@ public interface RMap {
     /**
      * Launcher isCcoked value key
      */
-    public static final String NETTABLE_LAUNCHER_PREPED = "ispreped";
+    public static final String NETTABLE_LAUNCHER_READY = "ispreped";
     
     /**
      * Ball Catcher Subtable name
      */
     
-    public static final String NETTABLE_CATCHER = "catcher";
+    public static final String NETTABLE_CATCHER = "Catcher";
     
     /**
      * Ball Catcher Catcher State key name
@@ -470,20 +472,28 @@ public interface RMap {
     /**
      * Ball Catcher Spindle Speed key name
      */
-    public static final String NETTABLE_CATCHER_SPINDLE_SCALE = "spindleScale";
+    public static final String NETTABLE_CATCHER_SPINDLE_SCALE = "spindle_scaler";
     
     /**
      * Sensors Subtable name
      */
-    public static final String NETTABLE_SENSORS = "sensors";
+    public static final String NETTABLE_SENSORS = "Sensors";
     
     /**
      * Sensors Ultrasonic key name
      */
-    public static final String NETTABLE_SENSORS_ULTRASONIC = "ultrasonic";
+    public static final String NETTABLE_SENSORS_ULTRASONIC = "distance";
+    
+    /**
+     * Sensors Battery Value
+     */
+    public static final String NETTABLE_SENSORS_BATTERY = "battery";
 
     /**
      * Computer Status Subtable name
      */
     public static final String NETTABLE_COMPUTER_STATUS = "Status";
+    
+    public static ITable roboTable = NetworkTable.getTable(NETTABLE_ROBOT_TABLE);
 }
+

@@ -17,7 +17,7 @@ public class C_MoveToDistance extends PIDCommand {
         requires(SS_Drivetrain.getInstance());
         setSetpoint(distance);
         getPIDController().setAbsoluteTolerance(2.0);
-        setTimeout(3.0);
+        setTimeout(1.5);
     }
 
     // Called just before this Command runs the first time
@@ -33,7 +33,8 @@ public class C_MoveToDistance extends PIDCommand {
     }
 
     protected void usePIDOutput(double output) {
-        SS_Drivetrain.PIDMove(output);
+        //SS_Drivetrain.PIDMove(output);
+        SS_Drivetrain.PIDMove(0.7);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -43,6 +44,7 @@ public class C_MoveToDistance extends PIDCommand {
 
     // Called once after isFinished returns true
     protected void end() {
+        SS_Drivetrain.PIDMove(0);
     }
 
     // Called when another command which requires one or more of the same

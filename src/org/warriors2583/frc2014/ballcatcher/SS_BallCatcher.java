@@ -3,7 +3,6 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.tables.ITable;
 import edu.wpi.first.wpilibj.tables.ITableListener;
 import org.warriors2583.frc2014.RMap;
@@ -21,10 +20,10 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     private static final Victor m_motor;
     private static final Solenoid m_solenoidCatcher, m_solenoidFlipper;
     
-    private static ITable m_table;
+    private static final ITable m_table;
     
     private static ITableListener m_tableListener;
-
+    
     private static final SS_BallCatcher instance = new SS_BallCatcher();
 
     public static SS_BallCatcher getInstance(){
@@ -37,12 +36,15 @@ public class SS_BallCatcher extends Subsystem implements RMap {
         m_motor = new Victor(MODULE_MOTOR, MOTOR_CATCHER);
         m_solenoidCatcher = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
         m_solenoidFlipper = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLAPPER);
+        
+        m_table = roboTable.getSubTable(NETTABLE_DRIVETRAIN);
+        
+        initCatcherTable();
 
     }
 
     private SS_BallCatcher(){
         super("SS_BallCatcher");
-        initCatcherTable(NetworkTable.getTable(NETTABLE_ROBOT_TABLE).getSubTable(NETTABLE_CATCHER));
     }
     
     /**
@@ -80,7 +82,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
      * Run the Ball Catcher Spindle Backward
      */
     public static void spindleBackward(){
-        m_motor.set(getSpindleScale());
+        m_motor.set(-getSpindleScale());
     }
     
     /**
@@ -151,8 +153,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
         //setDefaultCommand(new C_Teleop());
     }
     
-    private static void initCatcherTable(ITable subtable){
-        m_table = subtable;
+    private static void initCatcherTable(){
         
         m_table.putBoolean(NETTABLE_CATCHER_CATCHER_STATE, m_solenoidCatcher.get());
         m_table.putBoolean(NETTABLE_CATCHER_FLIPPER_STATE, m_solenoidFlipper.get());
