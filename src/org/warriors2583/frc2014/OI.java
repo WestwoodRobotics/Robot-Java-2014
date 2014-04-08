@@ -54,10 +54,10 @@ public class OI implements RMap {
         mecatankButton.whenPressed(new C_ChangeDrivemode(4));
         
         moveToSetDistance1 = new JoystickButton(joy_drive, JOY_DRIVER_SETDISTANCE_1);
-        moveToSetDistance1.whenPressed(new C_MoveToDistance(7.0*12));
+        //moveToSetDistance1.whenPressed(new C_MoveToDistance(7.0*12));
         
         moveToSetDistance2 = new JoystickButton(joy_drive, JOY_DRIVER_SETDISTANCE_2);
-        moveToSetDistance2.whenPressed(new C_MoveToDistance(14.0*12));
+        //moveToSetDistance2.whenPressed(new C_MoveToDistance(14.0*12));
       
         fireBall = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_FIRE);
         fireBall.whenPressed(new CG_FireBall());

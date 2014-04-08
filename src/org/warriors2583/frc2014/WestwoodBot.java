@@ -14,8 +14,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import java.io.IOException;
 import org.warriors2583.frc2014.auton.CG_OneBall;
 import org.warriors2583.frc2014.common.C_CompressorStart;
 

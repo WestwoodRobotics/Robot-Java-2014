@@ -18,8 +18,6 @@ public class SS_Launcher extends Subsystem implements RMap {
     private static final Solenoid m_solenoidRam, m_solenoidRelease, m_solenoidFlow, m_solenoidLock;
     private static final DigitalInput m_dioPreped, m_dioBall, m_dioRamPosA;
     
-    private static boolean isPreped;
-    
     private static final ITable m_table;
     
     private static ITableListener m_tableListener;
@@ -80,7 +78,7 @@ public class SS_Launcher extends Subsystem implements RMap {
     }
     
     public static boolean isPreped(){
-        return m_dioPreped.get();
+        return !m_dioPreped.get();
     }
     
     public static boolean ballPresent(){
@@ -93,7 +91,7 @@ public class SS_Launcher extends Subsystem implements RMap {
     }
     
     private static void initLauncherTable(){
-        m_table.putBoolean(NETTABLE_LAUNCHER_READY, isPreped);
+        m_table.putBoolean(NETTABLE_LAUNCHER_READY, isPreped());
         m_tableListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
                 

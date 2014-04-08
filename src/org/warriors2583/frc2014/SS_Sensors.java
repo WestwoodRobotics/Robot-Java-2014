@@ -48,7 +48,7 @@ public class SS_Sensors extends Subsystem implements RMap {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new C_UpdateSensors());
+        //setDefaultCommand(new C_UpdateSensors());
     }
     
     private static void initSensorsTable(){

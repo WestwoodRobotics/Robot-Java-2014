@@ -30,10 +30,24 @@ public class C_Teleop extends Command implements RMap {
         SS_BallCatcher.spindleSet(
                 (bTI(OI.joy_shoot.getRawButton(JOY_SHOOT_WHEELS_FORWARD)) - 
                         bTI(OI.joy_shoot.getRawButton(JOY_SHOOT_WHEELS_BACK))));
-        if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_CLOSE)){
+        if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_OPEN)){
             SS_BallCatcher.catcherOpen();
-        }else if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_OPEN)){
+        }else if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_CLOSE)){
             SS_BallCatcher.catcherClose();
+        }
+        if(OI.joy_shoot.getRawButton(JOY_SHOOT_FLIPPER_TOGGLE)){
+            if(SS_BallCatcher.isFlipperDown()){
+                SS_BallCatcher.flipperUp();
+            }else{
+                SS_BallCatcher.flipperDown();
+            }
+        }
+        if(OI.joy_shoot.getRawButton(JOY_SHOOT_CATCHER_CLOSE)){
+            if(SS_BallCatcher.isCatcherOpen()){
+                SS_BallCatcher.catcherClose();
+            }else{
+                SS_BallCatcher.catcherOpen();
+            }
         }
     }
 

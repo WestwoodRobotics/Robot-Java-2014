@@ -1,6 +1,5 @@
 package org.warriors2583.frc2014.drivetrain;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 import org.warriors2583.frc2014.SS_Sensors;
 
@@ -17,7 +16,7 @@ public class C_MoveToDistance extends PIDCommand {
         requires(SS_Drivetrain.getInstance());
         setSetpoint(distance);
         getPIDController().setAbsoluteTolerance(2.0);
-        setTimeout(1.5);
+        setTimeout(distance);
     }
 
     // Called just before this Command runs the first time
@@ -39,7 +38,8 @@ public class C_MoveToDistance extends PIDCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (getPIDController().onTarget()) || isTimedOut();
+        //return (getPIDController().onTarget()) || isTimedOut();
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
