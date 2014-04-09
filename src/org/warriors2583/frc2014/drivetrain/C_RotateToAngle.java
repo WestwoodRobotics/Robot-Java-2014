@@ -2,7 +2,6 @@ package org.warriors2583.frc2014.drivetrain;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDCommand;
-import org.warriors2583.frc2014.RasPi;
 import org.warriors2583.lib.CommonFunctions;
 
 /**
@@ -22,7 +21,7 @@ public class C_RotateToAngle extends PIDCommand {
         super("C_RotateToAngle", 0.0, 0.0, 0.0);
         requires(SS_Drivetrain.getInstance());
         angle = angleToGoTo;
-        dir = CommonFunctions.directionTo(angle, RasPi.getCompassHeading());
+        dir = CommonFunctions.directionTo(angle, 0);
     }
 
     // Called just before this Command runs the first time
