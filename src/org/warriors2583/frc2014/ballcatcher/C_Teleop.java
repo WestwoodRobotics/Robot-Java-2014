@@ -3,7 +3,7 @@ package org.warriors2583.frc2014.ballcatcher;
 import edu.wpi.first.wpilibj.command.Command;
 import org.warriors2583.frc2014.OI;
 import org.warriors2583.frc2014.RMap;
-import org.warriors2583.lib.CommonFunctions.*;
+import org.warriors2583.robolib.CommonFunctions.*;
 
 /**
  * Tele-Operation Class.

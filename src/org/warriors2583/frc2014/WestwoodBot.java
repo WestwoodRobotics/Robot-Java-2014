@@ -1,8 +1,9 @@
 package org.warriors2583.frc2014;
 
-import org.warriors2583.lib.FRCBot;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.warriors2583.frc2014.auton.CG_OneBall;
+import org.warriors2583.robolib.Robot;
+import org.warriors2583.robolib.robot.AutonMode;
 
 /**
  * The main class for the robot.
@@ -10,25 +11,27 @@ import org.warriors2583.frc2014.auton.CG_OneBall;
  * 
  * @author Austin Reuland
  */
-public class WestwoodBot extends FRCBot implements RMap {
+public class WestwoodBot extends Robot implements RMap {
     
     public WestwoodBot(){
-        super("Fire Flower", "2.0.6");
+        super("Fire Flower - 2014", "2.0.6");
+        
+        new AutonMode(){
+            CommandGroup auton = new CG_OneBall();
+            public void init() {auton.start();}
+            public void run() {}
+            public void end() {auton.cancel();}
+        };
     }
 
     OI oi = new OI();
-    CommandGroup auton = new CG_OneBall();
-
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void init(){
+    public void robotInit(){
         enableWatchdog(true);
         compressor(DIO_COMPRESSOR, RELAY_COMPRESSOR);
     }
 
-    public void initAutonomous(){
-        auton.start();
-    }
 }

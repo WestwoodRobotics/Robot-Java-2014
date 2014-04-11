@@ -2,14 +2,15 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.warriors2583.lib.SS_Dashboard;
-import org.warriors2583.lib.XBoxController;
+import org.warriors2583.robolib.SS_Dashboard;
+import org.warriors2583.robolib.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.ballcatcher.*;
 import org.warriors2583.frc2014.drivetrain.C_MoveToDistance;
 import org.warriors2583.frc2014.launcher.*;
+import org.warriors2583.robolib.NetTableController;
 
 /**
  * The Operator Interface Class. Controls Things that interface with the operator.
@@ -20,6 +21,7 @@ public class OI implements RMap {
     //Controllers
     public static final XBoxController joy_drive;
     public static final ArcadeController joy_shoot;
+    public static final NetTableController joy_test;
     
     //Button Controls
     private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
@@ -40,6 +42,7 @@ public class OI implements RMap {
         
         joy_drive = new XBoxController(JOY_DRIVE);
         joy_shoot = new ArcadeController(JOY_SHOOT);
+        joy_test = new NetTableController("Test", 16, 32);
         
         arcadeButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_ARCADE);
         arcadeButton.whenPressed(new C_ChangeDrivemode(1));

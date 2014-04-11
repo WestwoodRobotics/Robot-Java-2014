@@ -2,7 +2,7 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.tables.ITable;
-import org.warriors2583.lib.XBoxController;
+import org.warriors2583.robolib.XBoxController;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into

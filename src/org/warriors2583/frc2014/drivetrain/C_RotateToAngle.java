@@ -2,7 +2,7 @@ package org.warriors2583.frc2014.drivetrain;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDCommand;
-import org.warriors2583.lib.CommonFunctions;
+import org.warriors2583.robolib.CommonFunctions;
 
 /**
  * Rotates the Robot to the specified angle (relative to earth).
