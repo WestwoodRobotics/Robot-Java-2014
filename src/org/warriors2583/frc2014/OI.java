@@ -3,14 +3,14 @@ package org.warriors2583.frc2014;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.warriors2583.robolib.SS_Dashboard;
-import org.warriors2583.robolib.XBoxController;
+import org.warriors2583.robolib.control.XBoxController;
 import org.warriors2583.frc2014.common.SS_Compressor;
 import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
 import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
 import org.warriors2583.frc2014.ballcatcher.*;
 import org.warriors2583.frc2014.drivetrain.C_MoveToDistance;
 import org.warriors2583.frc2014.launcher.*;
-import org.warriors2583.robolib.NetTableController;
+import org.warriors2583.robolib.control.NetTableController;
 
 /**
  * The Operator Interface Class. Controls Things that interface with the operator.

@@ -2,7 +2,7 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.tables.ITable;
-import org.warriors2583.robolib.XBoxController;
+import org.warriors2583.robolib.control.XBoxController;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -163,32 +163,32 @@ public interface RMap {
     /**
      * Driver Joystick Arcade Mode Button
      */
-    public static final int JOY_DRIVER_MODE_ARCADE = XBoxController.BTN_A_ID;
+    public static final int JOY_DRIVER_MODE_ARCADE = XBoxController.BTN_A;
     
     /**
      * Driver Joystick Mecanum Mode Button
      */
-    public static final int JOY_DRIVER_MODE_MECANUM = XBoxController.BTN_B_ID;
+    public static final int JOY_DRIVER_MODE_MECANUM = XBoxController.BTN_B;
     
     /**
      * Driver Joystick Tank Mode Button
      */
-    public static final int JOY_DRIVER_MODE_TANK = XBoxController.BTN_LEFT_STICK_ID;
+    public static final int JOY_DRIVER_MODE_TANK = XBoxController.BTN_LEFT_STICK;
     
     /**
      * Driver Joystick MecaTank Mode Button
      */
-    public static final int JOY_DRIVER_MODE_MECATANK = XBoxController.BTN_RIGHT_STICK_ID;
+    public static final int JOY_DRIVER_MODE_MECATANK = XBoxController.BTN_RIGHT_STICK;
     
     /**
      * Driver Joystick Move to Point 1
      */
-    public static final int JOY_DRIVER_SETDISTANCE_1 = XBoxController.BTN_X_ID;
+    public static final int JOY_DRIVER_SETDISTANCE_1 = XBoxController.BTN_X;
     
     /**
      * Driver Joystick Move to Point 2
      */
-    public static final int JOY_DRIVER_SETDISTANCE_2 = XBoxController.BTN_Y_ID;
+    public static final int JOY_DRIVER_SETDISTANCE_2 = XBoxController.BTN_Y;
     
     /**
      * Shooter Joystick Catcher Up Button

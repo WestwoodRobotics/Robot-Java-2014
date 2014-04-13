@@ -2,7 +2,7 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.warriors2583.frc2014.auton.CG_OneBall;
-import org.warriors2583.robolib.Robot;
+import org.warriors2583.robolib.robot.Robot;
 import org.warriors2583.robolib.robot.AutonMode;
 
 /**
