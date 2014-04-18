@@ -27,6 +27,10 @@
     <property file="${user.home}/.sunspotfrc.properties"/>
     <import file="${sunspot.home}/build.xml"/>
 
+    <target name="build" depends="clean,jar-app"/>
+
+    <target name="dist" depends="build,deploy,run"/>
+
     <!--
 
     This file imports the master build file for compiling and deploying sunspot
