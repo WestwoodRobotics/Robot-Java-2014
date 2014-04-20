@@ -12,8 +12,8 @@ public class C_SpindleForward extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         super("C_SpindleForward");
-        setInterruptible(false);
         requires(SS_BallCatcher.getInstance());
+        setTimeout(0);
     }
 
     // Called just before this Command runs the first time
@@ -27,7 +27,7 @@ public class C_SpindleForward extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return isTimedOut();
     }
     
     // Called to cancel the command

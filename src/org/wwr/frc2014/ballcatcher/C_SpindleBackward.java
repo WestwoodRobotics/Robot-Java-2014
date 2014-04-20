@@ -14,6 +14,7 @@ public class C_SpindleBackward extends Command {
         super("C_SpindleBackward");
         setInterruptible(false);
         requires(SS_BallCatcher.getInstance());
+        setTimeout(0);
     }
 
     // Called just before this Command runs the first time
@@ -27,7 +28,7 @@ public class C_SpindleBackward extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return isTimedOut();
     }
     
     // Called to cancel the command

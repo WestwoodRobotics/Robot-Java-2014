@@ -22,7 +22,7 @@ public interface RMap {
     /**
      * Driver Joystick Speed Scaling Button
      */
-    public static final int JOY_DRIVE_BTN_SCALE = 5;
+    public static final int JOY_DRIVE_BTN_SCALE = XBoxController.BTN_RIGHT_SHOULDER;
 
     /**
      * Shooter Joystick ID Number
@@ -216,6 +216,11 @@ public interface RMap {
     public static final int JOY_SHOOT_WHEELS_BACK = ArcadeController.BUTTON_ROLLERS_BACK;
     
     /**
+     * Shooter Joystick Eject Ball Button
+     */
+    public static final int JOY_SHOOT_EJECT_BALL = ArcadeController.BUTTON_EJECT_BALL;
+    
+    /**
      * Shooter Joystick Fire Launcher Button
      */
     public static final int JOY_SHOOT_LAUNCHER_FIRE = ArcadeController.BUTTON_FIRE;
@@ -228,7 +233,7 @@ public interface RMap {
     /**
      * Shooter Joystick Prep Launcher Catch Button
      */
-    public static final int JOY_SHOOT_LAUNCHER_PREP_CATCH = ArcadeController.BUTTON_PREP_CATCH;
+    //public static final int JOY_SHOOT_LAUNCHER_PREP_CATCH = ArcadeController.BUTTON_PREP_CATCH;
     
     /**
      * Shooter Joystick Prep Launcher Pickup Button
@@ -442,6 +447,8 @@ public interface RMap {
      * Drivetrain Default Command Name value key
      */
     public static final String NETTABLE_DRIVETRAIN_DEFAULT_COMMAND = "default_cmd";
+    
+    public static final String NETTABLE_DRIVETRAIN_SCALE = "driveScale";
     
     /**
      * Launcher Subtable name

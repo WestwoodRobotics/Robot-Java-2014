@@ -37,7 +37,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
         m_solenoidCatcher = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_CATCHER);
         m_solenoidFlipper = new Solenoid(MODULE_SOLENOID_MAIN, SOLENOID_LAUNCHER_FLAPPER);
         
-        m_table = roboTable.getSubTable(NETTABLE_DRIVETRAIN);
+        m_table = roboTable.getSubTable(NETTABLE_CATCHER);
         
         initCatcherTable();
 

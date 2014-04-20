@@ -2,12 +2,13 @@ package org.wwr.frc2014.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.wwr.frc2014.OI;
+import org.wwr.frc2014.RMap;
 
 /**
  * Mecanum Driving mode Logic
  * @author Austin Reuland
  */
-public class C_Mecanum extends Command {
+public class C_Mecanum extends Command implements RMap {
 
     //private double wheelSpeeds[];
 
@@ -48,7 +49,7 @@ public class C_Mecanum extends Command {
         
         SS_Drivetrain.feedDrive();*/
 
-        double scale = (OI.getJDriveButton(1) ? 0.75 : 1.0);
+        double scale = (OI.getJDriveButton(JOY_DRIVE_BTN_SCALE) ? 0.75 : 1.0);
         SS_Drivetrain.mecanum(OI.getJDriveLeftX() * scale,
                 OI.getJDriveLeftY() * scale,
                 OI.getJDriveRightX() * scale,

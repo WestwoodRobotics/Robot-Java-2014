@@ -13,7 +13,7 @@ public class C_Tank extends Command implements RMap {
     public C_Tank() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-		super("C_Tank");
+        super("C_Tank");
         requires(SS_Drivetrain.getInstance());
     }
 

@@ -3,7 +3,7 @@ package org.wwr.frc2014;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.wwr.frc2014.auton.CG_OneBall;
 import org.wwr.robolib.robot.AutonMode;
-import org.wwr.robolib.robot.Robot;
+import org.wwr.robolib.robot.RoboLibBot;
 import org.wwr.robolib.robot.TeleopMode;
 import org.wwr.robolib.util.DSInfo;
 
@@ -13,7 +13,7 @@ import org.wwr.robolib.util.DSInfo;
  * 
  * @author Austin Reuland
  */
-public class WestwoodBot extends Robot implements RMap {
+public class WestwoodBot extends RoboLibBot implements RMap {
     
     public WestwoodBot(){
         super("Fire Flower", "2.0.6");

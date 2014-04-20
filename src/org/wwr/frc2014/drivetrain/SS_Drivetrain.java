@@ -59,6 +59,8 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     }
     
     private static DriveMode m_driveMode;
+    
+    private static double m_scale = 1.0;
         
     private static final Talon m_motorFrontLeft, m_motorBackLeft, m_motorFrontRight, m_motorBackRight;
     
@@ -188,10 +190,13 @@ public class SS_Drivetrain extends Subsystem implements RMap {
         m_table.putString(NETTABLE_DRIVETRAIN_DRIVEMODE_STRING, DriveMode.ARCADE.toString());
         m_table.putBoolean(NETTABLE_DRIVETRAIN_SOLENOID, DriveMode.ARCADE.getSolenoid());
         m_table.putString(NETTABLE_DRIVETRAIN_DEFAULT_COMMAND, DriveMode.ARCADE.getCommand().getName());
+        m_table.putNumber(NETTABLE_DRIVETRAIN_SCALE, m_scale);
         m_tableListener = new ITableListener(){
             public void valueChanged(ITable table, String key, Object value, boolean isNew){
                 if(key.equalsIgnoreCase(NETTABLE_DRIVETRAIN_DRIVEMODE)){
                     new C_ChangeDrivemode(table.getNumber(NETTABLE_DRIVETRAIN_DRIVEMODE)).start();
+                }else if(key.equals(NETTABLE_DRIVETRAIN_SCALE)){
+                    m_scale = table.getNumber(NETTABLE_DRIVETRAIN_SCALE);
                 }
             }
         };

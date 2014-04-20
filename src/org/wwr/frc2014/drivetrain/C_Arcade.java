@@ -2,12 +2,13 @@ package org.wwr.frc2014.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.wwr.frc2014.OI;
+import org.wwr.frc2014.RMap;
 
 /**
  * Arcade mode Driving Logic
  * @author Austin Reuland
  */
-public class C_Arcade extends Command {
+public class C_Arcade extends Command implements RMap {
 
     public C_Arcade() {
         // Use requires() here to declare subsystem dependencies
@@ -22,7 +23,7 @@ public class C_Arcade extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        boolean scale = OI.getJDriveButton(5);
+        boolean scale = OI.getJDriveButton(JOY_DRIVE_BTN_SCALE);
         SS_Drivetrain.arcade(OI.getJDriveLeftY() * (scale ? 0.7 : 1),
                 OI.getJDriveRightX() * (scale ? 0.7 : 1));
     }

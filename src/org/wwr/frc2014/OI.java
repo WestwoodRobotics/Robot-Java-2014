@@ -6,9 +6,9 @@ import org.wwr.robolib.control.XBoxController;
 import org.wwr.frc2014.drivetrain.SS_Drivetrain;
 import org.wwr.frc2014.drivetrain.C_ChangeDrivemode;
 import org.wwr.frc2014.ballcatcher.*;
-import org.wwr.frc2014.drivetrain.C_MoveToDistance;
+//import org.wwr.frc2014.drivetrain.C_MoveToDistance;
 import org.wwr.frc2014.launcher.*;
-import org.wwr.robolib.control.NetTableController;
+//import org.wwr.robolib.control.NetTableController;
 
 /**
  * The Operator Interface Class. Controls Things that interface with the operator.
@@ -19,12 +19,12 @@ public class OI implements RMap {
     //Controllers
     public static final XBoxController joy_drive;
     public static final ArcadeController joy_shoot;
-    public static final NetTableController joy_test;
+    //public static final NetTableController joy_test;
     
     //Button Controls
     private static final JoystickButton arcadeButton, tankButton, mecanumButton, mecatankButton;
     private static final JoystickButton moveToSetDistance1, moveToSetDistance2;
-    private static final JoystickButton fireBall, prepLauncher, prepLauncherCatch, prepLauncherPickup;
+    private static final JoystickButton fireBall, prepLauncher, prepLauncherPickup, ejectBall;
     private static final JoystickButton latchRelease, latchLock, pistonExtend, pistonRetract;
     private static final JoystickButton flipperToggle, flipperUp, flipperDown;
     private static final JoystickButton catcherToggle, catcherUp, catcherDown;
@@ -34,11 +34,10 @@ public class OI implements RMap {
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_LAUNCHER, SS_Launcher.getInstance());
         SmartDashboard.putData(DASH_INSTANCE_BALLCATCHER, SS_BallCatcher.getInstance());
-        SmartDashboard.putData(DASH_INSTANCE_SENSORS, SS_Sensors.getInstance());
         
         joy_drive = new XBoxController(JOY_DRIVE);
         joy_shoot = new ArcadeController(JOY_SHOOT);
-        joy_test = new NetTableController("Test", 16, 32);
+        //joy_test = new NetTableController("Test", 16, 32);
         
         arcadeButton = new JoystickButton(joy_drive, JOY_DRIVER_MODE_ARCADE);
         arcadeButton.whenPressed(new C_ChangeDrivemode(1));
@@ -63,9 +62,6 @@ public class OI implements RMap {
         
         prepLauncher = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PREP);
         prepLauncher.whenPressed(new CG_PrepLauncher());
-        
-        prepLauncherCatch = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PREP_CATCH);
-        prepLauncherCatch.whenPressed(new CG_PrepLauncherCatch());
         
         prepLauncherPickup = new JoystickButton(joy_shoot, JOY_SHOOT_LAUNCHER_PREP_PICKUP);
         prepLauncherPickup.whenPressed(new CG_PrepLauncherPickup());
@@ -105,6 +101,9 @@ public class OI implements RMap {
 
         spindleBackward = new JoystickButton(joy_shoot, JOY_SHOOT_WHEELS_BACK);
         spindleBackward.whileHeld(new C_SpindleBackward());
+                
+        ejectBall = new JoystickButton(joy_shoot, JOY_SHOOT_EJECT_BALL);
+        ejectBall.whenPressed(new CG_EjectBall());
         
     }
 
