@@ -4,6 +4,7 @@ package org.warriors2583.frc2014.drivetrain;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.tables.ITable;
@@ -60,7 +61,8 @@ public class SS_Drivetrain extends Subsystem implements RMap {
     
     private static DriveMode m_driveMode;
         
-    private static final Talon m_motorFrontLeft, m_motorBackLeft, m_motorFrontRight, m_motorBackRight;
+    private static final Talon m_motorBackLeft, m_motorFrontRight, m_motorBackRight;
+    private static final Victor m_motorFrontLeft;
     
     //private static final Encoder m_encFL, m_encBL, m_encFR, m_encBR;
     
@@ -80,7 +82,8 @@ public class SS_Drivetrain extends Subsystem implements RMap {
 
     static {
         
-        m_motorFrontLeft = new Talon(MODULE_DRIVE, DRIVE_FRONT_LEFT);
+        //m_motorFrontLeft = new Talon(MODULE_DRIVE, DRIVE_FRONT_LEFT);
+        m_motorFrontLeft = new Victor(MODULE_DRIVE, DRIVE_FRONT_LEFT);
         //m_encFL = new Encoder(4, 5);
         m_motorBackLeft = new Talon(MODULE_DRIVE, DRIVE_BACK_LEFT);
         //m_encBL = new Encoder(6, 7);

@@ -2,14 +2,31 @@ package org.warriors2583.frc2014;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.warriors2583.frc2014.ballcatcher.C_CatcherClose;
+import org.warriors2583.frc2014.ballcatcher.C_CatcherOpen;
+import org.warriors2583.frc2014.ballcatcher.C_CatcherToggle;
+import org.warriors2583.frc2014.ballcatcher.C_FlipperDown;
+import org.warriors2583.frc2014.ballcatcher.C_FlipperToggle;
+import org.warriors2583.frc2014.ballcatcher.C_FlipperUp;
+import org.warriors2583.frc2014.ballcatcher.C_SpindleBackward;
+import org.warriors2583.frc2014.ballcatcher.C_SpindleForward;
+import org.warriors2583.frc2014.ballcatcher.SS_BallCatcher;
+import org.warriors2583.frc2014.common.SS_Compressor;
+import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
+import org.warriors2583.frc2014.drivetrain.C_DriveForward;
+import org.warriors2583.frc2014.drivetrain.C_DriveStop;
+import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
+import org.warriors2583.frc2014.launcher.CG_FireBall;
+import org.warriors2583.frc2014.launcher.CG_PrepLauncher;
+import org.warriors2583.frc2014.launcher.CG_PrepLauncherCatch;
+import org.warriors2583.frc2014.launcher.CG_PrepLauncherPickup;
+import org.warriors2583.frc2014.launcher.C_ExtendRam;
+import org.warriors2583.frc2014.launcher.C_LatchLock;
+import org.warriors2583.frc2014.launcher.C_LatchRelease;
+import org.warriors2583.frc2014.launcher.C_RetractRam;
+import org.warriors2583.frc2014.launcher.SS_Launcher;
 import org.warriors2583.lib.SS_Dashboard;
 import org.warriors2583.lib.XBoxController;
-import org.warriors2583.frc2014.common.SS_Compressor;
-import org.warriors2583.frc2014.drivetrain.SS_Drivetrain;
-import org.warriors2583.frc2014.drivetrain.C_ChangeDrivemode;
-import org.warriors2583.frc2014.ballcatcher.*;
-import org.warriors2583.frc2014.drivetrain.C_MoveToDistance;
-import org.warriors2583.frc2014.launcher.*;
 
 /**
  * The Operator Interface Class. Controls Things that interface with the operator.
@@ -29,6 +46,8 @@ public class OI implements RMap {
     private static final JoystickButton flipperToggle, flipperUp, flipperDown;
     private static final JoystickButton catcherToggle, catcherUp, catcherDown;
     private static final JoystickButton spindleForward, spindleBackward;
+    // add buttons for single stick marathon control
+    private static final JoystickButton openCatcher, closeCatcher, startForward, stopRobot;
     
     static{
         SmartDashboard.putData(DASH_INSTANCE_DRIVETRAIN, SS_Drivetrain.getInstance());
@@ -107,6 +126,17 @@ public class OI implements RMap {
         spindleBackward = new JoystickButton(joy_shoot, JOY_SHOOT_WHEELS_BACK);
         spindleBackward.whileHeld(new C_SpindleBackward());
         
+        openCatcher = new JoystickButton(joy_drive, XBoxController.BTN_LEFT_SHOULDER_ID);
+        openCatcher.whenPressed(new C_CatcherOpen());
+        closeCatcher = new JoystickButton(joy_drive, XBoxController.BTN_RIGHT_SHOULDER_ID);
+        closeCatcher.whenPressed(new C_CatcherClose());
+        startForward = new JoystickButton(joy_drive, XBoxController.BTN_START_ID);
+        startForward.whenPressed(new C_DriveForward(0.7));
+        stopRobot = new JoystickButton(joy_drive, XBoxController.BTN_SELECT_ID);
+        stopRobot.whenPressed(new C_DriveStop());
+        
+        
+      
     }
 
     public static double getJDriveLeftX(){ return joy_drive.getLeftX(); }

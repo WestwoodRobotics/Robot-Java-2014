@@ -151,6 +151,7 @@ public class SS_BallCatcher extends Subsystem implements RMap {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new C_Teleop());
+        setDefaultCommand(new C_SpindleVariable());
     }
     
     private static void initCatcherTable(){
